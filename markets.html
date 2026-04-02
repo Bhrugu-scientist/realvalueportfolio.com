@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Live Market Watch | Real Value Portfolio | NIFTY SENSEX Gold Live</title>
+<meta name="description" content="Track NIFTY 50, SENSEX, Bank Nifty, Gold, USD/INR, Crude Oil and global indices live. Daily market watch powered by Real Value Portfolio Management."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FCFCFC;--ink:#232323;--white:#fff;--off:#F0F0F0;--dark:#0f0f0f;--blue:#4A7EFF;--green:#1a6645;--muted:#777;--bdr:rgba(35,35,35,0.1);--pill:50px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:16px;}
+body{font-family:'DM Sans',sans-serif;background:var(--dark);color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-thumb{background:var(--blue);}
+
+/* NAV */
+#nw{position:fixed;top:0;left:0;right:0;z-index:600;padding:14px 5%;pointer-events:none;}
+#nav{background:rgba(35,35,35,0.97);backdrop-filter:blur(24px);border-radius:var(--pill);display:flex;align-items:center;justify-content:space-between;padding:10px 22px;pointer-events:all;box-shadow:0 4px 32px rgba(0,0,0,0.22);}
+.nl{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+.lm{width:32px;height:32px;background:var(--green);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.95rem;font-weight:700;color:#fff;}
+.lt{font-size:1.05rem;font-weight:600;color:#fff;letter-spacing:-.3px;}
+.lt em{color:rgba(255,255,255,.38);font-style:normal;font-weight:400;}
+.nlinks{display:flex;gap:2px;list-style:none;}
+.nlinks a{color:rgba(255,255,255,.65);text-decoration:none;font-size:.88rem;font-weight:500;padding:7px 14px;border-radius:20px;transition:all .2s;}
+.nlinks a:hover,.nlinks a.active{color:#fff;background:rgba(255,255,255,.08);}
+.nr{display:flex;gap:8px;align-items:center;}
+.bgl{color:rgba(255,255,255,.7);padding:8px 16px;font-size:.88rem;font-weight:500;text-decoration:none;font-family:'DM Sans',sans-serif;border-radius:20px;transition:all .2s;}
+.bgl:hover{color:#fff;background:rgba(255,255,255,.08);}
+.bgc{background:var(--blue);color:#fff;padding:9px 22px;border-radius:var(--pill);font-size:.88rem;font-weight:600;text-decoration:none;font-family:'DM Sans',sans-serif;box-shadow:0 4px 16px rgba(74,126,255,.35);transition:all .2s;}
+.bgc:hover{background:#3a6eef;transform:translateY(-1px);}
+
+/* HERO */
+.page-hero{padding:120px 6% 60px;text-align:center;}
+.page-eyb{font-size:.78rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.35);font-weight:600;margin-bottom:14px;}
+.page-h1{font-size:clamp(2.5rem,5vw,4rem);font-weight:600;color:#fff;letter-spacing:-1.5px;line-height:1;margin-bottom:16px;}
+.page-sub{font-size:1.05rem;color:rgba(255,255,255,.4);max-width:560px;margin:0 auto;line-height:1.7;}
+
+/* TICKER */
+.ticker-wrap{margin:0 5% 40px;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.06);}
+
+/* MARKET GRID */
+.mkt-outer{padding:0 5% 80px;}
+.mkt-label{font-size:.72rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:14px;font-weight:600;}
+.mkt-main-grid{display:grid;grid-template-columns:1fr 340px;gap:20px;max-width:1200px;margin:0 auto 32px;}
+.mkt-chart-box{background:#111;border-radius:12px;padding:20px;border:1px solid rgba(255,255,255,.06);}
+.symbol-select{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
+.sym-btn{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.6);padding:6px 14px;border-radius:20px;font-size:.8rem;font-weight:500;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;}
+.sym-btn:hover,.sym-btn.active{background:var(--blue);color:#fff;border-color:var(--blue);}
+.mkt-sidebar{display:flex;flex-direction:column;gap:8px;}
+.idx-card{background:#111;border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px 16px;text-decoration:none;transition:all .2s;display:block;}
+.idx-card:hover{border-color:rgba(74,126,255,.4);background:rgba(74,126,255,.05);}
+.idx-name{font-size:.78rem;font-weight:600;color:rgba(255,255,255,.45);display:block;margin-bottom:2px;text-transform:uppercase;letter-spacing:1px;}
+
+/* SECTOR TABLE */
+.sector-section{max-width:1200px;margin:0 auto 48px;}
+.sector-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.sector-card{background:#111;border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:18px;transition:all .2s;cursor:default;}
+.sector-card:hover{border-color:rgba(74,126,255,.3);background:rgba(74,126,255,.04);}
+.sector-name{font-size:.82rem;font-weight:600;color:rgba(255,255,255,.5);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;}
+.sector-index{font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:-.3px;}
+.sector-sub{font-size:.75rem;color:rgba(255,255,255,.3);margin-top:2px;}
+
+/* HEATMAP */
+.heatmap-section{max-width:1200px;margin:0 auto 60px;}
+.heat-label{font-size:.72rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:14px;font-weight:600;}
+
+/* DISCLAIMER */
+.mkt-disclaimer{max-width:1200px;margin:0 auto;padding:16px 20px;background:rgba(255,255,255,.03);border-radius:8px;border:1px solid rgba(255,255,255,.06);font-size:.78rem;color:rgba(255,255,255,.25);line-height:1.6;text-align:center;}
+
+/* FOOTER */
+footer{background:#080808;border-top:1px solid rgba(255,255,255,.05);padding:32px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.ft-logo{font-size:1.1rem;font-weight:600;color:#fff;}
+.ft-logo em{color:rgba(255,255,255,.3);font-style:normal;}
+.ft-links{display:flex;gap:20px;}
+.ft-links a{color:rgba(255,255,255,.3);text-decoration:none;font-size:.84rem;transition:color .2s;}
+.ft-links a:hover{color:#fff;}
+.ft-note{font-size:.75rem;color:rgba(255,255,255,.2);}
+
+@media(max-width:900px){.mkt-main-grid{grid-template-columns:1fr;}.sector-grid{grid-template-columns:1fr 1fr;}.nlinks{display:none;}}
+@media(max-width:600px){.sector-grid{grid-template-columns:1fr 1fr;}.page-hero{padding:100px 5% 40px;}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div id="nw">
+  <nav id="nav">
+    <a href="realvalue-pro_1.html" class="nl">
+      <div class="lm">R</div>
+      <span class="lt">Real <em>Value</em></span>
+    </a>
+    <ul class="nlinks">
+      <li><a href="realvalue-pro_1.html#why">Why Us</a></li>
+      <li><a href="realvalue-pro_1.html#services">Services</a></li>
+      <li><a href="markets.html" class="active">Markets</a></li>
+      <li><a href="calculator.html">Calculator</a></li>
+      <li><a href="team.html">Team</a></li>
+    </ul>
+    <div class="nr">
+      <a href="https://ewa.njindiaonline.com/ewa/login" target="_blank" class="bgl">Client Login</a>
+      <a href="https://api.whatsapp.com/send?phone=919662019850" target="_blank" class="bgc">Free Review</a>
+    </div>
+  </nav>
+</div>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-eyb">Live Data · Updated Real-Time</div>
+  <h1 class="page-h1">Daily Market Watch</h1>
+  <p class="page-sub">Track NIFTY, SENSEX, Gold, USD/INR, and global markets — all in one place. Powered by TradingView.</p>
+</div>
+
+<!-- TICKER TAPE -->
+<div class="ticker-wrap">
+  <div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {"symbols":[{"proName":"BSE:SENSEX","title":"SENSEX"},{"proName":"NSE:NIFTY","title":"NIFTY 50"},{"proName":"NSE:BANKNIFTY","title":"BANK NIFTY"},{"proName":"NSE:NIFTYMIDCAP100","title":"MIDCAP 100"},{"proName":"NSE:CNXSMALLCAP","title":"SMALLCAP"},{"proName":"FOREXCOM:XAUUSD","title":"Gold"},{"proName":"FOREXCOM:USDINR","title":"USD/INR"},{"proName":"NASDAQ:QQQ","title":"NASDAQ"},{"proName":"SP:SPX","title":"S&P 500"},{"proName":"TVC:DXY","title":"Dollar Index"},{"proName":"NYMEX:CL1!","title":"Crude Oil"},{"proName":"COMEX:GC1!","title":"Gold Futures"}],"showSymbolLogo":true,"isTransparent":false,"displayMode":"adaptive","colorTheme":"dark","locale":"en"}
+    </script>
+  </div>
+</div>
+
+<div class="mkt-outer">
+
+  <!-- MAIN CHART + SIDEBAR -->
+  <div class="mkt-main-grid">
+    <div class="mkt-chart-box">
+      <div class="mkt-label">Interactive Chart</div>
+      <div class="symbol-select">
+        <button class="sym-btn active" onclick="changeChart('NSE:NIFTY',this)">NIFTY 50</button>
+        <button class="sym-btn" onclick="changeChart('BSE:SENSEX',this)">SENSEX</button>
+        <button class="sym-btn" onclick="changeChart('NSE:BANKNIFTY',this)">BANK NIFTY</button>
+        <button class="sym-btn" onclick="changeChart('FOREXCOM:XAUUSD',this)">Gold</button>
+        <button class="sym-btn" onclick="changeChart('FOREXCOM:USDINR',this)">USD/INR</button>
+        <button class="sym-btn" onclick="changeChart('NYMEX:CL1!',this)">Crude Oil</button>
+        <button class="sym-btn" onclick="changeChart('SP:SPX',this)">S&amp;P 500</button>
+      </div>
+      <div id="chart-container" style="height:460px;border-radius:8px;overflow:hidden;"></div>
+    </div>
+
+    <div class="mkt-sidebar">
+      <div class="mkt-label">Key Quotes</div>
+      <a class="idx-card" href="#" onclick="changeChart('NSE:NIFTY',null);return false;">
+        <span class="idx-name">NIFTY 50</span>
+        <div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>{"symbol":"NSE:NIFTY","width":"100%","colorTheme":"dark","isTransparent":true,"locale":"en"}</script></div>
+      </a>
+      <a class="idx-card" href="#" onclick="changeChart('BSE:SENSEX',null);return false;">
+        <span class="idx-name">SENSEX</span>
+        <div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>{"symbol":"BSE:SENSEX","width":"100%","colorTheme":"dark","isTransparent":true,"locale":"en"}</script></div>
+      </a>
+      <a class="idx-card" href="#" onclick="changeChart('FOREXCOM:XAUUSD',null);return false;">
+        <span class="idx-name">Gold (XAU/USD)</span>
+        <div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>{"symbol":"FOREXCOM:XAUUSD","width":"100%","colorTheme":"dark","isTransparent":true,"locale":"en"}</script></div>
+      </a>
+      <a class="idx-card" href="#" onclick="changeChart('FOREXCOM:USDINR',null);return false;">
+        <span class="idx-name">USD / INR</span>
+        <div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>{"symbol":"FOREXCOM:USDINR","width":"100%","colorTheme":"dark","isTransparent":true,"locale":"en"}</script></div>
+      </a>
+      <a class="idx-card" href="#" onclick="changeChart('NYMEX:CL1!',null);return false;">
+        <span class="idx-name">Crude Oil</span>
+        <div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>{"symbol":"NYMEX:CL1!","width":"100%","colorTheme":"dark","isTransparent":true,"locale":"en"}</script></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- NSE SECTOR INDICES -->
+  <div class="sector-section">
+    <div class="mkt-label">NSE Sector Indices</div>
+    <div class="sector-grid">
+      <div class="sector-card"><div class="sector-name">IT / Tech</div><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>{"symbol":"NSE:CNXIT","width":"100%","colorTheme":"dark","isTransparent":true,"locale":"en"}</script></div></div>
+      <div class="sector-card"><div class="sector-name">Pharma</div><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>{"symbol":"NSE:CNXPHARMA","width":"100%","colorTheme":"dark","isTransparent":true,"locale":"en"}</script></div></div>
+      <div class="sector-card"><div class="sector-name">Auto</div><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>{"symbol":"NSE:CNXAUTO","width":"100%","colorTheme":"dark","isTransparent":true,"locale":"en"}</script></div></div>
+      <div class="sector-card"><div class="sector-name">FMCG</div><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>{"symbol":"NSE:CNXFMCG","width":"100%","colorTheme":"dark","isTransparent":true,"locale":"en"}</script></div></div>
+      <div class="sector-card"><div class="sector-name">Metal</div><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>{"symbol":"NSE:CNXMETAL","width":"100%","colorTheme":"dark","isTransparent":true,"locale":"en"}</script></div></div>
+      <div class="sector-card"><div class="sector-name">Energy</div><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>{"symbol":"NSE:CNXENERGY","width":"100%","colorTheme":"dark","isTransparent":true,"locale":"en"}</script></div></div>
+      <div class="sector-card"><div class="sector-name">Realty</div><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>{"symbol":"NSE:CNXREALTY","width":"100%","colorTheme":"dark","isTransparent":true,"locale":"en"}</script></div></div>
+      <div class="sector-card"><div class="sector-name">PSU Bank</div><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>{"symbol":"NSE:NIFTYPSUBANK","width":"100%","colorTheme":"dark","isTransparent":true,"locale":"en"}</script></div></div>
+    </div>
+  </div>
+
+  <!-- MARKET HEATMAP -->
+  <div class="heatmap-section">
+    <div class="heat-label">NSE Market Heatmap</div>
+    <div class="tradingview-widget-container" style="height:500px;border-radius:12px;overflow:hidden;">
+      <div class="tradingview-widget-container__widget" style="height:500px;"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js" async>
+      {"exchanges":[],"dataSource":"BSE","grouping":"sector","blockSize":"market_cap_basic","blockColor":"change","locale":"en","symbolUrl":"","colorTheme":"dark","hasTopBar":false,"isDataSetEnabled":false,"isZoomEnabled":true,"hasSymbolTooltip":true,"isMonoSize":false,"width":"100%","height":"500"}
+      </script>
+    </div>
+  </div>
+
+  <!-- ECONOMIC CALENDAR -->
+  <div class="heatmap-section">
+    <div class="heat-label">Economic Calendar</div>
+    <div class="tradingview-widget-container" style="border-radius:12px;overflow:hidden;">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
+      {"colorTheme":"dark","isTransparent":false,"width":"100%","height":"450","locale":"en","importanceFilter":"0,1","countryFilter":"in,us,eu,cn"}
+      </script>
+    </div>
+  </div>
+
+  <div class="mkt-disclaimer">
+    Market data is provided for informational purposes only. Real Value Portfolio Management does not guarantee the accuracy, completeness or timeliness of market data. Data powered by TradingView. Mutual fund investments are subject to market risks — please consult your financial advisor before investing.
+  </div>
+</div>
+
+<footer>
+  <div class="ft-logo">Real <em>Value</em></div>
+  <div class="ft-links">
+    <a href="realvalue-pro_1.html">Home</a>
+    <a href="markets.html">Markets</a>
+    <a href="calculator.html">Calculator</a>
+    <a href="team.html">Team</a>
+    <a href="realvalue-pro_1.html#faq">FAQ</a>
+  </div>
+  <div class="ft-note">AMFI Registered · ARN: 24454 · © 2025 Real Value</div>
+</footer>
+
+<script src="https://s3.tradingview.com/tv.js" async></script>
+<script>
+var currentSymbol = 'NSE:NIFTY';
+var tvWidget = null;
+
+function initChart(sym) {
+  var container = document.getElementById('chart-container');
+  container.innerHTML = '';
+  var iframe = document.createElement('iframe');
+  iframe.src = 'https://s.tradingview.com/widgetembed/?symbol='+encodeURIComponent(sym)+'&interval=D&theme=dark&style=1&locale=en&toolbar_bg=%23111111&hide_side_toolbar=1&allow_symbol_change=0&details=1&timezone=Asia%2FKolkata';
+  iframe.style.width = '100%';
+  iframe.style.height = '460px';
+  iframe.style.border = 'none';
+  iframe.style.borderRadius = '8px';
+  container.appendChild(iframe);
+}
+
+function changeChart(sym, btn) {
+  currentSymbol = sym;
+  initChart(sym);
+  if(btn) {
+    document.querySelectorAll('.sym-btn').forEach(function(b){b.classList.remove('active');});
+    btn.classList.add('active');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  initChart('NSE:NIFTY');
+});
+</script>
+</body>
+</html>
