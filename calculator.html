@@ -121,7 +121,18 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.05);padding
 .ft-links a:hover{color:#fff;}
 .ft-note{font-size:.75rem;color:rgba(255,255,255,.2);}
 
-@media(max-width:900px){.calc-panel.active{grid-template-columns:1fr;}.compare-grid{grid-template-columns:1fr 1fr;}.nlinks{display:none;}.results-box{position:static;}}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;}
+.ham span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s;}
+.ham.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.ham.open span:nth-child(2){opacity:0;}
+.ham.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+.mob-menu{display:none;position:fixed;inset:0;background:rgba(12,12,12,.98);z-index:590;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:40px;}
+.mob-menu.open{display:flex;}
+.mob-menu a{color:rgba(255,255,255,.75);text-decoration:none;font-size:1.7rem;font-weight:600;padding:10px 24px;letter-spacing:-.5px;transition:color .2s;text-align:center;}
+.mob-menu a:hover{color:#fff;}
+.mob-menu .mob-div{width:40px;height:1px;background:rgba(255,255,255,.1);margin:10px 0;}
+.mob-menu .mob-cta{background:#4A7EFF;color:#fff;padding:14px 40px;border-radius:50px;font-size:1rem;margin-top:10px;}
+@media(max-width:900px){.calc-panel.active{grid-template-columns:1fr;}.compare-grid{grid-template-columns:1fr 1fr;}.nlinks{display:none;}.results-box{position:static;}.ham{display:flex;}}
 @media(max-width:480px){.compare-grid{grid-template-columns:1fr 1fr;}.calc-tabs-wrap{padding:0 5% 32px;}.ctab{padding:9px 20px;font-size:.85rem;}}
 </style>
 </head>
@@ -130,13 +141,13 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.05);padding
 <!-- NAV -->
 <div id="nw">
   <nav id="nav">
-    <a href="realvalue-pro_1.html" class="nl">
+    <a href="index.html" class="nl">
       <div class="lm">R</div>
       <span class="lt">Real <em>Value</em></span>
     </a>
     <ul class="nlinks">
-      <li><a href="realvalue-pro_1.html#why">Why Us</a></li>
-      <li><a href="realvalue-pro_1.html#services">Services</a></li>
+      <li><a href="index.html#why">Why Us</a></li>
+      <li><a href="index.html#services">Services</a></li>
       <li><a href="markets.html">Markets</a></li>
       <li><a href="calculator.html" class="active">Calculator</a></li>
       <li><a href="team.html">Team</a></li>
@@ -144,9 +155,26 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.05);padding
     <div class="nr">
       <a href="https://ewa.njindiaonline.com/ewa/login" target="_blank" class="bgl">Client Login</a>
       <a href="https://api.whatsapp.com/send?phone=919662019850" target="_blank" class="bgc">Free Review</a>
+      <button class="ham" id="ham" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
 </div>
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html">Home</a>
+  <a href="index.html#why">Why Us</a>
+  <a href="markets.html">Markets</a>
+  <a href="calculator.html">Calculator</a>
+  <div class="mob-div"></div>
+  <a href="https://api.whatsapp.com/send?phone=919662019850" target="_blank" class="mob-cta">Free Review</a>
+</div>
+<script>
+(function(){
+  var btn=document.getElementById('ham'),menu=document.getElementById('mobMenu');
+  btn.addEventListener('click',function(e){e.stopPropagation();btn.classList.toggle('open');menu.classList.toggle('open');document.body.style.overflow=menu.classList.contains('open')?'hidden':'';});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){btn.classList.remove('open');menu.classList.remove('open');document.body.style.overflow='';});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){btn.classList.remove('open');menu.classList.remove('open');document.body.style.overflow='';}});
+})();
+</script>
 
 <!-- HERO -->
 <div class="page-hero">
@@ -287,7 +315,7 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.05);padding
 <footer>
   <div class="ft-logo">Real <em>Value</em></div>
   <div class="ft-links">
-    <a href="realvalue-pro_1.html">Home</a>
+    <a href="index.html">Home</a>
     <a href="markets.html">Markets</a>
     <a href="calculator.html">Calculator</a>
     <a href="team.html">Team</a>

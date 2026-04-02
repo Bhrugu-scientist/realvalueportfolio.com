@@ -67,8 +67,8 @@ body {
 }
 .nl { display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0; }
 .lm { width:32px;height:32px;background:var(--green);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.95rem;font-weight:700;color:#fff; }
-.lt { font-size:1.05rem;font-weight:600;color:var(--blue);letter-spacing:-.3px; }
-.lt em { color:var(--blue);font-style:normal;font-weight:400;opacity:.75; }
+.lt { font-size:1.05rem;font-weight:600;color:#fff;letter-spacing:-.3px; }
+.lt em { color:#fff;font-style:normal;font-weight:400;opacity:.55; }
 .nlinks { display:flex;gap:2px;list-style:none; }
 .nlinks a { color:rgba(255,255,255,.65);text-decoration:none;font-size:.88rem;font-weight:500;padding:7px 14px;border-radius:20px;transition:all .2s; }
 .nlinks a:hover { color:#fff;background:rgba(255,255,255,.08); }
@@ -312,25 +312,63 @@ footer { background:#0e0e0e;color:rgba(255,255,255,.3);padding:72px 6% 28px; }
 .rv.anim.on { opacity:1;transform:translateY(0); }
 .d1 { transition-delay:.1s; } .d2 { transition-delay:.2s; } .d3 { transition-delay:.3s; }
 
+/* HAMBURGER */
+.ham { display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;z-index:700;flex-shrink:0; }
+.ham span { display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s; }
+.ham.open span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
+.ham.open span:nth-child(2) { opacity:0; }
+.ham.open span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
+
+/* MOBILE FULL-SCREEN MENU */
+.mob-menu { display:none;position:fixed;inset:0;background:rgba(12,12,12,.98);z-index:590;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:40px; }
+.mob-menu.open { display:flex; }
+.mob-menu a { color:rgba(255,255,255,.75);text-decoration:none;font-size:1.7rem;font-weight:600;padding:10px 24px;letter-spacing:-.5px;transition:color .2s;text-align:center; }
+.mob-menu a:hover { color:#fff; }
+.mob-menu .mob-div { width:40px;height:1px;background:rgba(255,255,255,.1);margin:10px 0; }
+.mob-menu .mob-cta { background:var(--blue);color:#fff;padding:14px 40px;border-radius:var(--pill);font-size:1rem;margin-top:10px;box-shadow:0 4px 24px rgba(74,126,255,.4); }
+
 /* RESPONSIVE */
 @media(max-width:1024px) {
+  .ham { display:flex; }
+  .nlinks,.nsearch,.bgl { display:none; }
   .wgrid { grid-template-columns:1fr;gap:50px; }
   .svcg { grid-template-columns:1fr 1fr; }
   .tg { grid-template-columns:1fr 1fr; }
   .fg { grid-template-columns:1fr 1fr;gap:36px; }
-  .nlinks,.nsearch { display:none; }
 }
 @media(max-width:700px) {
-  .svcg { grid-template-columns:1fr; }
+  .svcg { grid-template-columns:1fr 1fr; }
   .pg { grid-template-columns:1fr 1fr; }
   .pg::before { display:none; }
   .tg { grid-template-columns:1fr; }
   .fg { grid-template-columns:1fr; }
   .sgrid { grid-template-columns:1fr 1fr; }
   .sec { padding:72px 5%; }
+  .msec { padding:80px 5%; }
+  .csec { padding:80px 5%; }
   .s-num { letter-spacing:-2px; }
+  .hh1 h1 { font-size:clamp(2.4rem,10vw,4rem);letter-spacing:-2px; }
+  .hl2 h2 { font-size:clamp(1.8rem,7vw,3.2rem);letter-spacing:-1px; }
+  .bwa,.bol { width:100%;text-align:center;justify-content:center;padding:16px 24px; }
+  .cbtns { flex-direction:column;align-items:center; }
+  .mtxt { font-size:clamp(1.5rem,5vw,2.2rem); }
 }
-@media(max-width:480px) { .pg { grid-template-columns:1fr; } #nw { padding:10px 4%; } }
+@media(max-width:480px) {
+  .pg { grid-template-columns:1fr; }
+  #nw { padding:10px 4%; }
+  .sec { padding:56px 5%; }
+  .sgrid { grid-template-columns:1fr 1fr; }
+  .svcg { grid-template-columns:1fr 1fr; }
+  .h2 { font-size:clamp(1.9rem,8vw,2.8rem);letter-spacing:-1px; }
+  .fbot { flex-direction:column;text-align:center;gap:16px; }
+  .famfi { font-size:.72rem; }
+  .svcc { padding:20px 14px; }
+  .stit { font-size:.95rem; }
+  .sdesc { font-size:.85rem; }
+  .tcard { padding:24px 20px; }
+  .bfind { padding:14px 32px;font-size:.95rem; }
+  .sig-name { font-size:clamp(2rem,9vw,3rem); }
+}
 </style>
 </head>
 <body>
@@ -360,10 +398,47 @@ footer { background:#0e0e0e;color:rgba(255,255,255,.3);padding:72px 6% 28px; }
     <div class="nr">
       <a href="https://ewa.njindiaonline.com/ewa/login" target="_blank" rel="noopener" class="bgl">Client Login</a>
       <a href="https://api.whatsapp.com/send?phone=919662019850" target="_blank" rel="noopener" class="bgc">Free Review</a>
+      <button class="ham" id="ham" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
 </div>
 </header>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu" role="dialog" aria-label="Navigation menu">
+  <a href="#why">Why Us</a>
+  <a href="#services">Services</a>
+  <a href="markets.html">Markets</a>
+  <a href="calculator.html">Calculator</a>
+  <a href="team.html">Team</a>
+  <a href="#faq">FAQ</a>
+  <div class="mob-div"></div>
+  <a href="https://ewa.njindiaonline.com/ewa/login" target="_blank">Client Login</a>
+  <a href="https://api.whatsapp.com/send?phone=919662019850" target="_blank" class="mob-cta">Free Review</a>
+</div>
+<script>
+(function(){
+  var btn = document.getElementById('ham');
+  var menu = document.getElementById('mobMenu');
+  function closeMenu(){
+    btn.classList.remove('open');
+    menu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    btn.classList.toggle('open');
+    menu.classList.toggle('open');
+    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeMenu();
+  });
+})();
+</script>
 
 <main id="main">
 
@@ -373,7 +448,7 @@ footer { background:#0e0e0e;color:rgba(255,255,255,.3);padding:72px 6% 28px; }
     <canvas id="tc" aria-hidden="true"></canvas>
     <div class="hh1"><h1 id="hH1">Secure Your Future.<br>Grow Your Wealth.</h1></div>
     <div class="hctac" id="hCta"><a href="#why" class="bfind">Find out more</a></div>
-    <div class="hl2"><h2 id="hL2">Let Real Value Make it Easy.</h2></div>
+    <div class="hl2"><h2 id="hL2">Let <span style="background:linear-gradient(135deg,#4A7EFF,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Real Value</span> Make it Easy.</h2></div>
   </div>
 </div>
 
@@ -566,393 +641,41 @@ footer { background:#0e0e0e;color:rgba(255,255,255,.3);padding:72px 6% 28px; }
   </div>
 </section>
 
-<!-- MARKET WATCH -->
-<section class="sec" id="markets" style="background:var(--ink);" aria-label="Live market watch">
-  <div class="cen rv" style="margin-bottom:48px;">
-    <div class="eyb" style="color:rgba(255,255,255,.4);justify-content:center;display:flex;">Live Markets</div>
-    <h2 class="h2" style="color:#fff;">Daily Market Watch</h2>
-    <p class="bt" style="color:rgba(255,255,255,.4);">Track key Indian and global indices, updated live. Click any index to explore on TradingView.</p>
-  </div>
-
-  <!-- TradingView Ticker Tape Widget -->
-  <div class="rv" style="margin-bottom:40px;border-radius:10px;overflow:hidden;">
-    <div class="tradingview-widget-container">
-      <div class="tradingview-widget-container__widget"></div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-      {
-        "symbols": [
-          {"proName":"BSE:SENSEX","title":"SENSEX"},
-          {"proName":"NSE:NIFTY","title":"NIFTY 50"},
-          {"proName":"NSE:BANKNIFTY","title":"BANK NIFTY"},
-          {"proName":"NSE:NIFTYMIDCAP100","title":"MIDCAP 100"},
-          {"proName":"FOREXCOM:XAUUSD","title":"Gold"},
-          {"proName":"FOREXCOM:USDINR","title":"USD/INR"},
-          {"proName":"NASDAQ:QQQ","title":"NASDAQ"},
-          {"proName":"SP:SPX","title":"S&P 500"},
-          {"proName":"TVC:DXY","title":"Dollar Index"},
-          {"proName":"NYMEX:CL1!","title":"Crude Oil"}
-        ],
-        "showSymbolLogo": true,
-        "isTransparent": false,
-        "displayMode": "adaptive",
-        "colorTheme": "dark",
-        "locale": "en"
-      }
-      </script>
-    </div>
-  </div>
-
-  <!-- TradingView Market Overview -->
-  <div class="rv mkt-grid">
-    <!-- Left: Main Chart -->
-    <div class="mkt-chart">
-      <div class="mkt-label">NIFTY 50 — Live Chart</div>
-      <div class="tradingview-widget-container" style="height:420px;">
-        <div id="tv-chart-container" style="height:420px;"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/tv.js" async></script>
-        <script>
-        document.addEventListener('DOMContentLoaded',function(){
-          if(typeof TradingView !== 'undefined'){
-            new TradingView.widget({
-              "width":"100%","height":420,
-              "symbol":"NSE:NIFTY","interval":"D",
-              "timezone":"Asia/Kolkata","theme":"dark",
-              "style":"1","locale":"en","toolbar_bg":"#1a1a1a",
-              "enable_publishing":false,"hide_top_toolbar":false,
-              "save_image":false,"container_id":"tv-chart-container",
-              "hide_side_toolbar":true,"allow_symbol_change":true
-            });
-          }
-        });
-        </script>
-      </div>
-    </div>
-
-    <!-- Right: Indices Cards -->
-    <div class="mkt-sidebar">
-      <div class="mkt-label">Key Indices</div>
-      <div class="idx-grid">
-        <a class="idx-card" href="https://www.nseindia.com" target="_blank" rel="noopener">
-          <span class="idx-name">NIFTY 50</span>
-          <span class="idx-widget">
-            <div class="tradingview-widget-container">
-              <div class="tradingview-widget-container__widget"></div>
-              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>{"symbol":"NSE:NIFTY","width":"100%","colorTheme":"dark","isTransparent":true,"locale":"en"}</script>
-            </div>
-          </span>
-        </a>
-        <a class="idx-card" href="https://www.nseindia.com" target="_blank" rel="noopener">
-          <span class="idx-name">SENSEX</span>
-          <span class="idx-widget">
-            <div class="tradingview-widget-container">
-              <div class="tradingview-widget-container__widget"></div>
-              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>{"symbol":"BSE:SENSEX","width":"100%","colorTheme":"dark","isTransparent":true,"locale":"en"}</script>
-            </div>
-          </span>
-        </a>
-        <a class="idx-card" href="https://www.nseindia.com" target="_blank" rel="noopener">
-          <span class="idx-name">Gold (XAU/USD)</span>
-          <span class="idx-widget">
-            <div class="tradingview-widget-container">
-              <div class="tradingview-widget-container__widget"></div>
-              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>{"symbol":"FOREXCOM:XAUUSD","width":"100%","colorTheme":"dark","isTransparent":true,"locale":"en"}</script>
-            </div>
-          </span>
-        </a>
-        <a class="idx-card" href="https://www.nseindia.com" target="_blank" rel="noopener">
-          <span class="idx-name">USD / INR</span>
-          <span class="idx-widget">
-            <div class="tradingview-widget-container">
-              <div class="tradingview-widget-container__widget"></div>
-              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>{"symbol":"FOREXCOM:USDINR","width":"100%","colorTheme":"dark","isTransparent":true,"locale":"en"}</script>
-            </div>
-          </span>
-        </a>
-        <a class="idx-card" href="https://www.nseindia.com" target="_blank" rel="noopener">
-          <span class="idx-name">Crude Oil</span>
-          <span class="idx-widget">
-            <div class="tradingview-widget-container">
-              <div class="tradingview-widget-container__widget"></div>
-              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>{"symbol":"NYMEX:CL1!","width":"100%","colorTheme":"dark","isTransparent":true,"locale":"en"}</script>
-            </div>
-          </span>
-        </a>
-        <a class="idx-card" href="https://www.nseindia.com" target="_blank" rel="noopener">
-          <span class="idx-name">S&amp;P 500</span>
-          <span class="idx-widget">
-            <div class="tradingview-widget-container">
-              <div class="tradingview-widget-container__widget"></div>
-              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>{"symbol":"SP:SPX","width":"100%","colorTheme":"dark","isTransparent":true,"locale":"en"}</script>
-            </div>
-          </span>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div style="text-align:center;margin-top:32px;">
-    <a href="https://www.tradingview.com" target="_blank" rel="noopener" style="color:rgba(255,255,255,.25);font-size:.75rem;text-decoration:none;">Market data powered by TradingView</a>
-  </div>
-</section>
-
-<!-- SIP RETURN CALCULATOR -->
-<section class="sec" id="calculator" style="background:var(--off);" aria-label="SIP return calculator">
-  <div class="cen rv" style="margin-bottom:52px;">
-    <div class="eyb" style="justify-content:center;display:flex;">Free Tool</div>
-    <h2 class="h2">SIP Return Calculator</h2>
-    <p class="bt">See how your monthly SIP can grow over time with the power of compounding. Adjust the sliders to explore your wealth potential.</p>
-  </div>
-
-  <div class="calc-wrap rv">
-    <!-- Inputs -->
-    <div class="calc-inputs">
-      <div class="calc-field">
-        <div class="calc-field-head">
-          <label>Monthly SIP Amount</label>
-          <span class="calc-val" id="sipAmtLabel">₹5,000</span>
-        </div>
-        <input type="range" id="sipAmt" min="500" max="100000" step="500" value="5000" class="calc-slider"/>
-        <div class="calc-minmax"><span>₹500</span><span>₹1,00,000</span></div>
-      </div>
-
-      <div class="calc-field">
-        <div class="calc-field-head">
-          <label>Expected Annual Return</label>
-          <span class="calc-val" id="sipRateLabel">12%</span>
-        </div>
-        <input type="range" id="sipRate" min="4" max="24" step="0.5" value="12" class="calc-slider"/>
-        <div class="calc-minmax"><span>4%</span><span>24%</span></div>
-      </div>
-
-      <div class="calc-field">
-        <div class="calc-field-head">
-          <label>Investment Duration</label>
-          <span class="calc-val" id="sipYrsLabel">15 Years</span>
-        </div>
-        <input type="range" id="sipYrs" min="1" max="40" step="1" value="15" class="calc-slider"/>
-        <div class="calc-minmax"><span>1 Year</span><span>40 Years</span></div>
-      </div>
-
-      <div class="calc-disclaimer">
-        <strong>Disclaimer:</strong> This calculator provides illustrative projections only. Actual mutual fund returns vary based on market conditions. Mutual fund investments are subject to market risks. Past performance is not indicative of future results.
-      </div>
-
-      <a href="https://api.whatsapp.com/send?phone=919662019850&text=Hi%2C+I%27d+like+help+planning+my+SIP+investment." target="_blank" rel="noopener" class="calc-cta">💬 Get a Personalized SIP Plan</a>
-    </div>
-
-    <!-- Results -->
-    <div class="calc-results">
-      <div class="calc-donut-wrap">
-        <canvas id="calcChart" width="260" height="260"></canvas>
-        <div class="calc-donut-center">
-          <span class="calc-corpus-label">Total Corpus</span>
-          <span class="calc-corpus" id="totalCorpus">₹25.23L</span>
-        </div>
-      </div>
-
-      <div class="calc-stats">
-        <div class="calc-stat invested">
-          <div class="calc-stat-dot"></div>
-          <div>
-            <div class="calc-stat-label">Amount Invested</div>
-            <div class="calc-stat-val" id="amtInvested">₹9.00L</div>
-          </div>
-        </div>
-        <div class="calc-stat returns">
-          <div class="calc-stat-dot"></div>
-          <div>
-            <div class="calc-stat-label">Est. Returns</div>
-            <div class="calc-stat-val" id="estReturns">₹16.23L</div>
-          </div>
-        </div>
-        <div class="calc-stat total">
-          <div class="calc-stat-dot"></div>
-          <div>
-            <div class="calc-stat-label">Total Corpus</div>
-            <div class="calc-stat-val" id="totalCorpus2">₹25.23L</div>
-          </div>
-        </div>
-        <div class="calc-xirr">
-          <span>Wealth Multiple: </span>
-          <span id="wealthMultiple">2.8x</span>
-        </div>
-      </div>
-
-      <!-- Year-wise growth table -->
-      <div class="calc-table-wrap">
-        <div class="calc-table-label">Year-by-Year Growth</div>
-        <div class="calc-table-scroll">
-          <table class="calc-table" id="growthTable">
-            <thead><tr><th>Year</th><th>Invested</th><th>Corpus</th><th>Gain</th></tr></thead>
-            <tbody id="growthBody"></tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Calculator + Market CSS -->
+<!-- SIGNATURE -->
+<section class="sec" id="signature" style="background:var(--bg);text-align:center;padding:80px 5%;" aria-label="Founder signature">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 <style>
-/* MARKET WATCH */
-.mkt-grid { display:grid;grid-template-columns:1fr 360px;gap:20px;max-width:1200px;margin:0 auto; }
-.mkt-label { font-size:.72rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:14px;font-weight:600; }
-.mkt-chart { background:#111;border-radius:10px;padding:20px;border:1px solid rgba(255,255,255,.06); }
-.mkt-sidebar { display:flex;flex-direction:column;gap:0; }
-.idx-grid { display:flex;flex-direction:column;gap:8px; }
-.idx-card { background:#111;border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:14px 16px;text-decoration:none;transition:border-color .2s,background .2s;display:block; }
-.idx-card:hover { border-color:rgba(74,126,255,.4);background:rgba(74,126,255,.05); }
-.idx-name { font-size:.8rem;font-weight:600;color:rgba(255,255,255,.5);display:block;margin-bottom:2px;text-transform:uppercase;letter-spacing:1px; }
-
-/* CALCULATOR */
-.calc-wrap { display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:1200px;margin:0 auto;align-items:start; }
-.calc-inputs { display:flex;flex-direction:column;gap:28px; }
-.calc-field { display:flex;flex-direction:column;gap:10px; }
-.calc-field-head { display:flex;justify-content:space-between;align-items:center; }
-.calc-field-head label { font-size:.92rem;font-weight:600;color:var(--ink); }
-.calc-val { font-size:1.1rem;font-weight:700;color:var(--ink);background:var(--white);padding:4px 14px;border-radius:20px;border:1px solid var(--bdr); }
-.calc-slider {
-  -webkit-appearance:none;appearance:none;
-  width:100%;height:4px;border-radius:4px;outline:none;cursor:pointer;
-  background:linear-gradient(to right, var(--ink) 0%, var(--ink) 50%, #ddd 50%, #ddd 100%);
+.sig-wrap { max-width:600px; margin:0 auto; }
+.sig-label { font-size:.72rem; letter-spacing:3px; text-transform:uppercase; color:var(--muted); font-weight:600; margin-bottom:32px; }
+.sig-name {
+  font-family:'Dancing Script', cursive;
+  font-size:clamp(2rem, 5vw, 3.8rem);
+  color:var(--ink);
+  line-height:1;
+  letter-spacing:-1px;
+  display:inline-block;
+  position:relative;
+  transform:rotate(-2deg);
+  transition:transform .3s ease;
 }
-.calc-slider::-webkit-slider-thumb { -webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--ink);cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.2); }
-.calc-slider::-moz-range-thumb { width:20px;height:20px;border-radius:50%;background:var(--ink);cursor:pointer;border:none; }
-.calc-minmax { display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted); }
-.calc-disclaimer { font-size:.78rem;color:var(--muted);line-height:1.6;padding:14px;background:rgba(35,35,35,.05);border-radius:8px;border-left:3px solid var(--bdr); }
-.calc-cta { display:block;text-align:center;background:var(--ink);color:#fff;padding:14px 28px;border-radius:8px;font-weight:600;font-size:.95rem;text-decoration:none;transition:all .2s;margin-top:4px; }
-.calc-cta:hover { background:#444;transform:translateY(-2px); }
-
-/* Results */
-.calc-results { background:var(--white);border-radius:14px;padding:32px;border:1px solid var(--bdr);display:flex;flex-direction:column;gap:24px; }
-.calc-donut-wrap { position:relative;display:flex;justify-content:center;align-items:center; }
-.calc-donut-center { position:absolute;text-align:center; }
-.calc-corpus-label { font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;display:block;margin-bottom:4px; }
-.calc-corpus { font-size:1.5rem;font-weight:700;color:var(--ink);display:block;letter-spacing:-0.5px; }
-.calc-stats { display:flex;flex-direction:column;gap:14px; }
-.calc-stat { display:flex;align-items:center;gap:14px; }
-.calc-stat-dot { width:12px;height:12px;border-radius:50%;flex-shrink:0; }
-.calc-stat.invested .calc-stat-dot { background:#232323; }
-.calc-stat.returns .calc-stat-dot { background:#4A7EFF; }
-.calc-stat.total .calc-stat-dot { background:#22a06b; }
-.calc-stat-label { font-size:.82rem;color:var(--muted); }
-.calc-stat-val { font-size:1.08rem;font-weight:700;color:var(--ink); }
-.calc-xirr { font-size:.88rem;color:var(--muted);padding-top:10px;border-top:1px solid var(--bdr); }
-.calc-xirr span:last-child { font-weight:700;color:var(--ink);font-size:1rem; }
-
-/* Table */
-.calc-table-wrap { border-top:1px solid var(--bdr);padding-top:16px; }
-.calc-table-label { font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;font-weight:600; }
-.calc-table-scroll { max-height:180px;overflow-y:auto;border-radius:6px;border:1px solid var(--bdr); }
-.calc-table { width:100%;border-collapse:collapse;font-size:.82rem; }
-.calc-table thead { position:sticky;top:0;background:var(--off); }
-.calc-table th { padding:8px 12px;text-align:left;font-weight:600;color:var(--muted);font-size:.75rem;letter-spacing:1px;text-transform:uppercase; }
-.calc-table td { padding:7px 12px;border-bottom:1px solid rgba(0,0,0,.04);color:var(--ink); }
-.calc-table tr:last-child td { border-bottom:none; }
-.calc-table tr:hover td { background:rgba(0,0,0,.02); }
-.calc-table .gain-pos { color:#22a06b;font-weight:600; }
-
-@media(max-width:900px){
-  .mkt-grid { grid-template-columns:1fr; }
-  .calc-wrap { grid-template-columns:1fr; }
+.sig-name:hover { transform:rotate(0deg) scale(1.03); }
+.sig-name::after {
+  content:'';
+  display:block;
+  height:3px;
+  background:linear-gradient(90deg, transparent, var(--ink), transparent);
+  margin-top:6px;
+  border-radius:2px;
+  opacity:0.25;
 }
+.sig-title { font-size:.75rem; color:var(--muted); letter-spacing:2px; text-transform:uppercase; margin-top:20px; font-weight:500; }
 </style>
-
-<!-- Calculator JS -->
-<script>
-(function(){
-  function fmt(n){
-    if(n>=10000000) return '₹'+(n/10000000).toFixed(2)+'Cr';
-    if(n>=100000) return '₹'+(n/100000).toFixed(2)+'L';
-    if(n>=1000) return '₹'+(n/1000).toFixed(1)+'K';
-    return '₹'+Math.round(n).toLocaleString('en-IN');
-  }
-  function fmtFull(n){ return '₹'+Math.round(n).toLocaleString('en-IN'); }
-
-  var sipAmt  = document.getElementById('sipAmt');
-  var sipRate = document.getElementById('sipRate');
-  var sipYrs  = document.getElementById('sipYrs');
-  var ctx = document.getElementById('calcChart').getContext('2d');
-  var chartInstance = null;
-
-  function calcSIP(monthly, ratePA, years){
-    var r = (ratePA/100)/12;
-    var n = years*12;
-    var corpus = monthly * (Math.pow(1+r,n)-1)/r * (1+r);
-    var invested = monthly * n;
-    var returns = corpus - invested;
-    return {corpus:corpus, invested:invested, returns:returns};
-  }
-
-  function buildTable(monthly, ratePA, years){
-    var r = (ratePA/100)/12;
-    var html = '';
-    for(var y=1;y<=years;y++){
-      var n = y*12;
-      var corpus = monthly*(Math.pow(1+r,n)-1)/r*(1+r);
-      var invested = monthly*n;
-      var gain = corpus-invested;
-      var gainPct = ((gain/invested)*100).toFixed(1);
-      html += '<tr><td>'+y+'</td><td>'+fmt(invested)+'</td><td>'+fmt(corpus)+'</td><td class="gain-pos">+'+gainPct+'%</td></tr>';
-    }
-    document.getElementById('growthBody').innerHTML = html;
-  }
-
-  function updateSliderGradient(input){
-    var min=parseFloat(input.min), max=parseFloat(input.max), val=parseFloat(input.value);
-    var pct = ((val-min)/(max-min))*100;
-    input.style.background = 'linear-gradient(to right, #232323 0%, #232323 '+pct+'%, #ddd '+pct+'%, #ddd 100%)';
-  }
-
-  function drawChart(invested, returns){
-    if(chartInstance){ chartInstance = null; ctx.clearRect(0,0,260,260); }
-    var total = invested+returns;
-    var iAngle = (invested/total)*2*Math.PI;
-    var rAngle = (returns/total)*2*Math.PI;
-    var cx=130,cy=130,r=100,inner=68;
-    ctx.clearRect(0,0,260,260);
-    // Invested slice
-    ctx.beginPath(); ctx.moveTo(cx,cy);
-    ctx.arc(cx,cy,r,-Math.PI/2,-Math.PI/2+iAngle); ctx.closePath();
-    ctx.fillStyle='#232323'; ctx.fill();
-    // Returns slice
-    ctx.beginPath(); ctx.moveTo(cx,cy);
-    ctx.arc(cx,cy,r,-Math.PI/2+iAngle,-Math.PI/2+iAngle+rAngle); ctx.closePath();
-    ctx.fillStyle='#4A7EFF'; ctx.fill();
-    // Donut hole
-    ctx.beginPath(); ctx.arc(cx,cy,inner,0,2*Math.PI);
-    ctx.fillStyle=getComputedStyle(document.documentElement).getPropertyValue('--white')||'#fff';
-    ctx.fill();
-  }
-
-  function update(){
-    var monthly = parseFloat(sipAmt.value);
-    var rate = parseFloat(sipRate.value);
-    var years = parseInt(sipYrs.value);
-    var res = calcSIP(monthly, rate, years);
-
-    document.getElementById('sipAmtLabel').textContent = '₹'+monthly.toLocaleString('en-IN');
-    document.getElementById('sipRateLabel').textContent = rate+'%';
-    document.getElementById('sipYrsLabel').textContent = years+' Year'+(years>1?'s':'');
-    document.getElementById('totalCorpus').textContent = fmt(res.corpus);
-    document.getElementById('totalCorpus2').textContent = fmt(res.corpus);
-    document.getElementById('amtInvested').textContent = fmt(res.invested);
-    document.getElementById('estReturns').textContent = fmt(res.returns);
-    document.getElementById('wealthMultiple').textContent = (res.corpus/res.invested).toFixed(1)+'x';
-
-    updateSliderGradient(sipAmt);
-    updateSliderGradient(sipRate);
-    updateSliderGradient(sipYrs);
-    drawChart(res.invested, res.returns);
-    buildTable(monthly, rate, years);
-  }
-
-  sipAmt.addEventListener('input', update);
-  sipRate.addEventListener('input', update);
-  sipYrs.addEventListener('input', update);
-  update();
-})();
-</script>
+  <div class="sig-wrap">
+    <!-- <div class="sig-label">Founded &amp; Led by</div> -->
+    <span class="sig-name">Bhrugu Thakkar</span>
+    <div class="sig-title">Chief Executive Officer · Real Value Portfolio Management</div>
+  </div>
+</section>
 
 <!-- CTA -->
 <section class="csec" id="contact" aria-label="Get started">
@@ -1263,4 +986,14 @@ document.querySelectorAll('.fitem').forEach(function(item){
 });
 
 // Smooth anchor scroll
-document.querySelectorAll('a[href^=
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click', function(e){
+    var id = this.getAttribute('href');
+    if(id === '#') return;
+    var target = document.querySelector(id);
+    if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth'}); }
+  });
+});
+</script>
+</body>
+</html>
