@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Our Team | Real Value Portfolio Management</title>
+<meta name="description" content="Meet the team behind Real Value Portfolio Management — three decades of financial expertise combined with Silicon Valley data science to help Indian families build lasting wealth."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FCFCFC;--ink:#232323;--white:#fff;--off:#F0F0F0;--dark:#0f0f0f;--blue:#4A7EFF;--green:#1a6645;--muted:#777;--light:#AAA;--bdr:rgba(35,35,35,0.1);--pill:50px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:16px;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-thumb{background:var(--ink);}
+
+/* NAV */
+#nw{position:fixed;top:0;left:0;right:0;z-index:600;padding:14px 5%;pointer-events:none;}
+#nav{background:rgba(35,35,35,0.97);backdrop-filter:blur(24px);border-radius:var(--pill);display:flex;align-items:center;justify-content:space-between;padding:10px 22px;pointer-events:all;box-shadow:0 4px 32px rgba(0,0,0,0.22);}
+.nl{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+.lm{width:32px;height:32px;background:var(--green);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.95rem;font-weight:700;color:#fff;}
+.lt{font-size:1.05rem;font-weight:600;color:#fff;letter-spacing:-.3px;}
+.lt em{color:rgba(255,255,255,.38);font-style:normal;font-weight:400;}
+.nlinks{display:flex;gap:2px;list-style:none;}
+.nlinks a{color:rgba(255,255,255,.65);text-decoration:none;font-size:.88rem;font-weight:500;padding:7px 14px;border-radius:20px;transition:all .2s;}
+.nlinks a:hover,.nlinks a.active{color:#fff;background:rgba(255,255,255,.08);}
+.nr{display:flex;gap:8px;align-items:center;}
+.bgl{color:rgba(255,255,255,.7);padding:8px 16px;font-size:.88rem;font-weight:500;text-decoration:none;font-family:'DM Sans',sans-serif;border-radius:20px;transition:all .2s;}
+.bgl:hover{color:#fff;background:rgba(255,255,255,.08);}
+.bgc{background:var(--blue);color:#fff;padding:9px 22px;border-radius:var(--pill);font-size:.88rem;font-weight:600;text-decoration:none;font-family:'DM Sans',sans-serif;box-shadow:0 4px 16px rgba(74,126,255,.35);transition:all .2s;}
+.bgc:hover{background:#3a6eef;transform:translateY(-1px);}
+
+/* HAMBURGER */
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;z-index:700;flex-shrink:0;}
+.ham span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s;}
+.ham.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.ham.open span:nth-child(2){opacity:0;}
+.ham.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+.mob-menu{display:none;position:fixed;inset:0;background:rgba(12,12,12,.98);z-index:590;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:40px;}
+.mob-menu.open{display:flex;}
+.mob-menu a{color:rgba(255,255,255,.75);text-decoration:none;font-size:1.7rem;font-weight:600;padding:10px 24px;letter-spacing:-.5px;transition:color .2s;text-align:center;}
+.mob-menu a:hover{color:#fff;}
+.mob-menu .mob-div{width:40px;height:1px;background:rgba(255,255,255,.1);margin:10px 0;}
+.mob-menu .mob-cta{background:#4A7EFF;color:#fff;padding:14px 40px;border-radius:50px;font-size:1rem;margin-top:10px;}
+
+/* HERO */
+.page-hero{padding:130px 6% 72px;text-align:center;}
+.page-eyb{font-size:.78rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:14px;}
+.page-h1{font-size:clamp(2.8rem,6vw,5rem);font-weight:700;color:var(--ink);letter-spacing:-2px;line-height:1;margin-bottom:18px;}
+.page-sub{font-size:1.08rem;color:var(--muted);max-width:580px;margin:0 auto;line-height:1.75;}
+
+/* TEAM OUTER */
+.team-outer{padding:0 6% 100px;}
+
+/* FOUNDERS SECTION — two-column */
+.founders-section{max-width:1100px;margin:0 auto 60px;}
+.section-eyb{font-size:.74rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:28px;}
+.founders-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+
+.founder-card{background:var(--ink);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s;}
+.founder-card:hover{transform:translateY(-4px);}
+.founder-img-wrap{height:340px;overflow:hidden;position:relative;background:#1a1a1a;}
+.founder-img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+.founder-avatar{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1a2e 0%,#0f3460 100%);}
+.avatar-initials{width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:2.6rem;font-weight:700;color:rgba(255,255,255,.65);margin-bottom:16px;letter-spacing:-1px;}
+.avatar-hint{font-size:.72rem;color:rgba(255,255,255,.25);letter-spacing:2px;text-transform:uppercase;}
+.founder-body{padding:32px 32px 36px;flex:1;display:flex;flex-direction:column;}
+.founder-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:5px 13px;font-size:.72rem;font-weight:600;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px;width:fit-content;}
+.founder-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:#22a06b;flex-shrink:0;}
+.founder-name{font-size:1.9rem;font-weight:700;color:#fff;letter-spacing:-.8px;line-height:1;margin-bottom:6px;}
+.founder-title{font-size:.85rem;color:rgba(255,255,255,.35);margin-bottom:22px;font-weight:400;}
+.founder-bio{font-size:.93rem;color:rgba(255,255,255,.55);line-height:1.78;flex:1;}
+.founder-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);}
+.fstat-num{font-size:1.6rem;font-weight:700;color:#fff;display:block;letter-spacing:-.5px;}
+.fstat-lbl{font-size:.68rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:1.5px;margin-top:3px;}
+
+/* CEO SECTION — full width */
+.ceo-section{max-width:1100px;margin:0 auto 60px;}
+.ceo-card{background:var(--white);border:1px solid var(--bdr);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:360px 1fr;}
+.ceo-img-wrap{position:relative;overflow:hidden;background:#f4f4f4;min-height:480px;}
+.ceo-img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+.ceo-body{padding:52px 52px;display:flex;flex-direction:column;justify-content:center;}
+.ceo-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(74,126,255,.08);border:1px solid rgba(74,126,255,.2);border-radius:20px;padding:6px 14px;font-size:.72rem;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:18px;width:fit-content;}
+.ceo-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0;}
+.ceo-name{font-size:2.4rem;font-weight:700;color:var(--ink);letter-spacing:-.8px;line-height:1;margin-bottom:6px;}
+.ceo-title{font-size:.88rem;color:var(--muted);margin-bottom:26px;}
+.ceo-bio{font-size:.97rem;color:#555;line-height:1.8;margin-bottom:28px;}
+.ceo-credentials{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;}
+.cred-tag{background:var(--off);border-radius:20px;padding:6px 14px;font-size:.78rem;font-weight:500;color:var(--ink);}
+.ceo-contact{display:flex;gap:10px;flex-wrap:wrap;}
+.ceo-wa{display:inline-flex;align-items:center;gap:8px;background:#25d366;color:#fff;padding:11px 22px;border-radius:30px;font-weight:600;font-size:.88rem;text-decoration:none;transition:all .2s;}
+.ceo-wa:hover{background:#1fb557;transform:translateY(-2px);}
+.ceo-li{display:inline-flex;align-items:center;gap:8px;background:var(--off);color:var(--ink);padding:11px 22px;border-radius:30px;font-weight:500;font-size:.88rem;text-decoration:none;transition:all .2s;border:1px solid var(--bdr);}
+.ceo-li:hover{background:#e8e8e8;transform:translateY(-2px);}
+
+/* VALUES */
+.values-section{max-width:1100px;margin:20px auto 0;background:var(--ink);border-radius:20px;padding:60px;}
+.values-title{font-size:1.8rem;font-weight:700;color:#fff;letter-spacing:-.5px;margin-bottom:10px;}
+.values-sub{font-size:1rem;color:rgba(255,255,255,.38);margin-bottom:44px;line-height:1.65;}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.val-card{padding:24px;background:rgba(255,255,255,.04);border-radius:12px;border:1px solid rgba(255,255,255,.07);}
+.val-icon{font-size:1.8rem;margin-bottom:14px;display:block;}
+.val-title{font-size:1rem;font-weight:600;color:#fff;margin-bottom:8px;}
+.val-text{font-size:.88rem;color:rgba(255,255,255,.38);line-height:1.65;}
+
+/* JOIN */
+.join-section{max-width:1100px;margin:40px auto 0;text-align:center;padding:60px;background:var(--off);border-radius:20px;}
+.join-title{font-size:2rem;font-weight:700;letter-spacing:-.5px;margin-bottom:12px;}
+.join-sub{font-size:1rem;color:var(--muted);margin-bottom:32px;max-width:460px;margin-left:auto;margin-right:auto;line-height:1.65;}
+.join-btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;padding:14px 32px;border-radius:30px;font-weight:600;font-size:.95rem;text-decoration:none;transition:all .2s;}
+.join-btn:hover{background:#444;transform:translateY(-2px);}
+
+/* FOOTER */
+footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.05);padding:32px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin-top:100px;}
+.ft-logo{font-size:1.1rem;font-weight:600;color:#fff;}
+.ft-logo em{color:rgba(255,255,255,.3);font-style:normal;}
+.ft-links{display:flex;gap:20px;}
+.ft-links a{color:rgba(255,255,255,.3);text-decoration:none;font-size:.84rem;transition:color .2s;}
+.ft-links a:hover{color:#fff;}
+.ft-note{font-size:.75rem;color:rgba(255,255,255,.2);}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .ham{display:flex;}
+  .nlinks,.bgl{display:none;}
+}
+@media(max-width:900px){
+  .founders-grid{grid-template-columns:1fr;}
+  .ceo-card{grid-template-columns:1fr;}
+  .ceo-img-wrap{min-height:320px;}
+  .values-grid{grid-template-columns:1fr 1fr;}
+  .founder-stats{grid-template-columns:repeat(3,1fr);}
+}
+@media(max-width:600px){
+  .team-outer{padding:0 4% 60px;}
+  .ceo-body{padding:32px 28px;}
+  .founder-body{padding:24px 24px 28px;}
+  .values-section{padding:40px 28px;}
+  .values-grid{grid-template-columns:1fr;}
+  .join-section{padding:44px 28px;}
+  .founder-stats{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:480px){
+  .page-h1{letter-spacing:-1.5px;}
+  .ceo-credentials{gap:6px;}
+  .founders-grid{gap:14px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div id="nw">
+  <nav id="nav">
+    <a href="index.html" class="nl">
+      <div class="lm">R</div>
+      <span class="lt">Real <em>Value</em></span>
+    </a>
+    <ul class="nlinks">
+      <li><a href="index.html#why">Why Us</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="markets.html">Markets</a></li>
+      <li><a href="calculator.html">Calculator</a></li>
+      <li><a href="team.html" class="active">Team</a></li>
+    </ul>
+    <div class="nr">
+      <a href="https://ewa.njindiaonline.com/ewa/login" target="_blank" class="bgl">Client Login</a>
+      <a href="https://api.whatsapp.com/send?phone=919662019850" target="_blank" class="bgc">Free Review</a>
+      <button class="ham" id="ham" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</div>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html">Home</a>
+  <a href="index.html#why">Why Us</a>
+  <a href="markets.html">Markets</a>
+  <a href="calculator.html">Calculator</a>
+  <a href="team.html">Team</a>
+  <div class="mob-div"></div>
+  <a href="https://api.whatsapp.com/send?phone=919662019850" target="_blank" class="mob-cta">Free Review</a>
+</div>
+<script>
+(function(){
+  var btn=document.getElementById('ham'),menu=document.getElementById('mobMenu');
+  btn.addEventListener('click',function(e){e.stopPropagation();btn.classList.toggle('open');menu.classList.toggle('open');document.body.style.overflow=menu.classList.contains('open')?'hidden':'';});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){btn.classList.remove('open');menu.classList.remove('open');document.body.style.overflow='';});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){btn.classList.remove('open');menu.classList.remove('open');document.body.style.overflow='';}});
+})();
+</script>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-eyb">The People Behind Real Value</div>
+  <h1 class="page-h1">Meet Our Team</h1>
+  <p class="page-sub">Three decades of financial expertise, now supercharged with data science and AI — helping Indian families build wealth that lasts generations.</p>
+</div>
+
+<div class="team-outer">
+
+  <!-- FOUNDERS -->
+  <div class="founders-section">
+    <div class="section-eyb">Founders &amp; Managing Directors</div>
+    <div class="founders-grid">
+
+      <!-- Hansa Thakkar -->
+      <div class="founder-card">
+        <div class="founder-img-wrap">
+          <img src="photos/hansa.jpg" alt="Hansa Thakkar – Founder & Managing Director, Real Value Portfolio Management" class="founder-img"/>
+        </div>
+        <div class="founder-body">
+          <div class="founder-badge">Founder &amp; Managing Director</div>
+          <div class="founder-name">Hansa Thakkar</div>
+          <div class="founder-title">AMFI Registered Mutual Fund Distributor · ARN: 24454</div>
+          <p class="founder-bio">
+            Hansa Thakkar is the heart and foundation of Real Value Portfolio Management. She established the firm with a clear conviction — that every Indian family, regardless of income, deserves expert, honest financial guidance.
+            <br><br>
+            With over three decades of experience in mutual fund distribution and financial planning, Hansa has built deep, trust-based relationships with hundreds of families across Gujarat and beyond. Her ability to translate complex financial concepts into clear, actionable plans has made her a trusted advisor to investors at every stage of life.
+            <br><br>
+            She brings a rare combination of patience, precision, and genuine care to every client relationship — qualities that have been the backbone of Real Value's reputation.
+          </p>
+          <div class="founder-stats">
+            <div><span class="fstat-num">30+</span><div class="fstat-lbl">Yrs Experience</div></div>
+            <div><span class="fstat-num">500+</span><div class="fstat-lbl">Families Served</div></div>
+            <div><span class="fstat-num">₹100Cr+</span><div class="fstat-lbl">AUM Managed</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dinesh Thakkar -->
+      <div class="founder-card">
+        <div class="founder-img-wrap">
+          <div class="founder-avatar">
+            <div class="avatar-initials">DT</div>
+            <div class="avatar-hint">Dinesh Thakkar</div>
+          </div>
+        </div>
+        <div class="founder-body">
+          <div class="founder-badge">Co-founder &amp; Managing Director</div>
+          <div class="founder-name">Dinesh Thakkar</div>
+          <div class="founder-title">AMFI Registered Mutual Fund Distributor · ARN: 24454</div>
+          <p class="founder-bio">
+            Dinesh Thakkar co-founded Real Value Portfolio Management alongside Hansa, bringing a strategic, long-term perspective to the firm's growth and client advisory model. His three decades in wealth management have sharpened an investment philosophy rooted in discipline, consistency, and client-first thinking.
+            <br><br>
+            Dinesh has guided clients through every major market cycle of the modern era — from the liberalisation boom of the 1990s to the 2008 global financial crisis and the pandemic-era volatility — always steering portfolios with calm, evidence-based conviction.
+            <br><br>
+            As Managing Director, he oversees portfolio strategy, fund research, and ensures that every client's investment plan is built to weather any market and meet real life goals.
+          </p>
+          <div class="founder-stats">
+            <div><span class="fstat-num">30+</span><div class="fstat-lbl">Yrs Experience</div></div>
+            <div><span class="fstat-num">500+</span><div class="fstat-lbl">Families Served</div></div>
+            <div><span class="fstat-num">₹100Cr+</span><div class="fstat-lbl">AUM Managed</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CEO — BHRUGU -->
+  <div class="ceo-section">
+    <div class="section-eyb">Chief Executive Officer</div>
+    <div class="ceo-card">
+      <div class="ceo-img-wrap">
+        <img src="photos/bhrugu.jpg" alt="Bhrugu Thakkar – CEO, Real Value Portfolio Management" class="ceo-img"/>
+      </div>
+      <div class="ceo-body">
+        <div class="ceo-badge">Chief Executive Officer</div>
+        <div class="ceo-name">Bhrugu Thakkar</div>
+        <div class="ceo-title">B.E. Computer Engineering · M.S. Data Science, Northeastern University, Seattle</div>
+        <p class="ceo-bio">
+          Bhrugu Thakkar brings an unlikely combination to Indian wealth management: Silicon Valley data science and a deep family legacy in financial advisory. After earning his Masters in Data Science from Northeastern University in Seattle, he built a career as a Data Scientist at two of San Francisco's most respected tech companies — DocuSign and Intuit Credit Karma — where he worked at the intersection of AI, financial data, and product.
+          <br><br>
+          At the height of a multi-six-figure career in the Bay Area, Bhrugu made a deliberate choice to return to India — not out of circumstance, but conviction. He saw an opportunity to bring the analytical rigour and technology culture of Silicon Valley into the world of Indian mutual fund advisory, a space that had been underserved by modern tools and data-driven thinking.
+          <br><br>
+          As CEO of Real Value, Bhrugu is building the firm's next chapter: integrating AI and data science into investment analysis, scaling the marketing and sales function, and positioning Real Value as the most technologically forward AMFI-registered advisory firm in India.
+        </p>
+        <div class="ceo-credentials">
+          <span class="cred-tag">M.S. Data Science — Northeastern University</span>
+          <span class="cred-tag">Ex DocuSign · San Francisco</span>
+          <span class="cred-tag">Ex Intuit Credit Karma · San Francisco</span>
+          <span class="cred-tag">AI &amp; Machine Learning</span>
+          <span class="cred-tag">Growth Strategy</span>
+        </div>
+        <div class="ceo-contact">
+          <a href="https://api.whatsapp.com/send?phone=919662019850" target="_blank" class="ceo-wa">💬 WhatsApp</a>
+          <a href="mailto:info@realvalueportfolio.com" class="ceo-li">✉️ info@realvalueportfolio.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VALUES -->
+  <div class="values-section">
+    <div class="values-title">What Drives Us</div>
+    <div class="values-sub">The principles that guide every decision we make on behalf of our clients.</div>
+    <div class="values-grid">
+      <div class="val-card">
+        <span class="val-icon">🎯</span>
+        <div class="val-title">Client First, Always</div>
+        <p class="val-text">Every recommendation we make is driven by what is genuinely best for our clients — not commissions, not trends. Your financial goals are our only agenda.</p>
+      </div>
+      <div class="val-card">
+        <span class="val-icon">📊</span>
+        <div class="val-title">Data-Driven Decisions</div>
+        <p class="val-text">We combine 30+ years of human experience with rigorous fund analysis and AI-powered insights — before recommending anything to our clients.</p>
+      </div>
+      <div class="val-card">
+        <span class="val-icon">🤝</span>
+        <div class="val-title">Relationships Over Transactions</div>
+        <p class="val-text">Our investors stay with us for years — sometimes decades — because we understand their families, their dreams, and their risk tolerance deeply.</p>
+      </div>
+      <div class="val-card">
+        <span class="val-icon">🔬</span>
+        <div class="val-title">Silicon Valley Meets Bharuch</div>
+        <p class="val-text">We are the only advisory firm in our space bringing Fortune 500 data science practices to Indian mutual fund advisory — giving our clients a genuine edge.</p>
+      </div>
+      <div class="val-card">
+        <span class="val-icon">🌍</span>
+        <div class="val-title">Accessible to All</div>
+        <p class="val-text">Expert mutual fund advisory should not be a privilege. We serve investors at every income level — from first-time SIP investors to HNIs — with equal dedication.</p>
+      </div>
+      <div class="val-card">
+        <span class="val-icon">🛡️</span>
+        <div class="val-title">Fully Regulated</div>
+        <p class="val-text">As an AMFI-registered distributor and NJ India partner, every transaction we process is through SEBI-regulated channels. Your money is always fully protected.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- JOIN -->
+  <div class="join-section">
+    <div class="join-title">Work With Our Team</div>
+    <p class="join-sub">Ready to start your wealth creation journey? Book a free consultation — no obligations, just clarity.</p>
+    <a href="https://api.whatsapp.com/send?phone=919662019850&text=Hi%2C+I%27d+like+to+schedule+a+consultation+with+your+team." target="_blank" class="join-btn">💬 Book a Free Consultation</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="ft-logo">Real <em>Value</em></div>
+  <div class="ft-links">
+    <a href="index.html">Home</a>
+    <a href="markets.html">Markets</a>
+    <a href="calculator.html">Calculator</a>
+    <a href="team.html">Team</a>
+    <a href="index.html#faq">FAQ</a>
+  </div>
+  <div class="ft-note">AMFI Registered · ARN: 24454 · © 2025 Real Value</div>
+</footer>
+
+</body>
+</html>
