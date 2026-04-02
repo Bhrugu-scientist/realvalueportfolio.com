@@ -52,23 +52,20 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);over
 /* TEAM OUTER */
 .team-outer{padding:0 6% 100px;}
 
-/* FOUNDERS SECTION — two-column */
+/* FOUNDERS SECTION — single combined card */
 .founders-section{max-width:1100px;margin:0 auto 60px;}
 .section-eyb{font-size:.74rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:28px;}
-.founders-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
 
-.founder-card{background:var(--ink);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s;}
-.founder-card:hover{transform:translateY(-4px);}
-.founder-img-wrap{height:340px;overflow:hidden;position:relative;background:#1a1a1a;}
-.founder-img{width:100%;height:100%;object-fit:cover;object-position:center top;}
-.founder-avatar{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1a2e 0%,#0f3460 100%);}
-.avatar-initials{width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:2.6rem;font-weight:700;color:rgba(255,255,255,.65);margin-bottom:16px;letter-spacing:-1px;}
-.avatar-hint{font-size:.72rem;color:rgba(255,255,255,.25);letter-spacing:2px;text-transform:uppercase;}
-.founder-body{padding:32px 32px 36px;flex:1;display:flex;flex-direction:column;}
+.founder-card{background:var(--ink);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:420px 1fr;}
+.founder-img-wrap{position:relative;overflow:hidden;background:#1a1a1a;min-height:480px;}
+.founder-img{width:100%;height:100%;object-fit:cover;object-position:center center;}
+.founder-body{padding:52px 52px;display:flex;flex-direction:column;justify-content:center;}
 .founder-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:5px 13px;font-size:.72rem;font-weight:600;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px;width:fit-content;}
 .founder-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:#22a06b;flex-shrink:0;}
-.founder-name{font-size:1.9rem;font-weight:700;color:#fff;letter-spacing:-.8px;line-height:1;margin-bottom:6px;}
-.founder-title{font-size:.85rem;color:rgba(255,255,255,.35);margin-bottom:22px;font-weight:400;}
+.founder-names{display:flex;flex-direction:column;gap:4px;margin-bottom:8px;}
+.founder-name{font-size:1.9rem;font-weight:700;color:#fff;letter-spacing:-.8px;line-height:1.1;}
+.founder-name-divider{font-size:.8rem;color:rgba(255,255,255,.2);letter-spacing:2px;text-transform:uppercase;margin:6px 0;}
+.founder-title{font-size:.85rem;color:rgba(255,255,255,.35);margin-bottom:24px;font-weight:400;}
 .founder-bio{font-size:.93rem;color:rgba(255,255,255,.55);line-height:1.78;flex:1;}
 .founder-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);}
 .fstat-num{font-size:1.6rem;font-weight:700;color:#fff;display:block;letter-spacing:-.5px;}
@@ -125,7 +122,8 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.05);padding
   .nlinks,.bgl{display:none;}
 }
 @media(max-width:900px){
-  .founders-grid{grid-template-columns:1fr;}
+  .founder-card{grid-template-columns:1fr;}
+  .founder-img-wrap{min-height:320px;}
   .ceo-card{grid-template-columns:1fr;}
   .ceo-img-wrap{min-height:320px;}
   .values-grid{grid-template-columns:1fr 1fr;}
@@ -133,8 +131,8 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.05);padding
 }
 @media(max-width:600px){
   .team-outer{padding:0 4% 60px;}
+  .founder-body{padding:32px 28px;}
   .ceo-body{padding:32px 28px;}
-  .founder-body{padding:24px 24px 28px;}
   .values-section{padding:40px 28px;}
   .values-grid{grid-template-columns:1fr;}
   .join-section{padding:44px 28px;}
@@ -232,62 +230,36 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.05);padding
     </div>
   </div>
 
-  <!-- FOUNDERS -->
+  <!-- FOUNDERS — single combined card -->
   <div class="founders-section">
     <div class="section-eyb">Founders &amp; Managing Directors</div>
-    <div class="founders-grid">
-
-      <!-- Hansa Thakkar -->
-      <div class="founder-card">
-        <div class="founder-img-wrap">
-          <img src="photos/hansa.jpg" alt="Hansa Thakkar – Founder & Managing Director, Real Value Portfolio Management" class="founder-img" style="object-position:center center;"/>
-        </div>
-        <div class="founder-body">
-          <div class="founder-badge">Founder &amp; Managing Director</div>
+    <div class="founder-card">
+      <div class="founder-img-wrap">
+        <img src="photos/founders.jpg" alt="Hansa Thakkar and Dinesh Thakkar – Founders, Real Value Portfolio Management" class="founder-img"/>
+      </div>
+      <div class="founder-body">
+        <div class="founder-badge">Founders &amp; Managing Directors</div>
+        <div class="founder-names">
           <div class="founder-name">Hansa Thakkar</div>
-          <div class="founder-title">AMFI Registered Mutual Fund Distributor · ARN: 24454</div>
-          <p class="founder-bio">
-            Hansa Thakkar is the heart and foundation of Real Value Portfolio Management. She established the firm with a clear conviction — that every Indian family, regardless of income, deserves expert, honest financial guidance.
-            <br><br>
-            With over three decades of experience in mutual fund distribution and financial planning, Hansa has built deep, trust-based relationships with hundreds of families across Gujarat and beyond. Her ability to translate complex financial concepts into clear, actionable plans has made her a trusted advisor to investors at every stage of life.
-            <br><br>
-            She brings a rare combination of patience, precision, and genuine care to every client relationship — qualities that have been the backbone of Real Value's reputation.
-          </p>
-          <div class="founder-stats">
-            <div><span class="fstat-num">30+</span><div class="fstat-lbl">Yrs Experience</div></div>
-            <div><span class="fstat-num">500+</span><div class="fstat-lbl">Families Served</div></div>
-            <div><span class="fstat-num">₹100Cr+</span><div class="fstat-lbl">AUM Managed</div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Dinesh Thakkar -->
-      <div class="founder-card">
-        <div class="founder-img-wrap">
-          <div class="founder-avatar">
-            <div class="avatar-initials">DT</div>
-            <div class="avatar-hint">Dinesh Thakkar</div>
-          </div>
-        </div>
-        <div class="founder-body">
-          <div class="founder-badge">Co-founder &amp; Managing Director</div>
+          <div class="founder-name-divider">&amp;</div>
           <div class="founder-name">Dinesh Thakkar</div>
-          <div class="founder-title">AMFI Registered Mutual Fund Distributor · ARN: 24454</div>
-          <p class="founder-bio">
-            Dinesh Thakkar co-founded Real Value Portfolio Management alongside Hansa, bringing a strategic, long-term perspective to the firm's growth and client advisory model. His three decades in wealth management have sharpened an investment philosophy rooted in discipline, consistency, and client-first thinking.
-            <br><br>
-            Dinesh has guided clients through every major market cycle of the modern era — from the liberalisation boom of the 1990s to the 2008 global financial crisis and the pandemic-era volatility — always steering portfolios with calm, evidence-based conviction.
-            <br><br>
-            As Managing Director, he oversees portfolio strategy, fund research, and ensures that every client's investment plan is built to weather any market and meet real life goals.
-          </p>
-          <div class="founder-stats">
-            <div><span class="fstat-num">30+</span><div class="fstat-lbl">Yrs Experience</div></div>
-            <div><span class="fstat-num">500+</span><div class="fstat-lbl">Families Served</div></div>
-            <div><span class="fstat-num">₹100Cr+</span><div class="fstat-lbl">AUM Managed</div></div>
-          </div>
+        </div>
+        <div class="founder-title">AMFI Registered Mutual Fund Distributors · ARN: 24454 · NJ India Partners</div>
+        <p class="founder-bio">
+          Hansa and Dinesh Thakkar are the founders of Real Value Portfolio Management — a firm built not on a corporate pitch, but on a genuine belief that every Indian family deserves honest, expert financial guidance.
+          <br><br>
+          Together, they bring over three decades of combined experience in mutual fund distribution, wealth management, and goal-based financial planning. Hansa established the firm with a client-first ethos that has defined Real Value's culture from the beginning — her warmth, patience, and deep understanding of family finances have made her a trusted advisor to hundreds of investors across Gujarat and beyond.
+          <br><br>
+          Dinesh brings the strategic backbone — guiding portfolio construction, fund research, and long-term planning through every major market cycle of the modern era: the liberalisation boom, the 2008 global financial crisis, and the pandemic. His steady, conviction-driven approach has helped clients stay the course when markets were uncertain and emerge stronger on the other side.
+          <br><br>
+          As co-founders and Managing Directors, they oversee the firm's operations, client relationships, and investment philosophy — ensuring Real Value remains what it has always been: a firm that puts people before products.
+        </p>
+        <div class="founder-stats">
+          <div><span class="fstat-num">30+</span><div class="fstat-lbl">Yrs Experience</div></div>
+          <div><span class="fstat-num">500+</span><div class="fstat-lbl">Families Served</div></div>
+          <div><span class="fstat-num">₹100Cr+</span><div class="fstat-lbl">AUM Managed</div></div>
         </div>
       </div>
-
     </div>
   </div>
 
