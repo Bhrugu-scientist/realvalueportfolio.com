@@ -516,7 +516,7 @@ footer { background:#0e0e0e;color:rgba(255,255,255,.3);padding:52px 6% 28px; }
           <option value="1Cr+">₹1 Crore+</option>
         </select>
       </div>
-      <button type="submit" class="btn-dark form-submit">Get My Free Review →</button>
+      <button type="submit" id="submit-btn" class="btn-dark form-submit">Get My Free Review →</button>
       <p class="form-note">🔒 Your information is 100% confidential. We never share your data.</p>
     </form>
     <div id="success-msg">
@@ -640,13 +640,33 @@ const obs = new IntersectionObserver(entries => {
 }, { threshold: 0.1 })
 document.querySelectorAll('.rv').forEach(el => obs.observe(el))
 
-// Form submit
-function handleSubmit(e) {
+// Form submit — posts to Formspree, then shows success + WhatsApp
+async function handleSubmit(e) {
   e.preventDefault()
-  const data = new FormData(document.getElementById('review-form'))
+  const form = document.getElementById('review-form')
+  const btn  = document.getElementById('submit-btn')
+  const data = new FormData(form)
   const name = data.get('name'), phone = data.get('phone'), amount = data.get('amount')
+
+  btn.textContent = 'Submitting…'
+  btn.disabled = true
+
+  try {
+    const res = await fetch('https://formspree.io/f/mpqkbdyo', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    })
+    if (!res.ok) throw new Error()
+  } catch {
+    btn.textContent = 'Get My Free Review →'
+    btn.disabled = false
+    alert('Something went wrong. Please try again or call us directly.')
+    return
+  }
+
   const msg = encodeURIComponent(`Hi, I just requested a free portfolio review.\n\nName: ${name}\nPhone: ${phone}\nInvestment: ${amount}\n\nPlease get in touch!`)
-  document.getElementById('review-form').style.display = 'none'
+  form.style.display = 'none'
   document.getElementById('success-msg').classList.add('show')
   document.getElementById('wa-success-link').href = `https://wa.me/919662019850?text=${msg}`
   if (/iPhone|Android/i.test(navigator.userAgent)) {
