@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Free Portfolio Review | Real Value Portfolio Management | AMFI ARN 24454</title>
+<meta name="description" content="Get a free personalised equity mutual fund review from India's most trusted advisor. 30+ years, ₹100Cr+ AUM, 1000+ clients. Book your free consultation today."/>
+<link rel="canonical" href="https://www.realvalueportfolio.com/landing.html"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          gold: { DEFAULT: '#C9A84C', light: '#E2C16E', dark: '#A8872E' },
+          ink:  { DEFAULT: '#0D0D0D', 2: '#1a1a1a', 3: '#2a2a2a' },
+          cream: '#F5F0E8',
+        },
+        fontFamily: {
+          sans: ['DM Sans', 'sans-serif'],
+          serif: ['Playfair Display', 'serif'],
+        }
+      }
+    }
+  }
+</script>
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: #0D0D0D; color: #F5F0E8; font-family: 'DM Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+
+  /* Gold gradient text */
+  .gold-text {
+    background: linear-gradient(135deg, #E2C16E 0%, #C9A84C 50%, #A8872E 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  /* Gold border shimmer */
+  .gold-border { border: 1px solid rgba(201,168,76,0.35); }
+  .gold-border-strong { border: 1px solid rgba(201,168,76,0.65); }
+
+  /* Subtle grain texture overlay */
+  body::before {
+    content: '';
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    opacity: 0.4;
+  }
+
+  /* Section divider line */
+  .divider { height: 1px; background: linear-gradient(to right, transparent, rgba(201,168,76,0.25), transparent); }
+
+  /* CTA primary button */
+  .btn-gold {
+    background: linear-gradient(135deg, #C9A84C, #A8872E);
+    color: #0D0D0D; font-weight: 700; letter-spacing: 0.03em;
+    transition: all 0.2s ease; box-shadow: 0 4px 24px rgba(201,168,76,0.25);
+  }
+  .btn-gold:hover { transform: translateY(-1px); box-shadow: 0 8px 32px rgba(201,168,76,0.4); filter: brightness(1.08); }
+
+  /* WhatsApp button */
+  .btn-wa {
+    background: transparent;
+    border: 1.5px solid rgba(201,168,76,0.5); color: #E2C16E;
+    transition: all 0.2s ease;
+  }
+  .btn-wa:hover { background: rgba(201,168,76,0.08); border-color: #C9A84C; transform: translateY(-1px); }
+
+  /* Sticky WhatsApp FAB */
+  .wa-fab {
+    position: fixed; bottom: 24px; right: 20px; z-index: 999;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: #25D366; color: white;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 28px rgba(37,211,102,0.45);
+    transition: all 0.2s ease;
+    animation: pulse-wa 2.5s ease-in-out infinite;
+  }
+  .wa-fab:hover { transform: scale(1.1); box-shadow: 0 8px 36px rgba(37,211,102,0.6); }
+
+  @keyframes pulse-wa {
+    0%, 100% { box-shadow: 0 6px 28px rgba(37,211,102,0.45); }
+    50% { box-shadow: 0 6px 40px rgba(37,211,102,0.7); }
+  }
+
+  /* Stat card */
+  .stat-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(201,168,76,0.18);
+    border-radius: 12px;
+    transition: border-color 0.2s;
+  }
+  .stat-card:hover { border-color: rgba(201,168,76,0.45); }
+
+  /* Pain point card */
+  .pain-card {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px;
+    transition: all 0.2s;
+  }
+  .pain-card:hover { background: rgba(255,255,255,0.04); border-color: rgba(201,168,76,0.2); }
+
+  /* Fade up animation */
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* Form input */
+  .form-input {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px; color: #F5F0E8;
+    transition: border-color 0.2s;
+    width: 100%; padding: 14px 16px; font-size: 15px;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .form-input:focus { outline: none; border-color: rgba(201,168,76,0.6); background: rgba(255,255,255,0.07); }
+  .form-input::placeholder { color: rgba(245,240,232,0.35); }
+  select.form-input option { background: #1a1a1a; color: #F5F0E8; }
+
+  /* Urgency bar */
+  .urgency-bar {
+    background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(201,168,76,0.06));
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 12px;
+  }
+
+  /* Success message */
+  #success-msg { display: none; }
+  #success-msg.show { display: flex; }
+
+  /* Hero gradient blob */
+  .hero-glow {
+    position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 700px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Section label */
+  .section-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 3px;
+    color: #C9A84C; text-transform: uppercase;
+  }
+
+  /* Checklist */
+  .check-item::before {
+    content: '✓';
+    color: #C9A84C; font-weight: 700; margin-right: 10px; flex-shrink: 0;
+  }
+  .check-item { display: flex; align-items: flex-start; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     STICKY WHATSAPP FAB
+════════════════════════════════════════════ -->
+<a href="https://wa.me/919662019850?text=Hi%2C%20I%20want%20a%20free%20portfolio%20review" target="_blank" class="wa-fab" aria-label="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- ═══════════════════════════════════════════
+     1. HERO
+════════════════════════════════════════════ -->
+<section class="relative min-h-screen flex flex-col items-center justify-center text-center px-5 pt-16 pb-20 overflow-hidden">
+  <div class="hero-glow"></div>
+
+  <!-- Trust badge -->
+  <div class="relative z-10 inline-flex items-center gap-2 px-4 py-2 rounded-full gold-border mb-10 fade-up">
+    <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+    <span style="font-size:12px;font-weight:600;letter-spacing:1.5px;color:rgba(245,240,232,0.65);">AMFI REGISTERED · ARN 24454 · EST. 1994</span>
+  </div>
+
+  <!-- Headline -->
+  <h1 class="relative z-10 font-serif text-4xl md:text-6xl lg:text-7xl font-bold leading-tight max-w-4xl fade-up" style="animation-delay:.1s">
+    Invest ₹10L–₹1Cr<br>
+    <span class="gold-text">The Right Way in 2026</span>
+  </h1>
+
+  <!-- Subheadline -->
+  <p class="relative z-10 mt-6 text-lg md:text-xl max-w-2xl fade-up" style="color:rgba(245,240,232,0.6);line-height:1.7;animation-delay:.2s">
+    Avoid costly mistakes. Get a personalised equity mutual fund strategy from India's most trusted advisor — <strong style="color:rgba(245,240,232,0.85);">30+ years, ₹100Cr+ AUM, 1,000+ investors.</strong>
+  </p>
+
+  <!-- CTA buttons -->
+  <div class="relative z-10 flex flex-col sm:flex-row gap-4 mt-10 fade-up" style="animation-delay:.3s">
+    <a href="#lead-form" class="btn-gold px-8 py-4 rounded-xl text-base cursor-pointer" style="text-decoration:none;display:inline-block">
+      Get Free Portfolio Review →
+    </a>
+    <a href="https://wa.me/919662019850?text=Hi%2C%20I%20want%20a%20free%20portfolio%20review" target="_blank" class="btn-wa px-8 py-4 rounded-xl text-base" style="text-decoration:none;display:inline-block">
+      💬 Chat on WhatsApp
+    </a>
+  </div>
+
+  <!-- Micro trust line -->
+  <p class="relative z-10 mt-6 fade-up" style="font-size:13px;color:rgba(245,240,232,0.35);animation-delay:.4s">
+    No spam. No pressure. 100% free consultation.
+  </p>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1" style="color:rgba(245,240,232,0.2)">
+    <span style="font-size:11px;letter-spacing:2px">SCROLL</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<div class="divider mx-8"></div>
+
+<!-- ═══════════════════════════════════════════
+     2. TRUST / STATS
+════════════════════════════════════════════ -->
+<section class="py-20 px-5 max-w-5xl mx-auto">
+  <div class="text-center mb-14 fade-up">
+    <p class="section-label mb-3">Why Thousands Trust Us</p>
+    <h2 class="font-serif text-3xl md:text-4xl font-bold">Numbers That Speak for Themselves</h2>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Stat 1 -->
+    <div class="stat-card p-8 text-center fade-up">
+      <div class="text-5xl font-bold gold-text font-serif mb-2">₹100Cr+</div>
+      <div style="font-size:13px;font-weight:600;letter-spacing:1.5px;color:rgba(245,240,232,0.45);text-transform:uppercase">Assets Under Management</div>
+      <p class="mt-3 text-sm" style="color:rgba(245,240,232,0.5)">Trusted capital managed across equity and debt mutual funds for real investors</p>
+    </div>
+    <!-- Stat 2 -->
+    <div class="stat-card p-8 text-center fade-up" style="transition-delay:.1s">
+      <div class="text-5xl font-bold gold-text font-serif mb-2">1,000+</div>
+      <div style="font-size:13px;font-weight:600;letter-spacing:1.5px;color:rgba(245,240,232,0.45);text-transform:uppercase">Satisfied Investors</div>
+      <p class="mt-3 text-sm" style="color:rgba(245,240,232,0.5)">Families, professionals and HNIs across India who sleep well knowing their wealth is growing</p>
+    </div>
+    <!-- Stat 3 -->
+    <div class="stat-card p-8 text-center fade-up" style="transition-delay:.2s">
+      <div class="text-5xl font-bold gold-text font-serif mb-2">30+</div>
+      <div style="font-size:13px;font-weight:600;letter-spacing:1.5px;color:rgba(245,240,232,0.45);text-transform:uppercase">Years of Experience</div>
+      <p class="mt-3 text-sm" style="color:rgba(245,240,232,0.5)">AMFI registered since 1994 — we've guided clients through 2008, 2020 and every crash in between</p>
+    </div>
+  </div>
+  <!-- NJ India badge -->
+  <div class="mt-10 text-center fade-up">
+    <p class="text-sm" style="color:rgba(245,240,232,0.4)">Official NJ India Business Partner · SEBI-regulated · Your capital is 100% safe</p>
+  </div>
+</section>
+
+<div class="divider mx-8"></div>
+
+<!-- ═══════════════════════════════════════════
+     3. PROBLEM SECTION
+════════════════════════════════════════════ -->
+<section class="py-20 px-5 max-w-4xl mx-auto">
+  <div class="text-center mb-14 fade-up">
+    <p class="section-label mb-3">Sound Familiar?</p>
+    <h2 class="font-serif text-3xl md:text-4xl font-bold">Most Investors Are Quietly Losing Money</h2>
+    <p class="mt-4 max-w-xl mx-auto" style="color:rgba(245,240,232,0.55);font-size:16px;line-height:1.7">Not from bad luck — from the same avoidable mistakes, made every day.</p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+    <div class="pain-card p-7 fade-up">
+      <div class="text-3xl mb-4">📉</div>
+      <h3 class="font-semibold text-lg mb-2">Wrong Fund Selection</h3>
+      <p class="text-sm" style="color:rgba(245,240,232,0.5);line-height:1.7">You picked the "top performer" from last year. It's now the worst in its category. Past returns don't predict future gains.</p>
+    </div>
+    <div class="pain-card p-7 fade-up" style="transition-delay:.1s">
+      <div class="text-3xl mb-4">⏰</div>
+      <h3 class="font-semibold text-lg mb-2">Market Timing Confusion</h3>
+      <p class="text-sm" style="color:rgba(245,240,232,0.5);line-height:1.7">You stopped your SIP when markets fell, and waited for "the right time" to re-enter. Time in the market beats timing the market every time.</p>
+    </div>
+    <div class="pain-card p-7 fade-up" style="transition-delay:.2s">
+      <div class="text-3xl mb-4">😤</div>
+      <h3 class="font-semibold text-lg mb-2">Low Returns Despite Investing</h3>
+      <p class="text-sm" style="color:rgba(245,240,232,0.5);line-height:1.7">Your FDs give 7%. Inflation runs at 6.5%. You're barely breaking even. Equity mutual funds could give you 12–15% over 10 years.</p>
+    </div>
+  </div>
+  <div class="mt-10 p-6 rounded-xl text-center fade-up" style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2)">
+    <p class="font-semibold text-base" style="color:#E2C16E">These aren't your failures. They're the market's traps. <span style="color:rgba(245,240,232,0.7)">We help you avoid every one of them.</span></p>
+  </div>
+</section>
+
+<div class="divider mx-8"></div>
+
+<!-- ═══════════════════════════════════════════
+     4. SOLUTION SECTION
+════════════════════════════════════════════ -->
+<section class="py-20 px-5 max-w-4xl mx-auto">
+  <div class="text-center mb-14 fade-up">
+    <p class="section-label mb-3">Our Approach</p>
+    <h2 class="font-serif text-3xl md:text-4xl font-bold">Wealth Management That <span class="gold-text">Actually Works</span></h2>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="fade-up">
+      <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.25)">
+        <span class="text-xl">🎯</span>
+      </div>
+      <h3 class="font-semibold text-lg mb-3">Personalised Portfolio Strategy</h3>
+      <p class="text-sm" style="color:rgba(245,240,232,0.55);line-height:1.75">No cookie-cutter portfolios. Every recommendation is built around your income, risk tolerance, goals, and timeline — nothing else.</p>
+    </div>
+    <div class="fade-up" style="transition-delay:.1s">
+      <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.25)">
+        <span class="text-xl">📊</span>
+      </div>
+      <h3 class="font-semibold text-lg mb-3">Data-Driven Decisions</h3>
+      <p class="text-sm" style="color:rgba(245,240,232,0.55);line-height:1.75">We analyse rolling returns, downside risk, Alpha, Sharpe ratios and sectoral allocation — not just star ratings — to pick the right funds.</p>
+    </div>
+    <div class="fade-up" style="transition-delay:.2s">
+      <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.25)">
+        <span class="text-xl">🌱</span>
+      </div>
+      <h3 class="font-semibold text-lg mb-3">Long-Term Wealth Creation</h3>
+      <p class="text-sm" style="color:rgba(245,240,232,0.55);line-height:1.75">We're not here for quick wins. We build compounding machines — portfolios designed to double every 5–7 years with managed risk.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider mx-8"></div>
+
+<!-- ═══════════════════════════════════════════
+     5. OFFER SECTION
+════════════════════════════════════════════ -->
+<section class="py-20 px-5 max-w-3xl mx-auto">
+  <div class="fade-up rounded-2xl p-10 md:p-14 text-center" style="background:linear-gradient(135deg,rgba(201,168,76,0.1),rgba(201,168,76,0.04));border:1px solid rgba(201,168,76,0.3)">
+    <div class="inline-block px-4 py-1.5 rounded-full mb-5" style="background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.4)">
+      <span style="font-size:12px;font-weight:700;letter-spacing:2px;color:#C9A84C">LIMITED TIME OFFER</span>
+    </div>
+    <h2 class="font-serif text-3xl md:text-4xl font-bold mb-3">Free Portfolio Review</h2>
+    <p class="gold-text font-semibold text-lg mb-8">(Worth ₹5,000 — Yours Free)</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left mb-10">
+      <div class="check-item text-sm" style="color:rgba(245,240,232,0.75);line-height:1.6">
+        <span style="color:#C9A84C;font-weight:700;margin-right:10px;flex-shrink:0">✓</span>
+        <span><strong style="color:#F5F0E8">Fund-by-Fund Analysis</strong><br>We review every fund you hold and tell you honestly what to keep, what to exit, and why.</span>
+      </div>
+      <div class="check-item text-sm" style="color:rgba(245,240,232,0.75);line-height:1.6">
+        <span style="color:#C9A84C;font-weight:700;margin-right:10px;flex-shrink:0">✓</span>
+        <span><strong style="color:#F5F0E8">Risk Assessment</strong><br>Understand your real risk exposure and whether your portfolio matches your actual risk appetite.</span>
+      </div>
+      <div class="check-item text-sm" style="color:rgba(245,240,232,0.75);line-height:1.6">
+        <span style="color:#C9A84C;font-weight:700;margin-right:10px;flex-shrink:0">✓</span>
+        <span><strong style="color:#F5F0E8">Recommended Allocation</strong><br>A clear, actionable plan — exactly how much to invest, in which funds, and when to rebalance.</span>
+      </div>
+    </div>
+
+    <a href="#lead-form" class="btn-gold inline-block px-10 py-4 rounded-xl text-base" style="text-decoration:none">
+      Claim My Free Review →
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     6. LEAD CAPTURE FORM
+════════════════════════════════════════════ -->
+<section id="lead-form" class="py-20 px-5 max-w-xl mx-auto">
+  <div class="text-center mb-10 fade-up">
+    <p class="section-label mb-3">Get Started</p>
+    <h2 class="font-serif text-3xl md:text-4xl font-bold">Book Your Free Portfolio Review</h2>
+    <p class="mt-4 text-sm" style="color:rgba(245,240,232,0.5)">Takes 60 seconds. Our advisor will reach out within 24 hours.</p>
+  </div>
+
+  <!-- Form card -->
+  <div class="fade-up rounded-2xl p-8 md:p-10" style="background:rgba(255,255,255,0.03);border:1px solid rgba(201,168,76,0.25)">
+    <form id="review-form" onsubmit="handleSubmit(event)">
+      <div class="mb-5">
+        <label class="block text-sm font-medium mb-2" style="color:rgba(245,240,232,0.6)">Full Name</label>
+        <input type="text" name="name" required placeholder="Your full name" class="form-input"/>
+      </div>
+      <div class="mb-5">
+        <label class="block text-sm font-medium mb-2" style="color:rgba(245,240,232,0.6)">Phone Number</label>
+        <input type="tel" name="phone" required placeholder="+91 98765 43210" class="form-input" pattern="[0-9+\s\-]{10,15}"/>
+      </div>
+      <div class="mb-8">
+        <label class="block text-sm font-medium mb-2" style="color:rgba(245,240,232,0.6)">Investment Amount</label>
+        <select name="amount" required class="form-input">
+          <option value="" disabled selected>Select your investment range</option>
+          <option value="5L-10L">₹5 Lakh – ₹10 Lakh</option>
+          <option value="10L-50L">₹10 Lakh – ₹50 Lakh</option>
+          <option value="50L-1Cr">₹50 Lakh – ₹1 Crore</option>
+          <option value="1Cr+">₹1 Crore+</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-gold w-full py-4 rounded-xl text-base cursor-pointer" style="border:none">
+        Get My Free Review →
+      </button>
+      <p class="mt-4 text-center text-xs" style="color:rgba(245,240,232,0.3)">🔒 Your information is 100% secure. We never share or sell your data.</p>
+    </form>
+
+    <!-- Success message -->
+    <div id="success-msg" class="flex-col items-center text-center py-6 gap-4">
+      <div class="text-5xl">🎉</div>
+      <h3 class="font-serif text-2xl font-bold mt-2">You're on the list!</h3>
+      <p class="text-sm mt-2" style="color:rgba(245,240,232,0.6)">Our advisor will call you within 24 hours. Want to connect faster?</p>
+      <a href="https://wa.me/919662019850?text=Hi%2C%20I%20just%20submitted%20my%20details%20for%20a%20free%20portfolio%20review" target="_blank" class="mt-4 btn-gold inline-block px-8 py-3 rounded-xl text-sm" style="text-decoration:none">
+        💬 Chat on WhatsApp Now
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="divider mx-8"></div>
+
+<!-- ═══════════════════════════════════════════
+     7. URGENCY / SCARCITY
+════════════════════════════════════════════ -->
+<section class="py-16 px-5 max-w-3xl mx-auto">
+  <div class="urgency-bar p-8 md:p-10 rounded-xl text-center fade-up">
+    <div class="text-2xl mb-4">⏳</div>
+    <h3 class="font-serif text-2xl md:text-3xl font-bold mb-3">We Only Onboard <span class="gold-text">12 New Clients</span> Each Month</h3>
+    <p class="text-sm mb-6 max-w-md mx-auto" style="color:rgba(245,240,232,0.55);line-height:1.7">
+      Personalised advisory requires real attention. To maintain quality, we strictly limit new client intake. Spots for <strong style="color:rgba(245,240,232,0.8)">May 2026</strong> are filling up.
+    </p>
+    <!-- Fake availability bar -->
+    <div class="max-w-xs mx-auto mb-5">
+      <div class="flex justify-between text-xs mb-2" style="color:rgba(245,240,232,0.45)">
+        <span>Spots filled this month</span>
+        <span style="color:#C9A84C;font-weight:600">8 of 12</span>
+      </div>
+      <div class="h-2 rounded-full" style="background:rgba(255,255,255,0.08)">
+        <div class="h-full rounded-full" style="width:67%;background:linear-gradient(to right,#C9A84C,#A8872E)"></div>
+      </div>
+    </div>
+    <a href="#lead-form" class="btn-gold inline-block px-8 py-3.5 rounded-xl text-sm" style="text-decoration:none">
+      Secure My Spot →
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     TESTIMONIALS
+════════════════════════════════════════════ -->
+<section class="py-16 px-5 max-w-5xl mx-auto">
+  <div class="text-center mb-12 fade-up">
+    <p class="section-label mb-3">Client Stories</p>
+    <h2 class="font-serif text-3xl font-bold">What Our Investors Say</h2>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+    <div class="pain-card p-7 fade-up">
+      <div class="flex gap-1 mb-4">
+        <span class="text-gold text-sm">★★★★★</span>
+      </div>
+      <p class="text-sm mb-5" style="color:rgba(245,240,232,0.65);line-height:1.75">"My ₹25L portfolio was a mess of random funds. After the review, they consolidated it into 6 well-chosen funds. My XIRR went from 9% to 16% in 2 years."</p>
+      <div>
+        <p class="font-semibold text-sm">Rakesh M.</p>
+        <p class="text-xs" style="color:rgba(245,240,232,0.35)">Business Owner, Surat</p>
+      </div>
+    </div>
+    <div class="pain-card p-7 fade-up" style="transition-delay:.1s">
+      <div class="flex gap-1 mb-4">
+        <span class="text-gold text-sm">★★★★★</span>
+      </div>
+      <p class="text-sm mb-5" style="color:rgba(245,240,232,0.65);line-height:1.75">"I was investing in FDs since 2018. Real Value showed me how much wealth I lost to inflation. Moved ₹50L to equity MFs. Best financial decision of my life."</p>
+      <div>
+        <p class="font-semibold text-sm">Priya S.</p>
+        <p class="text-xs" style="color:rgba(245,240,232,0.35)">Senior Manager, Ahmedabad</p>
+      </div>
+    </div>
+    <div class="pain-card p-7 fade-up" style="transition-delay:.2s">
+      <div class="flex gap-1 mb-4">
+        <span class="text-gold text-sm">★★★★★</span>
+      </div>
+      <p class="text-sm mb-5" style="color:rgba(245,240,232,0.65);line-height:1.75">"I tried DIY investing for 3 years, never beat the index. With Real Value managing my SIPs, I've consistently outperformed Nifty 50 for the past 4 years."</p>
+      <div>
+        <p class="font-semibold text-sm">Amit K.</p>
+        <p class="text-xs" style="color:rgba(245,240,232,0.35)">IT Professional, Pune</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider mx-8"></div>
+
+<!-- ═══════════════════════════════════════════
+     8. FINAL CTA
+════════════════════════════════════════════ -->
+<section class="py-24 px-5 text-center max-w-3xl mx-auto">
+  <div class="fade-up">
+    <p class="section-label mb-5">The Best Time to Start Was Yesterday</p>
+    <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight">
+      Start Building <span class="gold-text">Real Wealth</span> Today
+    </h2>
+    <p class="text-lg mb-10 max-w-lg mx-auto" style="color:rgba(245,240,232,0.55);line-height:1.7">
+      Every month you delay is compounding working against you. A 10-minute conversation with us could change your financial trajectory for the next 20 years.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#lead-form" class="btn-gold px-10 py-4 rounded-xl text-base" style="text-decoration:none;display:inline-block">
+        Get My Free Portfolio Review →
+      </a>
+      <a href="https://wa.me/919662019850?text=Hi%2C%20I%20want%20a%20free%20portfolio%20review" target="_blank" class="btn-wa px-10 py-4 rounded-xl text-base" style="text-decoration:none;display:inline-block">
+        💬 WhatsApp Us Now
+      </a>
+    </div>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mt-10">
+      <a href="tel:+919662019850" class="flex items-center gap-2 text-sm" style="color:rgba(245,240,232,0.45);text-decoration:none">
+        <span>📞</span> +91 96620 19850
+      </a>
+      <span style="color:rgba(245,240,232,0.15)">·</span>
+      <a href="mailto:info@realvalueportfolio.com" class="text-sm" style="color:rgba(245,240,232,0.45);text-decoration:none">
+        info@realvalueportfolio.com
+      </a>
+      <span style="color:rgba(245,240,232,0.15)">·</span>
+      <span class="text-sm" style="color:rgba(245,240,232,0.45)">Bharuch, Gujarat</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+<footer class="py-8 px-5 text-center" style="border-top:1px solid rgba(255,255,255,0.06)">
+  <p class="text-xs" style="color:rgba(245,240,232,0.25);line-height:1.7;max-width:600px;margin:0 auto">
+    Real Value Portfolio Management · AMFI Registered Mutual Fund Distributor · ARN 24454 · NJ India Business Partner<br>
+    702, 7X The Business Hub, College Road, Bharuch, Gujarat 392001<br><br>
+    <em>Mutual fund investments are subject to market risks. Read all scheme-related documents carefully before investing. Past performance is not indicative of future returns.</em>
+  </p>
+  <div class="mt-6">
+    <a href="https://www.realvalueportfolio.com" class="text-xs" style="color:rgba(245,240,232,0.3);text-decoration:none">← Back to main site</a>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════ -->
+<script>
+  // Intersection Observer for fade-up animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.classList.add('visible')
+        observer.unobserve(el.target)
+      }
+    })
+  }, { threshold: 0.12 })
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el))
+
+  // Trigger hero animations immediately
+  setTimeout(() => {
+    document.querySelectorAll('.fade-up').forEach(el => {
+      const rect = el.getBoundingClientRect()
+      if (rect.top < window.innerHeight) el.classList.add('visible')
+    })
+  }, 100)
+
+  // Form submission
+  function handleSubmit(e) {
+    e.preventDefault()
+    const form = document.getElementById('review-form')
+    const success = document.getElementById('success-msg')
+    const data = new FormData(form)
+    const name = data.get('name')
+    const phone = data.get('phone')
+    const amount = data.get('amount')
+
+    // Hide form, show success
+    form.style.display = 'none'
+    success.classList.add('show')
+
+    // Update WhatsApp link with user details
+    const waMsg = encodeURIComponent(`Hi, I just requested a free portfolio review.\n\nName: ${name}\nPhone: ${phone}\nInvestment: ${amount}\n\nPlease get in touch!`)
+    success.querySelector('a').href = `https://wa.me/919662019850?text=${waMsg}`
+
+    // Auto redirect to WhatsApp after 3s on mobile
+    if (/iPhone|Android/i.test(navigator.userAgent)) {
+      setTimeout(() => {
+        window.open(`https://wa.me/919662019850?text=${waMsg}`, '_blank')
+      }, 3000)
+    }
+  }
+</script>
+</body>
+</html>
