@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Free Portfolio Check · Real Value Portfolio Management</title>
+<meta name="description" content="Is your portfolio actually working? Check in 2 minutes — no signup required. Find hidden costs, fund overlap and get a free expert recommendation."/>
+<link rel="canonical" href="https://www.realvalueportfolio.com/check.html"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<!-- PostHog Analytics -->
+<script>
+  !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}var u=a!==undefined?a:"posthog";o=t.createElement("script"),o.type="text/javascript",o.async=!0,o.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(n=t.getElementsByTagName("script")[0]).parentNode.insertBefore(o,n);var c=e;a!==undefined&&(c=e[a]=[]),c.people=c.people||[],c.toString=function(t){var e="posthog";return a!==undefined&&(e+="."+a),t||(e+=" (stub)"),e},c.people.toString=function(){return c.toString(1)+" (stub)"},g(c,"capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys getNextSurveyStep onSessionId setPersonPropertiesForFlags"),e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+  posthog.init("phc_vCVstSsgHMu7smLHSy77kCojnpKxgXgUMHFA4imBp4Re",{api_host:"https://us.i.posthog.com",capture_pageview:true,capture_pageleave:true,person_profiles:"identified_only"});
+</script>
+<style>
+:root{--bg:#FCFCFC;--ink:#232323;--white:#fff;--off:#F0F0F0;--dark:#0f0f0f;--blue:#4A7EFF;--blue2:#3a6eef;--green:#1a6645;--muted:#777;--light:#AAA;--bdr:rgba(35,35,35,0.1);--pill:50px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:16px;scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+/* NAV */
+#nw{position:fixed;top:0;left:0;right:0;z-index:600;padding:14px 5%;pointer-events:none;}
+#nav{background:rgba(35,35,35,0.97);backdrop-filter:blur(24px) saturate(180%);border-radius:var(--pill);display:flex;align-items:center;justify-content:space-between;padding:10px 22px;pointer-events:all;box-shadow:0 4px 32px rgba(0,0,0,0.22);}
+.nl{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+.lm{width:32px;height:32px;background:var(--green);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.95rem;font-weight:700;color:#fff;}
+.lt{font-size:1.05rem;font-weight:600;color:#fff;letter-spacing:-.3px;}
+.lt em{color:#fff;font-style:normal;font-weight:400;opacity:.55;}
+.nlinks{display:flex;gap:2px;list-style:none;}
+.nlinks a{color:rgba(255,255,255,.65);text-decoration:none;font-size:.88rem;font-weight:500;padding:7px 14px;border-radius:20px;transition:all .2s;}
+.nlinks a:hover,.nlinks a.active{color:#fff;background:rgba(255,255,255,.08);}
+.nr{display:flex;gap:8px;align-items:center;}
+.bgl{background:transparent;border:none;color:rgba(255,255,255,.7);padding:8px 16px;font-size:.88rem;font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none;font-family:'DM Sans',sans-serif;border-radius:20px;}
+.bgl:hover{color:#fff;background:rgba(255,255,255,.08);}
+.bgc{background:var(--blue);color:#fff;padding:9px 22px;border-radius:var(--pill);font-size:.88rem;font-weight:600;cursor:pointer;border:none;transition:all .2s;text-decoration:none;font-family:'DM Sans',sans-serif;box-shadow:0 4px 16px rgba(74,126,255,.35);}
+.bgc:hover{background:var(--blue2);transform:translateY(-1px);}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;z-index:700;flex-shrink:0;}
+.ham span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s;}
+.ham.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.ham.open span:nth-child(2){opacity:0;}
+.ham.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+.mob-menu{display:none;position:fixed;inset:0;background:rgba(12,12,12,.98);z-index:590;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:40px;}
+.mob-menu.open{display:flex;}
+.mob-menu a{color:rgba(255,255,255,.75);text-decoration:none;font-size:1.7rem;font-weight:600;padding:10px 24px;letter-spacing:-.5px;transition:color .2s;text-align:center;}
+.mob-menu a:hover{color:#fff;}
+.mob-menu .mob-div{width:40px;height:1px;background:rgba(255,255,255,.1);margin:10px 0;}
+.mob-menu .mob-cta{background:var(--blue);color:#fff;padding:14px 40px;border-radius:var(--pill);font-size:1rem;margin-top:10px;box-shadow:0 4px 24px rgba(74,126,255,.4);}
+.wfab{position:fixed;bottom:26px;right:26px;z-index:800;width:56px;height:56px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.45);transition:all .25s;}
+.wfab:hover{transform:scale(1.1);}
+/* HERO */
+.check-hero{padding:160px 6% 80px;text-align:center;background:var(--bg);border-bottom:1px solid var(--bdr);}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:var(--pill);border:1px solid var(--bdr);background:var(--white);font-size:.78rem;font-weight:600;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-bottom:32px;}
+.badge .dot{width:7px;height:7px;border-radius:50%;background:#25d366;flex-shrink:0;}
+.check-hero h1{font-size:clamp(2.8rem,6vw,5rem);font-weight:600;line-height:1;letter-spacing:-2px;margin-bottom:20px;}
+.check-hero h1 em{font-style:italic;font-weight:300;}
+.check-hero p{font-size:1.1rem;color:var(--muted);max-width:520px;margin:0 auto;line-height:1.75;}
+/* PATH CARDS */
+.paths{padding:72px 6%;background:var(--off);}
+.paths-inner{max-width:1100px;margin:0 auto;}
+.paths h2{text-align:center;font-size:1.05rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:36px;}
+.path-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.path-card{background:var(--white);border:2px solid var(--bdr);border-radius:20px;padding:36px 28px;cursor:pointer;transition:all .3s;position:relative;}
+.path-card:hover{border-color:var(--blue);transform:translateY(-4px);box-shadow:0 16px 48px rgba(74,126,255,.12);}
+.path-card.featured{border-color:var(--blue);background:var(--blue);}
+.path-card.featured *{color:#fff!important;}
+.path-icon{font-size:2.2rem;margin-bottom:18px;display:block;}
+.path-card h3{font-size:1.2rem;font-weight:700;letter-spacing:-.3px;margin-bottom:10px;color:var(--ink);}
+.path-card p{font-size:.92rem;color:var(--muted);line-height:1.6;margin-bottom:20px;}
+.path-tag{font-size:.78rem;font-weight:600;color:var(--blue);background:rgba(74,126,255,.08);padding:5px 12px;border-radius:20px;}
+.path-card.featured .path-tag{color:rgba(255,255,255,.8);background:rgba(255,255,255,.15);}
+/* SECTIONS */
+.level-section{display:none;padding:72px 6%;max-width:860px;margin:0 auto;}
+.level-section.active{display:block;}
+.sec-head{margin-bottom:48px;}
+.sec-head h2{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;letter-spacing:-.8px;margin-bottom:10px;}
+.sec-head p{color:var(--muted);font-size:1rem;line-height:1.7;}
+.back-btn{background:none;border:1px solid var(--bdr);color:var(--muted);font-size:.88rem;font-family:'DM Sans',sans-serif;padding:8px 20px;border-radius:var(--pill);cursor:pointer;margin-bottom:32px;transition:all .2s;}
+.back-btn:hover{border-color:var(--ink);color:var(--ink);}
+/* QUIZ */
+.quiz-progress{height:4px;background:var(--off);border-radius:2px;margin-bottom:40px;overflow:hidden;}
+.quiz-progress-bar{height:100%;background:var(--blue);border-radius:2px;transition:width .4s ease;}
+.quiz-q{font-size:1.4rem;font-weight:600;letter-spacing:-.4px;margin-bottom:28px;}
+.quiz-options{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.quiz-opt{background:var(--white);border:2px solid var(--bdr);border-radius:14px;padding:18px 20px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:14px;font-size:.97rem;font-weight:500;color:var(--ink);}
+.quiz-opt:hover{border-color:var(--blue);background:rgba(74,126,255,.04);}
+.quiz-opt.selected{border-color:var(--blue);background:rgba(74,126,255,.07);color:var(--blue);}
+.quiz-opt-icon{font-size:1.5rem;flex-shrink:0;}
+.quiz-next{margin-top:28px;background:var(--blue);color:#fff;border:none;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;padding:15px 40px;border-radius:var(--pill);cursor:pointer;transition:all .2s;display:none;}
+.quiz-next:hover{background:var(--blue2);}
+.quiz-next.visible{display:inline-flex;}
+/* FUND SEARCH */
+.fund-search-wrap{position:relative;margin-bottom:16px;}
+.fund-search-input{width:100%;padding:16px 20px;border:2px solid var(--bdr);border-radius:14px;font-size:1rem;font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--white);outline:none;transition:border-color .2s;}
+.fund-search-input:focus{border-color:var(--blue);}
+.fund-dropdown{position:absolute;top:calc(100% + 4px);left:0;right:0;background:var(--white);border:1px solid var(--bdr);border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.1);z-index:100;max-height:240px;overflow-y:auto;display:none;}
+.fund-dropdown.open{display:block;}
+.fund-dropdown-item{padding:12px 18px;cursor:pointer;font-size:.95rem;border-bottom:1px solid var(--bdr);transition:background .15s;}
+.fund-dropdown-item:last-child{border-bottom:none;}
+.fund-dropdown-item:hover{background:var(--off);}
+.fund-dropdown-item .fd-cat{font-size:.78rem;color:var(--muted);margin-top:2px;}
+.selected-funds{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px;min-height:20px;}
+.fund-tag{background:var(--ink);color:#fff;padding:8px 14px;border-radius:var(--pill);font-size:.86rem;font-weight:500;display:flex;align-items:center;gap:8px;}
+.fund-tag-remove{cursor:pointer;opacity:.6;font-size:1rem;line-height:1;}
+.fund-tag-remove:hover{opacity:1;}
+.run-btn{background:var(--blue);color:#fff;border:none;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;padding:15px 40px;border-radius:var(--pill);cursor:pointer;transition:all .2s;}
+.run-btn:hover{background:var(--blue2);}
+.run-btn:disabled{opacity:.4;cursor:not-allowed;}
+/* CAS UPLOAD */
+.cas-guide{background:var(--off);border-radius:16px;padding:28px;margin-bottom:36px;}
+.cas-guide h4{font-size:.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:18px;}
+.cas-steps{display:flex;flex-direction:column;gap:12px;}
+.cas-step{display:flex;align-items:flex-start;gap:14px;font-size:.93rem;color:var(--ink);}
+.cas-step-num{width:26px;height:26px;background:var(--blue);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0;margin-top:1px;}
+.cas-step a{color:var(--blue);text-decoration:none;font-weight:600;}
+.cas-step a:hover{text-decoration:underline;}
+.upload-zone{border:2px dashed rgba(74,126,255,.35);border-radius:20px;padding:60px 40px;text-align:center;cursor:pointer;transition:all .3s;background:rgba(74,126,255,.02);}
+.upload-zone:hover,.upload-zone.drag{border-color:var(--blue);background:rgba(74,126,255,.05);}
+.upload-icon{font-size:3rem;margin-bottom:16px;display:block;}
+.upload-zone h3{font-size:1.25rem;font-weight:600;margin-bottom:8px;}
+.upload-zone p{color:var(--muted);font-size:.92rem;margin-bottom:20px;}
+.upload-btn-label{background:var(--blue);color:#fff;padding:12px 32px;border-radius:var(--pill);font-size:.95rem;font-weight:600;cursor:pointer;display:inline-block;transition:all .2s;}
+.upload-btn-label:hover{background:var(--blue2);}
+.upload-note{font-size:.8rem;color:var(--light);margin-top:14px;}
+.parsing-state{text-align:center;padding:48px;display:none;}
+.parsing-spinner{width:48px;height:48px;border:3px solid var(--off);border-top-color:var(--blue);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 20px;}
+@keyframes spin{to{transform:rotate(360deg);}}
+/* RESULTS */
+#results{padding:72px 6%;display:none;}
+.results-inner{max-width:960px;margin:0 auto;}
+.result-hero{display:flex;align-items:center;gap:48px;margin-bottom:56px;background:var(--ink);border-radius:24px;padding:44px 48px;}
+.score-ring-wrap{flex-shrink:0;text-align:center;}
+.score-ring{width:140px;height:140px;}
+.score-text{position:relative;}
+.score-num{font-size:2.6rem;font-weight:700;color:#fff;display:block;margin-top:12px;letter-spacing:-1px;}
+.score-label{font-size:.82rem;color:rgba(255,255,255,.4);letter-spacing:1.5px;text-transform:uppercase;}
+.result-summary h2{font-size:1.7rem;font-weight:700;color:#fff;letter-spacing:-.5px;margin-bottom:10px;}
+.result-summary p{color:rgba(255,255,255,.5);font-size:.97rem;line-height:1.75;}
+.verdict-badge{display:inline-block;padding:6px 16px;border-radius:var(--pill);font-size:.82rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:16px;}
+.verdict-bad{background:rgba(239,68,68,.2);color:#f87171;}
+.verdict-ok{background:rgba(251,191,36,.2);color:#fbbf24;}
+.verdict-good{background:rgba(34,197,94,.2);color:#4ade80;}
+/* STATS GRID */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:40px;}
+.stat-card{background:var(--white);border:1px solid var(--bdr);border-radius:16px;padding:24px 20px;}
+.stat-label{font-size:.75rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+.stat-value{font-size:1.6rem;font-weight:700;color:var(--ink);letter-spacing:-.5px;}
+.stat-sub{font-size:.82rem;color:var(--muted);margin-top:4px;}
+.stat-warn{color:#ef4444;}
+/* FUNDS TABLE */
+.section-title{font-size:.78rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);margin-bottom:20px;}
+.funds-list{display:flex;flex-direction:column;gap:10px;margin-bottom:48px;}
+.fund-row{background:var(--white);border:1px solid var(--bdr);border-radius:14px;padding:18px 22px;display:flex;align-items:center;gap:16px;}
+.fund-row-name{flex:1;}
+.fund-row-name h4{font-size:.97rem;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.fund-row-name p{font-size:.82rem;color:var(--muted);}
+.fund-row-value{text-align:right;flex-shrink:0;}
+.fund-row-value .fv-amount{font-size:1rem;font-weight:700;color:var(--ink);}
+.fund-row-value .fv-er{font-size:.8rem;color:var(--muted);}
+.fund-row-flag{display:flex;flex-direction:column;gap:4px;align-items:flex-end;flex-shrink:0;}
+.flag{font-size:.74rem;font-weight:600;padding:3px 10px;border-radius:20px;}
+.flag-red{background:rgba(239,68,68,.1);color:#ef4444;}
+.flag-yellow{background:rgba(251,191,36,.1);color:#d97706;}
+.flag-green{background:rgba(34,197,94,.1);color:#16a34a;}
+.flag-grey{background:var(--off);color:var(--muted);}
+/* INSIGHTS */
+.insights-list{display:flex;flex-direction:column;gap:14px;margin-bottom:48px;}
+.insight-card{border-radius:14px;padding:20px 24px;border-left:4px solid;}
+.insight-bad{background:rgba(239,68,68,.05);border-color:#ef4444;}
+.insight-warn{background:rgba(251,191,36,.05);border-color:#f59e0b;}
+.insight-good{background:rgba(34,197,94,.05);border-color:#22c55e;}
+.insight-card h4{font-size:.95rem;font-weight:700;margin-bottom:4px;color:var(--ink);}
+.insight-card p{font-size:.9rem;color:var(--muted);line-height:1.6;}
+/* OVERLAP */
+.overlap-grid{display:grid;gap:12px;margin-bottom:48px;}
+.overlap-pair{background:var(--white);border:1px solid var(--bdr);border-radius:12px;padding:16px 20px;}
+.overlap-pair-names{font-size:.9rem;font-weight:600;color:var(--ink);margin-bottom:8px;}
+.overlap-bar-wrap{display:flex;align-items:center;gap:12px;}
+.overlap-bar{flex:1;height:8px;background:var(--off);border-radius:4px;overflow:hidden;}
+.overlap-fill{height:100%;border-radius:4px;transition:width .8s ease;}
+.overlap-pct{font-size:.88rem;font-weight:700;color:var(--ink);flex-shrink:0;width:40px;text-align:right;}
+/* CTA SECTION */
+.cta-section{background:var(--ink);padding:80px 6%;text-align:center;}
+.cta-section h2{font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#fff;letter-spacing:-1px;margin-bottom:16px;}
+.cta-section p{color:rgba(255,255,255,.45);font-size:1rem;max-width:480px;margin:0 auto 36px;line-height:1.75;}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-wa{background:#25d366;color:#fff;padding:16px 36px;border-radius:var(--pill);font-weight:600;font-size:1rem;text-decoration:none;transition:all .25s;display:inline-flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;}
+.btn-wa:hover{background:#1fb557;transform:translateY(-2px);}
+/* FOOTER */
+footer{background:#0e0e0e;color:rgba(255,255,255,.3);padding:72px 6% 28px;}
+.fg{display:grid;grid-template-columns:2.2fr 1fr 1fr 1.2fr;gap:56px;margin-bottom:50px;max-width:1200px;margin-left:auto;margin-right:auto;}
+.fbn{font-size:1.45rem;font-weight:600;color:#fff;margin-bottom:14px;display:block;letter-spacing:-.3px;}
+.fbn em{color:rgba(255,255,255,.32);font-style:normal;font-weight:400;}
+.fbrand p{font-size:.92rem;line-height:1.8;max-width:280px;}
+.famfi{font-size:.78rem;color:rgba(255,255,255,.18);margin-top:18px;line-height:1.65;}
+.fcol h5{color:#fff;font-size:.74rem;text-transform:uppercase;letter-spacing:2.5px;margin-bottom:20px;font-weight:600;}
+.fcol a{display:block;color:rgba(255,255,255,.3);text-decoration:none;font-size:.92rem;margin-bottom:11px;transition:color .2s;}
+.fcol a:hover{color:#fff;}
+.frow{display:flex;gap:10px;font-size:.9rem;margin-bottom:12px;}
+.fic{color:rgba(255,255,255,.45);flex-shrink:0;margin-top:1px;}
+.fbot{max-width:1200px;margin:0 auto;border-top:1px solid rgba(255,255,255,.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:.82rem;flex-wrap:wrap;gap:12px;}
+.fbot a{color:rgba(255,255,255,.2);text-decoration:none;}
+.fbot a:hover{color:#fff;}
+@media(max-width:900px){
+  .path-grid{grid-template-columns:1fr;}
+  .stats-grid{grid-template-columns:1fr 1fr;}
+  .result-hero{flex-direction:column;text-align:center;padding:32px 24px;}
+  .quiz-options{grid-template-columns:1fr;}
+  .fg{grid-template-columns:1fr 1fr;gap:32px;}
+  .nlinks,.nsearch{display:none;}
+  .ham{display:flex;}
+}
+@media(max-width:600px){
+  .fg{grid-template-columns:1fr;}
+  .stats-grid{grid-template-columns:1fr 1fr;}
+  .check-hero{padding:120px 5% 60px;}
+  .level-section{padding:48px 5%;}
+}
+</style>
+</head>
+<body>
+
+<a href="https://api.whatsapp.com/send?phone=919662019850&text=Hi%2C+I%27d+like+a+free+mutual+fund+portfolio+review." target="_blank" rel="noopener" class="wfab" aria-label="Chat on WhatsApp">💬</a>
+
+<!-- NAV -->
+<header>
+<div id="nw">
+  <nav id="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nl" aria-label="Real Value Home">
+      <div class="lm" aria-hidden="true">R</div>
+      <span class="lt">Real <em>Value</em></span>
+    </a>
+    <ul class="nlinks">
+      <li><a href="/#why">Why Us</a></li>
+      <li><a href="/#services">Services</a></li>
+      <li><a href="markets.html">Markets</a></li>
+      <li><a href="calculator.html">Calculator</a></li>
+      <li><a href="check.html" class="active">Portfolio Check</a></li>
+      <li><a href="team.html">Team</a></li>
+    </ul>
+    <div class="nr">
+      <a href="https://ewa.njindiaonline.com/ewa/login" target="_blank" rel="noopener" class="bgl">Client Login</a>
+      <a href="https://api.whatsapp.com/send?phone=919662019850" target="_blank" rel="noopener" class="bgc">Free Review</a>
+      <button class="ham" id="ham" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</div>
+</header>
+
+<div class="mob-menu" id="mobMenu" role="dialog" aria-label="Navigation menu">
+  <a href="/#why">Why Us</a>
+  <a href="/#services">Services</a>
+  <a href="markets.html">Markets</a>
+  <a href="calculator.html">Calculator</a>
+  <a href="check.html">Portfolio Check</a>
+  <a href="team.html">Team</a>
+  <div class="mob-div"></div>
+  <a href="https://ewa.njindiaonline.com/ewa/login" target="_blank">Client Login</a>
+  <a href="https://api.whatsapp.com/send?phone=919662019850" target="_blank" class="mob-cta">Free Review</a>
+</div>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="check-hero">
+  <div class="badge"><span class="dot"></span>Free · No Signup · 2 Minutes</div>
+  <h1>Is Your Portfolio <em>Actually Working?</em></h1>
+  <p>Most Indian investors unknowingly pay ₹20,000–₹2,00,000 per year in hidden fees and get zero extra returns for it. Find out where you stand.</p>
+</section>
+
+<!-- PATH SELECTOR -->
+<section class="paths" id="pathSection">
+  <div class="paths-inner">
+    <h2>Choose your starting point</h2>
+    <div class="path-grid">
+      <div class="path-card" onclick="showLevel(1)">
+        <span class="path-icon">🌱</span>
+        <h3>Just Starting Out</h3>
+        <p>You haven't invested in MFs yet or are just getting started. Find out what's right for you.</p>
+        <span class="path-tag">5 questions · 1 min</span>
+      </div>
+      <div class="path-card featured" onclick="showLevel(2)">
+        <span class="path-icon">📊</span>
+        <h3>I Have Some MFs</h3>
+        <p>You invest in mutual funds. Check for fund overlap, hidden costs and redundancy.</p>
+        <span class="path-tag">Enter fund names · 2 min</span>
+      </div>
+      <div class="path-card" onclick="showLevel(3)">
+        <span class="path-icon">🔬</span>
+        <h3>Full Portfolio Scan</h3>
+        <p>Upload your CAS statement for a complete diagnosis — all funds, all costs, all gaps.</p>
+        <span class="path-tag">Most detailed · 2 min</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEVEL 1: QUIZ -->
+<section class="level-section" id="l1">
+  <div style="max-width:640px;margin:0 auto;">
+    <button class="back-btn" onclick="goBack()">← Back</button>
+    <div class="sec-head">
+      <h2>Let's understand your situation</h2>
+      <p>5 quick questions — no jargon, no signup.</p>
+    </div>
+    <div class="quiz-progress"><div class="quiz-progress-bar" id="quizBar" style="width:20%"></div></div>
+    <div id="quizContent"></div>
+    <button class="quiz-next" id="quizNext" onclick="nextQuestion()">Continue →</button>
+  </div>
+</section>
+
+<!-- LEVEL 2: FUND SEARCH -->
+<section class="level-section" id="l2">
+  <button class="back-btn" onclick="goBack()">← Back</button>
+  <div class="sec-head">
+    <h2>Search your funds</h2>
+    <p>Type the name of each mutual fund you hold. We'll check for overlap and costs.</p>
+  </div>
+  <div class="fund-search-wrap">
+    <input type="text" class="fund-search-input" id="fundSearchInput" placeholder="e.g. HDFC Top 100, SBI Bluechip..." autocomplete="off" oninput="onFundSearch(this.value)">
+    <div class="fund-dropdown" id="fundDropdown"></div>
+  </div>
+  <div class="selected-funds" id="selectedFunds"></div>
+  <button class="run-btn" id="runLevel2" onclick="analyzeLevel2()" disabled>Analyse My Portfolio →</button>
+</section>
+
+<!-- LEVEL 3: CAS UPLOAD -->
+<section class="level-section" id="l3">
+  <button class="back-btn" onclick="goBack()">← Back</button>
+  <div class="sec-head">
+    <h2>Upload your CAS statement</h2>
+    <p>Your Consolidated Account Statement shows every mutual fund you hold across all AMCs — in one PDF.</p>
+  </div>
+  <div class="cas-guide">
+    <h4>How to download your CAS (takes 2 minutes)</h4>
+    <div class="cas-steps">
+      <div class="cas-step"><div class="cas-step-num">1</div><div>Go to <a href="https://www.camsonline.com/Investors/Statements/ConsolidatedAccountStatement" target="_blank" rel="noopener">camsonline.com → Statements → CAS</a></div></div>
+      <div class="cas-step"><div class="cas-step-num">2</div><div>Enter your registered email address &amp; PAN number</div></div>
+      <div class="cas-step"><div class="cas-step-num">3</div><div>Select <strong>Detailed</strong> statement type and any date range (e.g. last 1 year)</div></div>
+      <div class="cas-step"><div class="cas-step-num">4</div><div>You'll receive the PDF on your email within minutes</div></div>
+      <div class="cas-step"><div class="cas-step-num">5</div><div>Upload it below — we process everything in your browser, nothing is sent to our servers</div></div>
+    </div>
+  </div>
+  <div class="upload-zone" id="uploadZone" onclick="document.getElementById('casFile').click()" ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event)">
+    <span class="upload-icon">📄</span>
+    <h3>Drop your CAS PDF here</h3>
+    <p>or click to browse from your device</p>
+    <span class="upload-btn-label">Choose PDF</span>
+    <p class="upload-note">🔒 Processed entirely in your browser. We never see your data.</p>
+    <input type="file" id="casFile" accept=".pdf" style="display:none" onchange="handleCASFile(this.files[0])">
+  </div>
+  <div class="parsing-state" id="parsingState">
+    <div class="parsing-spinner"></div>
+    <p style="color:var(--muted);font-size:1rem;">Reading your CAS statement...</p>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section id="results">
+  <div class="results-inner">
+    <div class="result-hero" id="resultHero"></div>
+    <div style="margin-bottom:16px;"><p class="section-title">Key Metrics</p></div>
+    <div class="stats-grid" id="statsGrid"></div>
+    <p class="section-title" id="fundsTitle" style="display:none">Your Funds</p>
+    <div class="funds-list" id="fundsList"></div>
+    <p class="section-title" id="overlapTitle" style="display:none">Fund Overlap Analysis</p>
+    <div class="overlap-grid" id="overlapGrid"></div>
+    <p class="section-title">Key Insights</p>
+    <div class="insights-list" id="insightsList"></div>
+    <div style="text-align:center;margin-top:16px;">
+      <button class="back-btn" onclick="resetAll()" style="margin-right:12px;">← Start Over</button>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="ctaSection" style="display:none">
+  <h2>Get a Free Expert Review</h2>
+  <p>30 years of experience. ₹90Cr+ AUM. We'll tell you exactly what to keep, exit, and add — for free.</p>
+  <div class="cta-btns">
+    <a href="https://api.whatsapp.com/send?phone=919662019850&text=Hi%2C+I+just+checked+my+portfolio+on+your+website+and+would+like+a+free+review." target="_blank" rel="noopener" class="btn-wa">💬 WhatsApp Us for Free Review</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fg">
+    <div class="fbrand">
+      <span class="fbn">Real <em>Value</em></span>
+      <p>India's most results-driven mutual fund advisory. We build portfolios engineered to outperform — for 1,000+ investors, ₹90Cr+ AUM, since 1994.</p>
+      <div class="famfi">AMFI Registered Mutual Fund Distributor · ARN 24454<br>GSTN 24ABFPT8225J1ZD · NJ India Business Partner<br>Mutual fund investments are subject to market risks.</div>
+    </div>
+    <nav class="fcol" aria-label="Tools"><h5>Tools</h5><a href="check.html">Portfolio Check</a><a href="calculator.html">SIP Calculator</a><a href="markets.html">Market Watch</a></nav>
+    <nav class="fcol" aria-label="Account"><h5>Account</h5><a href="https://www.njindiaonline.in/cdesk/login.fin" target="_blank" rel="noopener">NJ Client Desk</a><a href="https://ewa.njindiaonline.com/ewa/login" target="_blank" rel="noopener">E-Wealth Login</a><a href="http://p.njw.bz/04009" target="_blank" rel="noopener">Registration</a><a href="team.html">Our Team</a></nav>
+    <div class="fcol"><h5>Contact</h5>
+      <div class="frow"><span class="fic">📍</span><span>702, 7X The Business Hub, College Road, Bharuch, Gujarat 392001</span></div>
+      <div class="frow"><span class="fic">📞</span><span>+91 96620 19850</span></div>
+      <div class="frow"><span class="fic">🕐</span><span>Mon–Sat · 10am–6pm IST</span></div>
+    </div>
+  </div>
+  <div class="fbot">
+    <span>© 2026 Real Value Portfolio Management. All Rights Reserved.</span>
+    <div style="display:flex;gap:20px;"><a href="#">Privacy Policy</a><a href="#">Disclaimer</a></div>
+  </div>
+</footer>
+
+</main>
+
+<!-- PDF.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+// ─── FUND DATABASE ──────────────────────────────────────────────────────────
+const FUND_DB = {
+  // Large Cap
+  "HDFC Top 100 Fund":{"er":1.68,"cat":"Large Cap","risk":"Moderate","h":["HDFC Bank","ICICI Bank","Reliance Industries","Infosys","Axis Bank","L&T","TCS","ITC","SBI","Bajaj Finance"]},
+  "SBI Bluechip Fund":{"er":0.87,"cat":"Large Cap","risk":"Moderate","h":["HDFC Bank","Reliance Industries","ICICI Bank","Infosys","TCS","L&T","Bharti Airtel","Axis Bank","HUL","Bajaj Finance"]},
+  "Mirae Asset Large Cap Fund":{"er":0.53,"cat":"Large Cap","risk":"Moderate","h":["HDFC Bank","ICICI Bank","Reliance Industries","Infosys","Axis Bank","TCS","L&T","SBI","Bajaj Finance","Kotak Mahindra Bank"]},
+  "Axis Bluechip Fund":{"er":0.56,"cat":"Large Cap","risk":"Moderate","h":["Bajaj Finance","HDFC Bank","Infosys","ICICI Bank","Avenue Supermarts","TCS","Kotak Mahindra Bank","HUL","Titan","Asian Paints"]},
+  "ICICI Prudential Bluechip Fund":{"er":1.12,"cat":"Large Cap","risk":"Moderate","h":["HDFC Bank","ICICI Bank","Reliance Industries","Infosys","L&T","TCS","Axis Bank","Bharti Airtel","SBI","Sun Pharma"]},
+  "Kotak Bluechip Fund":{"er":0.61,"cat":"Large Cap","risk":"Moderate","h":["HDFC Bank","ICICI Bank","Infosys","Reliance Industries","TCS","L&T","Axis Bank","Kotak Mahindra Bank","HUL","Bajaj Finance"]},
+  "Nippon India Large Cap Fund":{"er":1.52,"cat":"Large Cap","risk":"Moderate","h":["HDFC Bank","ICICI Bank","Reliance Industries","L&T","Infosys","TCS","SBI","Axis Bank","HUL","Bajaj Finance"]},
+  "DSP Top 100 Equity Fund":{"er":1.88,"cat":"Large Cap","risk":"Moderate","h":["HDFC Bank","ICICI Bank","Infosys","Reliance Industries","TCS","Axis Bank","Kotak Mahindra Bank","HUL","L&T","Bajaj Finance"]},
+  "Franklin India Bluechip Fund":{"er":1.91,"cat":"Large Cap","risk":"Moderate","h":["HDFC Bank","ICICI Bank","Infosys","Reliance Industries","TCS","L&T","Axis Bank","Bajaj Finance","SBI","Sun Pharma"]},
+  "UTI Mastershare":{"er":1.58,"cat":"Large Cap","risk":"Moderate","h":["HDFC Bank","ICICI Bank","Infosys","Reliance Industries","L&T","TCS","Axis Bank","HUL","Bajaj Finance","Kotak Mahindra Bank"]},
+  // Mid Cap
+  "HDFC Mid-Cap Opportunities Fund":{"er":1.71,"cat":"Mid Cap","risk":"High","h":["Cholamandalam Financial","Indian Hotels","Persistent Systems","Coforge","Tube Investments","Max Financial","Bharat Forge","SRF","Phoenix Mills","Birla Corp"]},
+  "SBI Magnum Midcap Fund":{"er":0.95,"cat":"Mid Cap","risk":"High","h":["Persistent Systems","Coforge","Tube Investments","PNB Housing","Sundaram Finance","Thermax","Bharat Forge","Carborundum Universal","KEI Industries","Ashok Leyland"]},
+  "Kotak Emerging Equity Fund":{"er":0.42,"cat":"Mid Cap","risk":"High","h":["Tube Investments","Persistent Systems","Cholamandalam Financial","SRF","Coforge","Indian Hotels","Max Financial","Phoenix Mills","PNB Housing","Sundaram Finance"]},
+  "Axis Midcap Fund":{"er":0.53,"cat":"Mid Cap","risk":"High","h":["Persistent Systems","Coforge","Mphasis","Cholamandalam Financial","Tube Investments","Alkem Labs","Crompton Greaves","Max Financial","V-Mart Retail","Oberoi Realty"]},
+  "Nippon India Growth Fund":{"er":1.73,"cat":"Mid Cap","risk":"High","h":["Cholamandalam Financial","Bharat Forge","Persistent Systems","Tube Investments","Indian Hotels","Max Financial","SRF","Coforge","KEI Industries","Sundaram Finance"]},
+  "DSP Midcap Fund":{"er":0.85,"cat":"Mid Cap","risk":"High","h":["Persistent Systems","Coforge","Tube Investments","SRF","Cholamandalam Financial","Max Financial","Phoenix Mills","Bharat Forge","Indian Hotels","Timken India"]},
+  // Small Cap
+  "SBI Small Cap Fund":{"er":0.69,"cat":"Small Cap","risk":"Very High","h":["Chaman Lal Setia","Suprajit Engineering","Garware Technical Fibres","Blue Star","Hawkins Cookers","Ion Exchange","Craftsman Automation","Apcotex Industries","Nesco","Ganesha Ecosphere"]},
+  "Axis Small Cap Fund":{"er":0.54,"cat":"Small Cap","risk":"Very High","h":["Alkyl Amines","Garware Technical Fibres","Cyient","CE Info Systems","Navin Fluorine","Persistent Systems","Birla Corp","Heritage Foods","Thangamayil Jewellery","Chaman Lal Setia"]},
+  "Kotak Small Cap Fund":{"er":0.54,"cat":"Small Cap","risk":"Very High","h":["Garware Technical Fibres","Techno Electric","Blue Star","Carborundum Universal","Craftsman Automation","ITD Cementation","Elgi Equipments","Epigral","Safari Industries","Shyam Metalics"]},
+  "Nippon India Small Cap Fund":{"er":1.56,"cat":"Small Cap","risk":"Very High","h":["KPIT Technologies","Tube Investments","Kirloskar Brothers","Garware Technical Fibres","Carborundum Universal","WPIL","Motherson Sumi","Blue Star","Suven Pharma","Vaibhav Global"]},
+  "HDFC Small Cap Fund":{"er":1.73,"cat":"Small Cap","risk":"Very High","h":["Aarti Industries","Firstsource Solutions","KNR Constructions","Garware Technical Fibres","Power Mech Projects","Brigade Enterprises","Bank of Maharashtra","Vijaya Diagnostic","Sparc","NIIT Technologies"]},
+  "Quant Small Cap Fund":{"er":0.64,"cat":"Small Cap","risk":"Very High","h":["Reliance Industries","HDFC Bank","ITC","LIC","Jio Financial","ICICI Bank","Tata Steel","ONGC","Adani Ports","SBI"]},
+  // Flexi / Multi Cap
+  "Parag Parikh Flexi Cap Fund":{"er":0.63,"cat":"Flexi Cap","risk":"High","h":["HDFC Bank","Bajaj Holdings","Coal India","ITC","Power Grid","HCL Technologies","Alphabet","Microsoft","Amazon","Meta"]},
+  "HDFC Flexi Cap Fund":{"er":1.56,"cat":"Flexi Cap","risk":"High","h":["HDFC Bank","ICICI Bank","Axis Bank","L&T","Infosys","Bharti Airtel","SBI","TCS","Reliance Industries","Coal India"]},
+  "Kotak Flexicap Fund":{"er":0.55,"cat":"Flexi Cap","risk":"High","h":["Infosys","HDFC Bank","ICICI Bank","Reliance Industries","TCS","L&T","Kotak Mahindra Bank","Axis Bank","Avenue Supermarts","Bajaj Finance"]},
+  "UTI Flexi Cap Fund":{"er":0.99,"cat":"Flexi Cap","risk":"High","h":["Bajaj Finance","HDFC Bank","Infosys","ICICI Bank","Avenue Supermarts","TCS","Kotak Mahindra Bank","HUL","Titan","Asian Paints"]},
+  "SBI Flexicap Fund":{"er":0.97,"cat":"Flexi Cap","risk":"High","h":["HDFC Bank","ICICI Bank","Infosys","Reliance Industries","L&T","Bharti Airtel","Axis Bank","TCS","Kotak Mahindra Bank","SBI"]},
+  "Canara Robeco Flexi Cap Fund":{"er":0.57,"cat":"Flexi Cap","risk":"High","h":["HDFC Bank","ICICI Bank","Infosys","Reliance Industries","L&T","TCS","Axis Bank","Bajaj Finance","Kotak Mahindra Bank","HUL"]},
+  "Quant Flexi Cap Fund":{"er":0.59,"cat":"Flexi Cap","risk":"High","h":["Reliance Industries","HDFC Bank","ITC","LIC","ICICI Bank","Tata Steel","ONGC","SBI","Adani Ports","Jio Financial"]},
+  "Quant Active Fund":{"er":0.59,"cat":"Multi Cap","risk":"High","h":["Reliance Industries","HDFC Bank","ITC","LIC","ICICI Bank","Tata Steel","ONGC","SBI","Adani Ports","Jio Financial"]},
+  // ELSS
+  "Axis Long Term Equity Fund":{"er":0.68,"cat":"ELSS","risk":"High","h":["Bajaj Finance","HDFC Bank","Infosys","ICICI Bank","Avenue Supermarts","TCS","Kotak Mahindra Bank","HUL","Titan","Asian Paints"]},
+  "Mirae Asset Tax Saver Fund":{"er":0.54,"cat":"ELSS","risk":"High","h":["HDFC Bank","ICICI Bank","Reliance Industries","Infosys","Axis Bank","TCS","L&T","SBI","Bajaj Finance","Kotak Mahindra Bank"]},
+  "DSP Tax Saver Fund":{"er":0.83,"cat":"ELSS","risk":"High","h":["HDFC Bank","ICICI Bank","Infosys","Reliance Industries","TCS","Axis Bank","L&T","Kotak Mahindra Bank","HUL","Bajaj Finance"]},
+  "HDFC Tax Saver Fund":{"er":1.77,"cat":"ELSS","risk":"High","h":["HDFC Bank","ICICI Bank","Axis Bank","Reliance Industries","L&T","Infosys","Bharti Airtel","SBI","TCS","Coal India"]},
+  "Nippon India Tax Saver Fund":{"er":1.86,"cat":"ELSS","risk":"High","h":["HDFC Bank","ICICI Bank","Reliance Industries","Infosys","L&T","TCS","Axis Bank","SBI","Bharti Airtel","HUL"]},
+  "Kotak Tax Saver Fund":{"er":0.62,"cat":"ELSS","risk":"High","h":["Infosys","HDFC Bank","ICICI Bank","Reliance Industries","TCS","L&T","Kotak Mahindra Bank","Axis Bank","Avenue Supermarts","Bajaj Finance"]},
+  "Quant Tax Plan":{"er":0.57,"cat":"ELSS","risk":"High","h":["Reliance Industries","HDFC Bank","ITC","LIC","Jio Financial","ICICI Bank","Tata Steel","ONGC","Adani Ports","SBI"]},
+  // Index
+  "UTI Nifty 50 Index Fund":{"er":0.20,"cat":"Index","risk":"Moderate","h":["HDFC Bank","Reliance Industries","ICICI Bank","Infosys","L&T","TCS","Axis Bank","Kotak Mahindra Bank","Bajaj Finance","ITC"]},
+  "SBI Nifty Index Fund":{"er":0.20,"cat":"Index","risk":"Moderate","h":["HDFC Bank","Reliance Industries","ICICI Bank","Infosys","L&T","TCS","Axis Bank","Kotak Mahindra Bank","Bajaj Finance","ITC"]},
+  "HDFC Index Fund Nifty 50 Plan":{"er":0.20,"cat":"Index","risk":"Moderate","h":["HDFC Bank","Reliance Industries","ICICI Bank","Infosys","L&T","TCS","Axis Bank","Kotak Mahindra Bank","Bajaj Finance","ITC"]},
+  "Nippon India Index Fund Nifty 50 Plan":{"er":0.20,"cat":"Index","risk":"Moderate","h":["HDFC Bank","Reliance Industries","ICICI Bank","Infosys","L&T","TCS","Axis Bank","Kotak Mahindra Bank","Bajaj Finance","ITC"]},
+  "ICICI Prudential Nifty 50 Index Fund":{"er":0.17,"cat":"Index","risk":"Moderate","h":["HDFC Bank","Reliance Industries","ICICI Bank","Infosys","L&T","TCS","Axis Bank","Kotak Mahindra Bank","Bajaj Finance","ITC"]},
+  "Motilal Oswal Nifty 50 Index Fund":{"er":0.10,"cat":"Index","risk":"Moderate","h":["HDFC Bank","Reliance Industries","ICICI Bank","Infosys","L&T","TCS","Axis Bank","Kotak Mahindra Bank","Bajaj Finance","ITC"]},
+  "UTI Nifty Next 50 Index Fund":{"er":0.30,"cat":"Index","risk":"Moderate","h":["Adani Enterprises","Vedanta","DLF","Siemens","Godrej Consumer","BPCL","Tata Consumer","Havells","Hindustan Aeronautics","Grasim"]},
+  "Motilal Oswal Midcap 150 Index Fund":{"er":0.18,"cat":"Index Mid","risk":"High","h":["Persistent Systems","Coforge","Tube Investments","Phoenix Mills","Cholamandalam Financial","Indian Hotels","Max Financial","Ashok Leyland","Sundaram Finance","Bharat Forge"]},
+  // Hybrid
+  "HDFC Balanced Advantage Fund":{"er":1.69,"cat":"Hybrid","risk":"Moderate","h":["HDFC Bank","ICICI Bank","Reliance Industries","Infosys","L&T","Axis Bank","TCS","SBI","Bharti Airtel","Bajaj Finance"]},
+  "ICICI Prudential Balanced Advantage Fund":{"er":1.68,"cat":"Hybrid","risk":"Moderate","h":["HDFC Bank","ICICI Bank","Reliance Industries","Infosys","L&T","TCS","Axis Bank","Bharti Airtel","SBI","HUL"]},
+  "SBI Equity Hybrid Fund":{"er":1.62,"cat":"Hybrid","risk":"Moderate","h":["HDFC Bank","ICICI Bank","Reliance Industries","L&T","Infosys","TCS","Axis Bank","Bharti Airtel","Bajaj Finance","SBI"]},
+  "Kotak Equity Hybrid Fund":{"er":0.51,"cat":"Hybrid","risk":"Moderate","h":["HDFC Bank","ICICI Bank","Infosys","Reliance Industries","TCS","L&T","Kotak Mahindra Bank","Axis Bank","Bajaj Finance","HUL"]},
+  "Mirae Asset Hybrid Equity Fund":{"er":0.51,"cat":"Hybrid","risk":"Moderate","h":["HDFC Bank","ICICI Bank","Reliance Industries","Infosys","Axis Bank","TCS","L&T","SBI","Bajaj Finance","Kotak Mahindra Bank"]},
+  // Sectoral
+  "ICICI Prudential Technology Fund":{"er":1.95,"cat":"Sectoral IT","risk":"Very High","h":["Infosys","TCS","HCL Technologies","Wipro","Tech Mahindra","Mphasis","Coforge","LTTS","Persistent Systems","Cyient"]},
+  "SBI Technology Opportunities Fund":{"er":1.99,"cat":"Sectoral IT","risk":"Very High","h":["Infosys","TCS","HCL Technologies","Wipro","Tech Mahindra","Persistent Systems","Coforge","Mphasis","LTTS","KPIT Technologies"]},
+  "SBI Banking & Financial Services Fund":{"er":1.83,"cat":"Sectoral Banking","risk":"Very High","h":["HDFC Bank","ICICI Bank","Axis Bank","Kotak Mahindra Bank","SBI","Bajaj Finance","HDFC Life","SBI Life","Cholamandalam","Federal Bank"]},
+  "Nippon India Pharma Fund":{"er":1.99,"cat":"Sectoral Pharma","risk":"Very High","h":["Sun Pharma","Cipla","Dr. Reddy's","Divi's Laboratories","Alkem Labs","Lupin","Torrent Pharma","Laurus Labs","Abbott India","Sanofi India"]},
+  // Quant mid
+  "Quant Mid Cap Fund":{"er":0.64,"cat":"Mid Cap","risk":"High","h":["Reliance Industries","HDFC Bank","ITC","LIC","ICICI Bank","Tata Steel","ONGC","SBI","Adani Ports","Jio Financial"]},
+  // Liquid / Debt
+  "HDFC Liquid Fund":{"er":0.33,"cat":"Liquid","risk":"Low","h":[]},
+  "SBI Liquid Fund":{"er":0.30,"cat":"Liquid","risk":"Low","h":[]},
+  "ICICI Prudential Liquid Fund":{"er":0.29,"cat":"Liquid","risk":"Low","h":[]},
+  "Nippon India Liquid Fund":{"er":0.31,"cat":"Liquid","risk":"Low","h":[]},
+  "HDFC Short Term Debt Fund":{"er":0.84,"cat":"Debt","risk":"Low-Moderate","h":[]},
+  "SBI Magnum Ultra Short Duration Fund":{"er":0.42,"cat":"Debt","risk":"Low","h":[]},
+  "ICICI Prudential Ultra Short Term Fund":{"er":0.89,"cat":"Debt","risk":"Low","h":[]},
+};
+
+// ─── FUND MATCHING ───────────────────────────────────────────────────────────
+function normFund(s){
+  return s.toLowerCase()
+    .replace(/[-–]\s*(direct|regular)\s*(plan)?\s*/gi,' ')
+    .replace(/[-–]\s*(growth|idcw|dividend|bonus|payout|reinvestment)\s*$/gi,'')
+    .replace(/\b(fund|plan|option|scheme)\b/gi,' ')
+    .replace(/[^a-z0-9\s&]/g,' ')
+    .replace(/\s+/g,' ').trim();
+}
+function findFund(name){
+  const n = normFund(name);
+  for(const [k,d] of Object.entries(FUND_DB)){
+    if(n===normFund(k)) return {key:k,...d};
+  }
+  let best=null,bestScore=0;
+  for(const [k,d] of Object.entries(FUND_DB)){
+    const nk=normFund(k);
+    const nw=n.split(' ').filter(w=>w.length>3);
+    const kw=nk.split(' ').filter(w=>w.length>3);
+    const hits=nw.filter(w=>kw.includes(w)).length;
+    const score=hits/Math.max(nw.length,kw.length,1);
+    if(score>bestScore&&score>=0.5){bestScore=score;best={key:k,...d};}
+  }
+  return best;
+}
+function calcOverlap(h1,h2){
+  if(!h1||!h2||!h1.length||!h2.length) return 0;
+  const s=new Set(h1);
+  return Math.round(h2.filter(x=>s.has(x)).length/Math.min(h1.length,h2.length)*100);
+}
+
+// ─── FORMATTING ──────────────────────────────────────────────────────────────
+function fmtINR(v){
+  if(v>=10000000) return '₹'+(v/10000000).toFixed(2)+' Cr';
+  if(v>=100000) return '₹'+(v/100000).toFixed(1)+' L';
+  return '₹'+Math.round(v).toLocaleString('en-IN');
+}
+
+// ─── NAVIGATION ──────────────────────────────────────────────────────────────
+var activeLevel=0;
+function showLevel(n){
+  document.getElementById('pathSection').style.display='none';
+  ['l1','l2','l3'].forEach(function(id){document.getElementById(id).classList.remove('active');});
+  document.getElementById('l'+n).classList.add('active');
+  activeLevel=n;
+  if(n===1) initQuiz();
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(typeof posthog!=='undefined') posthog.capture('portfolio_check_level_selected',{level:n});
+}
+function goBack(){
+  document.getElementById('l'+activeLevel).classList.remove('active');
+  document.getElementById('pathSection').style.display='';
+  document.getElementById('results').style.display='none';
+  document.getElementById('ctaSection').style.display='none';
+  activeLevel=0;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function resetAll(){
+  goBack();
+  selectedFunds=[];
+  renderSelectedFunds();
+  document.getElementById('fundsTitle').style.display='none';
+  document.getElementById('overlapTitle').style.display='none';
+  document.getElementById('fundsList').innerHTML='';
+  document.getElementById('overlapGrid').innerHTML='';
+  document.getElementById('statsGrid').innerHTML='';
+  document.getElementById('insightsList').innerHTML='';
+  document.getElementById('resultHero').innerHTML='';
+  quizAnswers=[];quizStep=0;
+}
+
+// ─── RENDER RESULTS ──────────────────────────────────────────────────────────
+function renderResults(score,summary,verdict,stats,funds,overlaps,insights){
+  var verdictClass=score>=70?'verdict-good':score>=45?'verdict-ok':'verdict-bad';
+  var verdictText=score>=70?'Well Structured':score>=45?'Needs Attention':'Needs Overhaul';
+  var circumference=339.3;
+  var offset=circumference*(1-score/100);
+  var ringColor=score>=70?'#22c55e':score>=45?'#f59e0b':'#ef4444';
+  document.getElementById('resultHero').innerHTML=
+    '<div class="score-ring-wrap">'+
+    '<svg class="score-ring" viewBox="0 0 120 120">'+
+    '<circle cx="60" cy="60" r="54" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="8"/>'+
+    '<circle cx="60" cy="60" r="54" fill="none" stroke="'+ringColor+'" stroke-width="8" stroke-dasharray="'+circumference+'" stroke-dashoffset="'+offset+'" stroke-linecap="round" transform="rotate(-90 60 60)" style="transition:stroke-dashoffset 1s ease"/>'+
+    '</svg>'+
+    '<div class="score-num">'+score+'<span style="font-size:1.2rem;opacity:.5">/100</span></div>'+
+    '<div class="score-label">Portfolio Score</div>'+
+    '</div>'+
+    '<div class="result-summary">'+
+    '<span class="verdict-badge '+verdictClass+'">'+verdictText+'</span>'+
+    '<h2>'+summary.title+'</h2>'+
+    '<p>'+summary.body+'</p>'+
+    '</div>';
+
+  var sg='';
+  stats.forEach(function(s){
+    sg+='<div class="stat-card"><div class="stat-label">'+s.label+'</div>'+
+    '<div class="stat-value'+(s.warn?' stat-warn':'')+'">'+s.value+'</div>'+
+    (s.sub?'<div class="stat-sub">'+s.sub+'</div>':'')+
+    '</div>';
+  });
+  document.getElementById('statsGrid').innerHTML=sg;
+
+  if(funds&&funds.length){
+    document.getElementById('fundsTitle').style.display='';
+    var fl='';
+    funds.forEach(function(f){
+      var flags=f.flags||[];
+      var flagsHtml=flags.map(function(fg){return '<span class="flag '+fg.cls+'">'+fg.text+'</span>';}).join('');
+      fl+='<div class="fund-row">'+
+        '<div class="fund-row-name"><h4>'+f.name+'</h4><p>'+f.cat+(f.er?'  ·  ER: '+f.er+'%':'')+'</p></div>'+
+        (f.value?'<div class="fund-row-value"><div class="fv-amount">'+fmtINR(f.value)+'</div><div class="fv-er">'+(f.pct||'')+'</div></div>':'')+
+        (flagsHtml?'<div class="fund-row-flag">'+flagsHtml+'</div>':'')+
+        '</div>';
+    });
+    document.getElementById('fundsList').innerHTML=fl;
+  }
+
+  if(overlaps&&overlaps.length){
+    document.getElementById('overlapTitle').style.display='';
+    var og='';
+    overlaps.forEach(function(o){
+      var col=o.pct>=70?'#ef4444':o.pct>=40?'#f59e0b':'#22c55e';
+      og+='<div class="overlap-pair">'+
+        '<div class="overlap-pair-names">'+o.a+' &amp; '+o.b+'</div>'+
+        '<div class="overlap-bar-wrap">'+
+        '<div class="overlap-bar"><div class="overlap-fill" style="width:'+o.pct+'%;background:'+col+'"></div></div>'+
+        '<div class="overlap-pct">'+o.pct+'%</div>'+
+        '</div></div>';
+    });
+    document.getElementById('overlapGrid').innerHTML=og;
+  }
+
+  var il='';
+  insights.forEach(function(ins){
+    il+='<div class="insight-card insight-'+ins.type+'"><h4>'+ins.title+'</h4><p>'+ins.body+'</p></div>';
+  });
+  document.getElementById('insightsList').innerHTML=il;
+
+  document.getElementById('results').style.display='';
+  document.getElementById('ctaSection').style.display='';
+  document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// ─── LEVEL 1: QUIZ ───────────────────────────────────────────────────────────
+var quizStep=0,quizAnswers=[];
+var QUIZ=[
+  {q:"How old are you?",opts:[{i:"🌱",t:"Under 25"},{i:"🎯",t:"25–35"},{i:"📈",t:"35–45"},{i:"🏡",t:"45–55"},{i:"🏖️",t:"55+"}]},
+  {q:"Where is most of your savings right now?",opts:[{i:"🏦",t:"FD / Savings Account"},{i:"📊",t:"Stocks / Share Market"},{i:"📁",t:"Mutual Funds"},{i:"🔀",t:"Mix of everything"},{i:"🌱",t:"Haven't started yet"}]},
+  {q:"How much have you saved or invested so far?",opts:[{i:"💰",t:"Less than ₹1 lakh"},{i:"💰",t:"₹1 – 5 lakh"},{i:"💰",t:"₹5 – 25 lakh"},{i:"🏆",t:"₹25 lakh – 1 crore"},{i:"👑",t:"More than ₹1 crore"}]},
+  {q:"What's your main financial goal?",opts:[{i:"🌳",t:"Build long-term wealth"},{i:"🏖️",t:"Save for retirement"},{i:"🎓",t:"Children's education"},{i:"🏠",t:"Buy a home"},{i:"📉",t:"Beat inflation"}]},
+  {q:"When might you need this money?",opts:[{i:"⚡",t:"Within 1 year"},{i:"📅",t:"1–3 years"},{i:"🗓️",t:"3–7 years"},{i:"🚀",t:"7+ years"}]},
+];
+function initQuiz(){quizStep=0;quizAnswers=[];renderQuizStep();}
+function renderQuizStep(){
+  var q=QUIZ[quizStep];
+  document.getElementById('quizBar').style.width=((quizStep+1)/QUIZ.length*100)+'%';
+  var opts=q.opts.map(function(o,i){
+    return '<div class="quiz-opt" data-idx="'+i+'" onclick="selectOpt('+i+')"><span class="quiz-opt-icon">'+o.i+'</span>'+o.t+'</div>';
+  }).join('');
+  document.getElementById('quizContent').innerHTML='<div class="quiz-q">'+q.q+'</div><div class="quiz-options">'+opts+'</div>';
+  document.getElementById('quizNext').classList.remove('visible');
+}
+function selectOpt(idx){
+  document.querySelectorAll('.quiz-opt').forEach(function(el){el.classList.remove('selected');});
+  document.querySelector('[data-idx="'+idx+'"]').classList.add('selected');
+  quizAnswers[quizStep]=idx;
+  document.getElementById('quizNext').classList.add('visible');
+}
+function nextQuestion(){
+  if(quizAnswers[quizStep]===undefined) return;
+  quizStep++;
+  if(quizStep<QUIZ.length){renderQuizStep();}
+  else{scoreQuiz();}
+}
+function scoreQuiz(){
+  var age=quizAnswers[0],savType=quizAnswers[1],amt=quizAnswers[2],goal=quizAnswers[3],timeline=quizAnswers[4];
+  var score=50,insights=[],stats=[];
+  // savings type
+  var savLabel=['FD / Savings Account','Stocks / Share Market','Mutual Funds','Mix of everything','Not started yet'][savType];
+  var amtLabel=['< ₹1 lakh','₹1–5 lakh','₹5–25 lakh','₹25L–1Cr','> ₹1 crore'][amt];
+  var timeLabel=['< 1 year','1–3 years','3–7 years','7+ years'][timeline];
+  if(savType===0){score-=20;insights.push({type:'bad',title:'Your FD is losing to inflation',body:'FDs earn ~6–7% but after tax (30% bracket) you get ~4.5%. Inflation is ~5.5%. You are getting poorer every year without realising it.'});}
+  if(savType===4){score-=15;insights.push({type:'warn',title:'Every month you wait has a compounding cost',body:'₹5,000/month invested at 12% for 20 years = ₹49 lakh. Starting 5 years late means ₹27 lakh less — for the exact same monthly contribution.'});}
+  if(savType===2||savType===3){score+=15;insights.push({type:'good',title:'Good — you are already in mutual funds',body:'The next step is ensuring the right funds, right mix, and zero fee drag. Many investors have the right instinct but the wrong fund selection.'});}
+  if(timeline>=2){score+=15;}
+  if(timeline===0||timeline===1){score-=10;insights.push({type:'warn',title:'Short timeline needs careful allocation',body:'Money needed in under 3 years should not be in equity funds. A market correction right before you need the money can set you back significantly.'});}
+  if(amt>=3){score+=10;}
+  insights.push({type:score>=60?'good':'warn',title:'What a free review will tell you',body:'Our advisors will look at your exact situation — age, goals, timeline, and savings — and give you a specific action plan. No generic advice.'});
+  score=Math.max(20,Math.min(85,score));
+  var title=score>=65?'You\'re on the right track — but there\'s room to optimise':score>=45?'You have potential, but your money may not be working hard enough':'There are significant gaps to address';
+  var body='Based on your answers, here\'s what we see: '+savLabel+', '+amtLabel+' saved, goal in '+timeLabel+'.';
+  stats=[
+    {label:'Savings Type',value:savLabel},
+    {label:'Amount Range',value:amtLabel},
+    {label:'Timeline',value:timeLabel},
+    {label:'Opportunity',value:score<60?'High':'Moderate'},
+  ];
+  document.getElementById('l1').classList.remove('active');
+  renderResults(score,{title:title,body:body},'',stats,null,null,insights);
+  if(typeof posthog!=='undefined') posthog.capture('portfolio_check_quiz_completed',{score:score});
+}
+
+// ─── LEVEL 2: FUND SEARCH ────────────────────────────────────────────────────
+var selectedFunds=[];
+var FUND_NAMES=Object.keys(FUND_DB);
+function onFundSearch(val){
+  var dd=document.getElementById('fundDropdown');
+  if(val.length<2){dd.classList.remove('open');return;}
+  var matches=FUND_NAMES.filter(function(n){return n.toLowerCase().includes(val.toLowerCase());}).slice(0,8);
+  if(!matches.length){dd.classList.remove('open');return;}
+  dd.innerHTML=matches.map(function(m){
+    return '<div class="fund-dropdown-item" onclick="addFund(\''+m.replace(/'/g,"\\'")+'\'"><div>'+m+'</div><div class="fd-cat">'+FUND_DB[m].cat+' · ER '+FUND_DB[m].er+'%</div></div>';
+  }).join('');
+  dd.classList.add('open');
+}
+function addFund(name){
+  if(!selectedFunds.includes(name)) selectedFunds.push(name);
+  document.getElementById('fundSearchInput').value='';
+  document.getElementById('fundDropdown').classList.remove('open');
+  renderSelectedFunds();
+  document.getElementById('runLevel2').disabled=selectedFunds.length<1;
+}
+function removeFund(name){
+  selectedFunds=selectedFunds.filter(function(f){return f!==name;});
+  renderSelectedFunds();
+  document.getElementById('runLevel2').disabled=selectedFunds.length<1;
+}
+function renderSelectedFunds(){
+  document.getElementById('selectedFunds').innerHTML=selectedFunds.map(function(f){
+    return '<div class="fund-tag">'+f+'<span class="fund-tag-remove" onclick="removeFund(\''+f.replace(/'/g,"\\'")+'\')" title="Remove">×</span></div>';
+  }).join('');
+}
+document.addEventListener('click',function(e){
+  if(!e.target.closest('.fund-search-wrap')) document.getElementById('fundDropdown').classList.remove('open');
+});
+function analyzeLevel2(){
+  if(!selectedFunds.length) return;
+  var funds=selectedFunds.map(function(name){
+    var d=FUND_DB[name]||{cat:'Unknown',er:null,h:[]};
+    return {name:name,cat:d.cat,er:d.er,h:d.h,value:0};
+  });
+  var results=buildAnalysis(funds);
+  document.getElementById('l2').classList.remove('active');
+  renderResults(results.score,results.summary,'',results.stats,results.fundRows,results.overlaps,results.insights);
+  if(typeof posthog!=='undefined') posthog.capture('portfolio_check_level2_completed',{funds:selectedFunds.length});
+}
+
+// ─── LEVEL 3: CAS UPLOAD ─────────────────────────────────────────────────────
+function onDragOver(e){e.preventDefault();document.getElementById('uploadZone').classList.add('drag');}
+function onDragLeave(){document.getElementById('uploadZone').classList.remove('drag');}
+function onDrop(e){e.preventDefault();onDragLeave();if(e.dataTransfer.files[0]) handleCASFile(e.dataTransfer.files[0]);}
+async function handleCASFile(file){
+  if(!file||!file.name.endsWith('.pdf')){alert('Please upload a PDF file.');return;}
+  document.getElementById('uploadZone').style.display='none';
+  document.getElementById('parsingState').style.display='block';
+  try{
+    var text=await extractPDFText(file);
+    var funds=parseCAS(text);
+    if(!funds.length) throw new Error('No funds found');
+    var results=buildAnalysis(funds);
+    document.getElementById('l3').classList.remove('active');
+    document.getElementById('parsingState').style.display='none';
+    document.getElementById('uploadZone').style.display='';
+    renderResults(results.score,results.summary,'',results.stats,results.fundRows,results.overlaps,results.insights);
+    if(typeof posthog!=='undefined') posthog.capture('portfolio_check_cas_analyzed',{funds_found:funds.length,total_value:results.totalValue});
+  }catch(err){
+    document.getElementById('parsingState').style.display='none';
+    document.getElementById('uploadZone').style.display='';
+    alert('Could not read your CAS. Make sure it\'s a CAMS or KFIN CAS PDF. Error: '+err.message);
+  }
+}
+async function extractPDFText(file){
+  if(typeof pdfjsLib==='undefined') throw new Error('PDF library not loaded. Please refresh the page.');
+  pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  var ab=await file.arrayBuffer();
+  var pdf=await pdfjsLib.getDocument({data:ab}).promise;
+  var allItems=[];
+  for(var p=1;p<=pdf.numPages;p++){
+    var page=await pdf.getPage(p);
+    var vp=page.getViewport({scale:1});
+    var tc=await page.getTextContent();
+    tc.items.forEach(function(item){
+      if(!item.str.trim()) return;
+      allItems.push({str:item.str,x:Math.round(item.transform[4]),y:Math.round(vp.height-item.transform[5]),pg:p});
+    });
+  }
+  allItems.sort(function(a,b){return a.pg-b.pg||a.y-b.y||a.x-b.x;});
+  var lines=[],curLine=[],curY=-1;
+  allItems.forEach(function(item){
+    if(curY===-1||Math.abs(item.y-curY)>5){
+      if(curLine.length) lines.push(curLine.map(function(i){return i.str;}).join(' '));
+      curLine=[item];curY=item.y;
+    }else{curLine.push(item);}
+  });
+  if(curLine.length) lines.push(curLine.map(function(i){return i.str;}).join(' '));
+  return lines.join('\n');
+}
+function parseCAS(text){
+  var lines=text.split('\n').map(function(l){return l.trim();}).filter(Boolean);
+  var funds=[],cur=null;
+  for(var i=0;i<lines.length;i++){
+    var line=lines[i];
+    if(/Folio No[:\s]/i.test(line)){
+      if(cur&&cur.value>0) funds.push(cur);
+      var ni=i+1;
+      while(ni<lines.length&&!lines[ni].trim()) ni++;
+      var rawName=lines[ni]||'';
+      var name=rawName
+        .replace(/\s*[-–]\s*(Direct|Regular)\s*(Plan)?\s*/gi,' ')
+        .replace(/\s*[-–]\s*(Growth|IDCW|Dividend|Bonus)\s*$/gi,'')
+        .replace(/\(.*?\)/g,'').trim();
+      cur={name:name,rawName:rawName,units:0,nav:0,value:0};
+      i=ni;continue;
+    }
+    if(!cur) continue;
+    var um=line.match(/Closing(?:\s+Unit)?\s+Balance[:\s]+([\d,]+\.[\d]+)/i);
+    if(um){cur.units=parseFloat(um[1].replace(/,/g,''));continue;}
+    var nm=line.match(/NAV\s+on[^:]*:\s*[₹Rs\s.]*([\d,]+\.[\d]+)/i);
+    if(nm){cur.nav=parseFloat(nm[1].replace(/,/g,''));continue;}
+    var vm=line.match(/Valuation\s+on[^:]*:\s*[₹Rs\s.]*([\d,]+\.[\d]*)/i);
+    if(vm){cur.value=parseFloat(vm[1].replace(/,/g,''));continue;}
+    var mv=line.match(/Market\s+Value[:\s]*[₹Rs\s.]*([\d,]+\.[\d]*)/i);
+    if(mv){cur.value=parseFloat(mv[1].replace(/,/g,''));continue;}
+  }
+  if(cur&&cur.value>0) funds.push(cur);
+  return funds.filter(function(f){return f.value>0&&f.name;});
+}
+
+// ─── ANALYSIS ENGINE ─────────────────────────────────────────────────────────
+function buildAnalysis(rawFunds){
+  var total=rawFunds.reduce(function(s,f){return s+(f.value||0);},0);
+  var matched=rawFunds.map(function(f){
+    var db=findFund(f.name)||{cat:'Unknown',er:null,h:[]};
+    return Object.assign({},f,{cat:db.cat,er:db.er,h:db.h,key:db.key});
+  });
+  // Annual cost
+  var annualCost=matched.reduce(function(s,f){
+    return s+(f.value&&f.er?f.value*f.er/100:0);
+  },0);
+  // Category counts
+  var catCount={};
+  matched.forEach(function(f){catCount[f.cat]=(catCount[f.cat]||0)+1;});
+  var numFunds=matched.length;
+  // Scoring
+  var score=75;
+  if(numFunds>10) score-=20;
+  else if(numFunds>6) score-=10;
+  if(total&&annualCost/total>0.015) score-=15;
+  else if(total&&annualCost/total>0.01) score-=8;
+  var lcCount=(catCount['Large Cap']||0)+(catCount['Index']||0);
+  if(lcCount>2) score-=10;
+  var mcCount=catCount['Mid Cap']||0;
+  var scCount=catCount['Small Cap']||0;
+  if(mcCount>2) score-=5;
+  if(scCount>2) score-=5;
+  score=Math.max(18,Math.min(92,score));
+  // Overlaps for equity funds
+  var equityFunds=matched.filter(function(f){return f.h&&f.h.length>0;});
+  var overlaps=[];
+  for(var a=0;a<equityFunds.length;a++){
+    for(var b=a+1;b<equityFunds.length;b++){
+      var pct=calcOverlap(equityFunds[a].h,equityFunds[b].h);
+      if(pct>0) overlaps.push({a:equityFunds[a].name,b:equityFunds[b].name,pct:pct});
+    }
+  }
+  overlaps.sort(function(x,y){return y.pct-x.pct;});
+  // Fund rows with flags
+  var fundRows=matched.map(function(f){
+    var flags=[];
+    if(f.er&&f.er>1.5) flags.push({cls:'flag-red',text:'High Cost'});
+    else if(f.er&&f.er>0.8) flags.push({cls:'flag-yellow',text:'Moderate Cost'});
+    else if(f.er!==null) flags.push({cls:'flag-green',text:'Low Cost'});
+    var myOverlaps=overlaps.filter(function(o){return (o.a===f.name||o.b===f.name)&&o.pct>=50;});
+    if(myOverlaps.length) flags.push({cls:'flag-yellow',text:'Overlaps '+myOverlaps[0].pct+'%'});
+    return {
+      name:f.name,cat:f.cat||'Unknown',er:f.er,
+      value:f.value||0,
+      pct:total?(Math.round(f.value/total*100)+'% of portfolio'):'',
+      flags:flags
+    };
+  });
+  // Insights
+  var insights=[];
+  if(numFunds>6) insights.push({type:'bad',title:'Too many funds — '+numFunds+' is inefficient',body:'Ideal equity portfolio has 4–6 funds. Beyond that, you pay more fees but get the same diversification. Many of these funds likely hold the same stocks.'});
+  var highCostFunds=matched.filter(function(f){return f.er&&f.er>1.5;});
+  if(highCostFunds.length){
+    var extraCost=highCostFunds.reduce(function(s,f){return s+(f.value&&f.er?f.value*(f.er-0.5)/100:0);},0);
+    insights.push({type:'bad',title:'High expense ratios costing you '+fmtINR(extraCost)+' extra per year',body:highCostFunds.map(function(f){return f.name;}).join(', ')+' have expense ratios above 1.5%. Switching to direct plans or index funds could save you '+fmtINR(extraCost)+'/year.'});
+  }
+  var topOverlap=overlaps[0];
+  if(topOverlap&&topOverlap.pct>=60) insights.push({type:'warn',title:topOverlap.pct+'% overlap between your top funds',body:topOverlap.a+' and '+topOverlap.b+' share '+topOverlap.pct+'% of their top stocks. You\'re paying two expense ratios for what is effectively one fund.'});
+  if(lcCount>=3) insights.push({type:'warn',title:'You have '+lcCount+' large cap funds doing the same job',body:'Large cap funds all hold Nifty 50 stocks. Holding 3+ of them means you\'re paying 3× the fees for 1× the returns. Keep one — ideally a low-cost index fund.'});
+  if(annualCost>0) insights.push({type:annualCost>50000?'bad':'warn',title:'Your portfolio costs '+fmtINR(annualCost)+' per year in fees',body:'This is your annual expense drag. It comes directly out of your returns every year, regardless of market performance. Over 10 years at 12% growth, this compounds to a significant loss.'});
+  if(!insights.length) insights.push({type:'good',title:'Portfolio looks reasonably structured',body:'No major red flags found. A detailed review with our advisors can identify fine-tuning opportunities for your specific goals.'});
+  // Stats
+  var stats=[
+    {label:'Total Value',value:total?fmtINR(total):'—'},
+    {label:'No. of Funds',value:numFunds,sub:numFunds>6?'Consider reducing':'Looks good',warn:numFunds>6},
+    {label:'Annual Cost',value:annualCost?fmtINR(annualCost):'—',sub:'expense drag',warn:total&&annualCost/total>0.01},
+    {label:'Top Overlap',value:overlaps.length?overlaps[0].pct+'%':'—',sub:overlaps.length?overlaps[0].a.split(' ').slice(0,2).join(' ')+' ↔ '+overlaps[0].b.split(' ').slice(0,2).join(' '):'',warn:overlaps.length&&overlaps[0].pct>=60},
+  ];
+  var title=score>=70?'Your portfolio has a solid base':score>=45?'Your portfolio needs some attention':'Your portfolio has significant issues to fix';
+  var body=total?'Total portfolio value: '+fmtINR(total)+'. Annual fee drag: '+fmtINR(annualCost)+'. '+numFunds+' funds analysed.':'Based on '+numFunds+' funds selected.';
+  return {score:score,summary:{title:title,body:body},stats:stats,fundRows:fundRows,overlaps:overlaps,insights:insights,totalValue:total};
+}
+
+// ─── NAV MOBILE ──────────────────────────────────────────────────────────────
+(function(){
+  var btn=document.getElementById('ham'),menu=document.getElementById('mobMenu');
+  function close(){btn.classList.remove('open');menu.classList.remove('open');document.body.style.overflow='';}
+  btn.addEventListener('click',function(e){e.stopPropagation();btn.classList.toggle('open');menu.classList.toggle('open');document.body.style.overflow=menu.classList.contains('open')?'hidden':'';});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape') close();});
+})();
+</script>
+</body>
+</html>
