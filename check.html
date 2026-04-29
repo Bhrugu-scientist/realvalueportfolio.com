@@ -351,6 +351,11 @@ footer{background:#0e0e0e;color:rgba(255,255,255,.3);padding:72px 6% 28px;}
     <div class="parsing-spinner"></div>
     <p style="color:var(--muted);font-size:1rem;">Reading your CAS statement...</p>
   </div>
+  <div id="casError" style="display:none;margin-top:20px;background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.25);border-radius:12px;padding:20px 24px;">
+    <p style="font-weight:700;color:#ef4444;margin-bottom:8px;">Could not read your CAS</p>
+    <p id="casErrorMsg" style="font-size:.9rem;color:var(--muted);line-height:1.6;white-space:pre-wrap;word-break:break-word;max-height:240px;overflow-y:auto;"></p>
+    <p style="font-size:.85rem;color:var(--muted);margin-top:12px;">Make sure you downloaded the PDF from <strong>camsonline.com</strong> or <strong>kfintech.com</strong>. If the issue persists, <a href="https://api.whatsapp.com/send?phone=919662019850" target="_blank" style="color:var(--blue)">WhatsApp us</a> and we'll review it manually.</p>
+  </div>
 </section>
 
 <!-- RESULTS -->
@@ -735,24 +740,40 @@ function onDragOver(e){e.preventDefault();document.getElementById('uploadZone').
 function onDragLeave(){document.getElementById('uploadZone').classList.remove('drag');}
 function onDrop(e){e.preventDefault();onDragLeave();if(e.dataTransfer.files[0]) handleCASFile(e.dataTransfer.files[0]);}
 async function handleCASFile(file){
-  if(!file||!file.name.endsWith('.pdf')){alert('Please upload a PDF file.');return;}
+  if(!file){return;}
+  if(!file.name.toLowerCase().endsWith('.pdf')){showCASError('Please upload a PDF file. Make sure you downloaded the CAS from camsonline.com or kfintech.com.');return;}
   document.getElementById('uploadZone').style.display='none';
+  document.getElementById('casError').style.display='none';
   document.getElementById('parsingState').style.display='block';
+  var text='',funds=[],results=null;
   try{
-    var text=await extractPDFText(file);
-    var funds=parseCAS(text);
-    if(!funds.length) throw new Error('No funds found');
-    var results=buildAnalysis(funds);
-    document.getElementById('l3').classList.remove('active');
-    document.getElementById('parsingState').style.display='none';
-    document.getElementById('uploadZone').style.display='';
-    renderResults(results.score,results.summary,'',results.stats,results.fundRows,results.overlaps,results.insights);
-    if(typeof posthog!=='undefined') posthog.capture('portfolio_check_cas_analyzed',{funds_found:funds.length,total_value:results.totalValue});
+    text=await extractPDFText(file);
   }catch(err){
-    document.getElementById('parsingState').style.display='none';
-    document.getElementById('uploadZone').style.display='';
-    alert('Could not read your CAS. Make sure it\'s a CAMS or KFIN CAS PDF. Error: '+err.message);
+    showCASError('Could not read the PDF.\n\nError: '+err.message);return;
   }
+  try{
+    funds=parseCAS(text);
+  }catch(err){
+    showCASError(err.message);return;
+  }
+  try{
+    if(!funds||!funds.length) throw new Error('No funds detected in this PDF.');
+    results=buildAnalysis(funds);
+  }catch(err){
+    showCASError('Parsing succeeded but analysis failed.\n\nError: '+err.message+'\n\nFunds found: '+(funds?funds.map(function(f){return f.name;}).join(', '):'none'));return;
+  }
+  // Success — now hide l3 and show results
+  document.getElementById('parsingState').style.display='none';
+  document.getElementById('l3').classList.remove('active');
+  renderResults(results.score,results.summary,'',results.stats,results.fundRows,results.overlaps,results.insights);
+  if(typeof posthog!=='undefined') posthog.capture('portfolio_check_cas_analyzed',{funds_found:funds.length,total_value:results.totalValue});
+}
+function showCASError(msg){
+  document.getElementById('parsingState').style.display='none';
+  document.getElementById('uploadZone').style.display='';
+  document.getElementById('casError').style.display='';
+  document.getElementById('casErrorMsg').textContent=msg;
+  document.getElementById('casError').scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 async function extractPDFText(file){
   if(typeof pdfjsLib==='undefined') throw new Error('PDF library not loaded. Please refresh the page.');
