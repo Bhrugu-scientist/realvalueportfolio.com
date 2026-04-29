@@ -770,9 +770,10 @@ async function extractPDFText(file){
     });
   }
   allItems.sort(function(a,b){return a.pg-b.pg||a.y-b.y||a.x-b.x;});
+  // group items within 10px vertically into the same line (more tolerant)
   var lines=[],curLine=[],curY=-1;
   allItems.forEach(function(item){
-    if(curY===-1||Math.abs(item.y-curY)>5){
+    if(curY===-1||Math.abs(item.y-curY)>10){
       if(curLine.length) lines.push(curLine.map(function(i){return i.str;}).join(' '));
       curLine=[item];curY=item.y;
     }else{curLine.push(item);}
@@ -780,35 +781,146 @@ async function extractPDFText(file){
   if(curLine.length) lines.push(curLine.map(function(i){return i.str;}).join(' '));
   return lines.join('\n');
 }
+
+function cleanFundName(raw){
+  return raw
+    .replace(/\s*[-–]\s*(Direct|Regular)\s*(Plan)?\s*/gi,' ')
+    .replace(/\s*[-–]\s*(Growth|IDCW|Dividend|Bonus|Reinvestment|Payout)\s*$/gi,'')
+    .replace(/\(.*?\)/g,'')
+    .replace(/\s+/g,' ').trim();
+}
+
+function parseAmount(s){
+  // strip currency symbols, spaces, commas; handle "1,23,456.78"
+  return parseFloat(s.replace(/[₹Rs.,\s]/g,'').replace(/,/g,'')) || 0;
+}
+
 function parseCAS(text){
   var lines=text.split('\n').map(function(l){return l.trim();}).filter(Boolean);
-  var funds=[],cur=null;
+  var funds=[];
+
+  // ── Method 1: Folio-based state machine (more lenient patterns) ──
+  var cur=null;
   for(var i=0;i<lines.length;i++){
     var line=lines[i];
-    if(/Folio No[:\s]/i.test(line)){
+    var next=lines[i+1]||'';
+    var next2=lines[i+2]||'';
+
+    // Folio line detection — accept "Folio No", "Folio No.", "Folio No :", etc.
+    if(/Folio[\s.]*No/i.test(line)){
       if(cur&&cur.value>0) funds.push(cur);
-      var ni=i+1;
-      while(ni<lines.length&&!lines[ni].trim()) ni++;
-      var rawName=lines[ni]||'';
-      var name=rawName
-        .replace(/\s*[-–]\s*(Direct|Regular)\s*(Plan)?\s*/gi,' ')
-        .replace(/\s*[-–]\s*(Growth|IDCW|Dividend|Bonus)\s*$/gi,'')
-        .replace(/\(.*?\)/g,'').trim();
-      cur={name:name,rawName:rawName,units:0,nav:0,value:0};
-      i=ni;continue;
+      cur=null;
+      // Fund name: scan next 5 lines, skip metadata
+      for(var j=i+1;j<Math.min(i+6,lines.length);j++){
+        var cand=lines[j];
+        if(!cand||cand.length<4) continue;
+        if(/^(PAN|Nominee|Mode|Status|KYC|Registrar|Opening|CAMS|KFIN|Karvy|Date|Phone|Email|Address|\d)/i.test(cand)) continue;
+        cur={name:cleanFundName(cand),rawName:cand,units:0,nav:0,value:0};
+        break;
+      }
+      if(!cur) cur={name:'',rawName:'',units:0,nav:0,value:0};
+      continue;
     }
     if(!cur) continue;
-    var um=line.match(/Closing(?:\s+Unit)?\s+Balance[:\s]+([\d,]+\.[\d]+)/i);
+
+    // Closing units
+    var um=line.match(/Closing[\s\w]*Balance[^:]*:\s*([\d,]+\.[\d]+)/i);
+    if(!um) um=(line+' '+next).match(/Closing[\s\w]*Balance[^:]*:\s*([\d,]+\.[\d]+)/i);
     if(um){cur.units=parseFloat(um[1].replace(/,/g,''));continue;}
-    var nm=line.match(/NAV\s+on[^:]*:\s*[₹Rs\s.]*([\d,]+\.[\d]+)/i);
-    if(nm){cur.nav=parseFloat(nm[1].replace(/,/g,''));continue;}
-    var vm=line.match(/Valuation\s+on[^:]*:\s*[₹Rs\s.]*([\d,]+\.[\d]*)/i);
-    if(vm){cur.value=parseFloat(vm[1].replace(/,/g,''));continue;}
-    var mv=line.match(/Market\s+Value[:\s]*[₹Rs\s.]*([\d,]+\.[\d]*)/i);
-    if(mv){cur.value=parseFloat(mv[1].replace(/,/g,''));continue;}
+
+    // NAV — value may be on same line or next
+    if(/NAV\s+(on|as)/i.test(line)){
+      var nv=(line+' '+next+' '+next2).match(/([\d,]+\.[\d]{2,4})\s*$/);
+      if(!nv) nv=line.match(/([\d,]+\.[\d]{2,4})/);
+      if(nv&&!cur.nav) cur.nav=parseFloat(nv[1].replace(/,/g,''));
+      continue;
+    }
+
+    // Valuation — value may be on same line or next line
+    if(/Valuation\s+(on|as)/i.test(line)){
+      // try to get amount from same line first
+      var vnum=line.match(/([\d,]+\.[\d]{2})\s*$/);
+      if(!vnum) vnum=(line+' '+next).match(/(?:Rs\.?|₹|INR)?\s*([\d,]+\.[\d]{2})/i);
+      if(!vnum) vnum=next.match(/^\s*(?:Rs\.?|₹|INR)?\s*([\d,]+\.[\d]{2})/i);
+      if(!vnum) vnum=next.match(/^\s*([\d,]+\.[\d]{2})\s*$/);
+      if(vnum){
+        var val=parseFloat(vnum[1].replace(/,/g,''));
+        if(val>0) cur.value=val;
+      }
+      continue;
+    }
+
+    // Market Value (KFIN format)
+    if(/Market\s*Value/i.test(line)){
+      var mv=line.match(/([\d,]+\.[\d]{2})/);
+      if(!mv) mv=next.match(/^\s*([\d,]+\.[\d]{2})/);
+      if(mv){var mval=parseFloat(mv[1].replace(/,/g,''));if(mval>0) cur.value=mval;}
+      continue;
+    }
   }
   if(cur&&cur.value>0) funds.push(cur);
-  return funds.filter(function(f){return f.value>0&&f.name;});
+
+  // ── Method 2: Fallback — scan for "Valuation on" lines and work backwards ──
+  if(!funds.length){
+    for(var i=0;i<lines.length;i++){
+      var line=lines[i];
+      if(!/Valuation\s+(on|as)/i.test(line)) continue;
+      // get amount from same or next line
+      var vnum=line.match(/([\d,]+\.[\d]{2})\s*$/) ||
+               (lines[i+1]||'').match(/^\s*(?:Rs\.?|₹|INR)?\s*([\d,]+\.[\d]{2})/i) ||
+               (lines[i+1]||'').match(/^\s*([\d,]+\.[\d]{2})\s*$/);
+      if(!vnum) continue;
+      var val=parseFloat(vnum[1].replace(/,/g,''));
+      if(val<=0) continue;
+      // search backwards for fund name
+      var fname='';
+      for(var j=i-1;j>=Math.max(0,i-30);j--){
+        if(/\bFund\b/i.test(lines[j])||/\bScheme\b/i.test(lines[j])){
+          fname=cleanFundName(lines[j]);break;
+        }
+      }
+      if(fname){
+        var ex=funds.find(function(f){return f.name===fname;});
+        if(ex){ex.value+=val;}
+        else funds.push({name:fname,rawName:fname,value:val,units:0,nav:0});
+      }
+    }
+  }
+
+  // ── Method 3: Last resort — match our database against the full text ──
+  if(!funds.length){
+    var fullText=text.toLowerCase();
+    Object.keys(FUND_DB).forEach(function(fname){
+      var words=normFund(fname).split(' ').filter(function(w){return w.length>4;});
+      if(words.length<2) return;
+      var hits=words.filter(function(w){return fullText.includes(w);}).length;
+      if(hits>=Math.min(words.length,3)){
+        // try to find a valuation near this fund mention
+        for(var i=0;i<lines.length;i++){
+          var normLine=normFund(lines[i]);
+          var lineHits=words.filter(function(w){return normLine.includes(w);}).length;
+          if(lineHits<2) continue;
+          for(var j=i+1;j<Math.min(i+20,lines.length);j++){
+            var vm2=lines[j].match(/([\d,]+\.[\d]{2})\s*$/);
+            if(vm2){
+              var v2=parseFloat(vm2[1].replace(/,/g,''));
+              if(v2>1000){// likely a portfolio value not a unit price
+                funds.push({name:fname,rawName:fname,value:v2,units:0,nav:0});
+                i=lines.length;break;
+              }
+            }
+          }
+        }
+      }
+    });
+  }
+
+  if(!funds.length){
+    // show debug snippet to help diagnose
+    var sample=lines.slice(0,40).join('\n');
+    throw new Error('No funds found.\n\nFirst 40 lines of extracted text:\n'+sample);
+  }
+  return funds.filter(function(f){return f.value>0&&f.name&&f.name.length>3;});
 }
 
 // ─── ANALYSIS ENGINE ─────────────────────────────────────────────────────────
