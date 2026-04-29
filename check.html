@@ -740,40 +740,78 @@ function onDragOver(e){e.preventDefault();document.getElementById('uploadZone').
 function onDragLeave(){document.getElementById('uploadZone').classList.remove('drag');}
 function onDrop(e){e.preventDefault();onDragLeave();if(e.dataTransfer.files[0]) handleCASFile(e.dataTransfer.files[0]);}
 async function handleCASFile(file){
-  if(!file){return;}
-  if(!file.name.toLowerCase().endsWith('.pdf')){showCASError('Please upload a PDF file. Make sure you downloaded the CAS from camsonline.com or kfintech.com.');return;}
-  document.getElementById('uploadZone').style.display='none';
-  document.getElementById('casError').style.display='none';
-  document.getElementById('parsingState').style.display='block';
-  var text='',funds=[],results=null;
+  // reset input so same file can be re-uploaded
+  try{var inp=document.getElementById('casFile');if(inp)inp.value='';}catch(e){}
+  if(!file) return;
+  if(!file.name.toLowerCase().endsWith('.pdf')){showCASError('Please upload a PDF file.');return;}
+
+  // safe DOM refs
+  var uzEl=document.getElementById('uploadZone');
+  var psEl=document.getElementById('parsingState');
+  var ceEl=document.getElementById('casError');
+  if(uzEl) uzEl.style.display='none';
+  if(ceEl) ceEl.style.display='none';
+  if(psEl) psEl.style.display='block';
+
+  var text='';
   try{
     text=await extractPDFText(file);
+    console.log('[CAS] extracted',text.length,'chars. Preview:',text.slice(0,400));
   }catch(err){
-    showCASError('Could not read the PDF.\n\nError: '+err.message);return;
+    console.error('[CAS] extract error',err);
+    showCASError('PDF could not be read.\n\nError: '+err.message+'\n\nMake sure the PDF is not password-protected. Try downloading it again from camsonline.com.');
+    return;
   }
+
+  var funds=[];
   try{
     funds=parseCAS(text);
+    console.log('[CAS] parsed',funds.length,'funds',funds);
   }catch(err){
-    showCASError(err.message);return;
+    console.error('[CAS] parse error',err);
+    showCASError(err.message);
+    return;
   }
+
+  if(!funds||!funds.length){
+    showCASError('No mutual fund holdings found in this PDF.\n\nText extracted (first 600 chars):\n\n'+text.slice(0,600));
+    return;
+  }
+
+  var results;
   try{
-    if(!funds||!funds.length) throw new Error('No funds detected in this PDF.');
     results=buildAnalysis(funds);
   }catch(err){
-    showCASError('Parsing succeeded but analysis failed.\n\nError: '+err.message+'\n\nFunds found: '+(funds?funds.map(function(f){return f.name;}).join(', '):'none'));return;
+    console.error('[CAS] analysis error',err);
+    showCASError('Analysis failed: '+err.message);
+    return;
   }
-  // Success — now hide l3 and show results
-  document.getElementById('parsingState').style.display='none';
-  document.getElementById('l3').classList.remove('active');
-  renderResults(results.score,results.summary,'',results.stats,results.fundRows,results.overlaps,results.insights);
+
+  // All good — show results
+  if(psEl) psEl.style.display='none';
+  var l3El=document.getElementById('l3');
+  if(l3El) l3El.classList.remove('active');
+  try{
+    renderResults(results.score,results.summary,'',results.stats,results.fundRows,results.overlaps,results.insights);
+  }catch(err){
+    console.error('[CAS] render error',err);
+    alert('Analysis complete ('+funds.length+' funds, score '+results.score+'/100) but display failed: '+err.message);
+  }
   if(typeof posthog!=='undefined') posthog.capture('portfolio_check_cas_analyzed',{funds_found:funds.length,total_value:results.totalValue});
 }
 function showCASError(msg){
-  document.getElementById('parsingState').style.display='none';
-  document.getElementById('uploadZone').style.display='';
-  document.getElementById('casError').style.display='';
-  document.getElementById('casErrorMsg').textContent=msg;
-  document.getElementById('casError').scrollIntoView({behavior:'smooth',block:'nearest'});
+  console.error('[CAS UI Error]',msg);
+  var ps=document.getElementById('parsingState');
+  var uz=document.getElementById('uploadZone');
+  var ce=document.getElementById('casError');
+  var cem=document.getElementById('casErrorMsg');
+  if(ps) ps.style.display='none';
+  if(uz) uz.style.display='';
+  if(ce) ce.style.display='';
+  if(cem) cem.textContent=(msg||'Unknown error').slice(0,1200);
+  if(ce) try{ce.scrollIntoView({behavior:'smooth',block:'nearest'});}catch(e){}
+  // belt-and-suspenders fallback
+  if(!ce) alert('CAS Error: '+(msg||'').slice(0,300));
 }
 async function extractPDFText(file){
   if(typeof pdfjsLib==='undefined') throw new Error('PDF library not loaded. Please refresh the page.');
