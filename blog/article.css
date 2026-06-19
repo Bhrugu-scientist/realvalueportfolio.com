@@ -1,0 +1,34 @@
+/* Shared styles for Real Value blog articles */
+:root{--bg:#FCFCFC;--ink:#232323;--muted:#6b6b6b;--line:#e8e8e8;--green:#1a6645;--blue:#4A7EFF;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--ink);font-family:"DM Sans",sans-serif;line-height:1.7;}
+.wrap{max-width:760px;margin:0 auto;padding:32px 24px 80px;}
+nav.bc{font-size:14px;color:var(--muted);margin-bottom:32px;}
+nav.bc a{color:var(--green);text-decoration:none;}
+h1{font-size:40px;line-height:1.2;font-weight:700;margin:8px 0 16px;letter-spacing:-0.02em;}
+.meta{font-size:14px;color:var(--muted);margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(--line);}
+.answer{background:#f4f9f6;border-left:4px solid var(--green);padding:20px 24px;border-radius:8px;margin:0 0 32px;font-size:17px;}
+h2{font-size:26px;font-weight:700;margin:40px 0 14px;letter-spacing:-0.01em;}
+p{margin:0 0 18px;font-size:17px;}
+ul,ol{margin:0 0 18px 22px;}li{margin-bottom:8px;}
+.tbl{width:100%;border-collapse:collapse;margin:0 0 24px;font-size:15px;}
+.tbl th,.tbl td{border:1px solid var(--line);padding:12px;text-align:left;}
+.tbl th{background:#f4f9f6;font-weight:600;}
+.cta{background:var(--ink);color:#fff;border-radius:14px;padding:28px;margin:40px 0;text-align:center;}
+.cta a{display:inline-block;background:var(--green);color:#fff;padding:12px 28px;border-radius:999px;text-decoration:none;font-weight:600;margin-top:12px;}
+.share{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:32px 0;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.share span{font-weight:600;font-size:14px;margin-right:4px;}
+.share a,.share button{font-size:14px;font-weight:600;padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink);text-decoration:none;cursor:pointer;}
+.share a:hover,.share button:hover{background:#f4f9f6;}
+.disc{font-size:13px;color:var(--muted);margin-top:40px;padding-top:20px;border-top:1px solid var(--line);}
+#rv-comments{margin-top:48px;}
+#rv-like button{font-size:15px;font-weight:600;padding:10px 22px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--green);cursor:pointer;margin-bottom:8px;}
+#rv-like button[disabled]{opacity:.7;cursor:default;}
+.rvc-sub{font-size:15px;color:var(--muted);margin-bottom:16px;}
+#rvc-form{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+#rvc-form input,#rvc-form textarea{font-family:inherit;font-size:15px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;width:100%;}
+#rvc-form textarea{min-height:90px;resize:vertical;}
+#rvc-form button{align-self:flex-start;background:var(--ink);color:#fff;border:none;padding:11px 28px;border-radius:999px;font-weight:600;cursor:pointer;}
+.rvc-item{border-top:1px solid var(--line);padding:16px 0;}
+.rvc-head{font-size:14px;margin-bottom:4px;}.rvc-head span{color:var(--muted);}
+.rvc-body{font-size:15px;}.rvc-empty{color:var(--muted);font-size:15px;}

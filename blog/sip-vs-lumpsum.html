@@ -45,10 +45,21 @@ ul,ol{margin:0 0 18px 22px;}li{margin-bottom:8px;}
 .share a,.share button{font-size:14px;font-weight:600;padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink);text-decoration:none;cursor:pointer;}
 .share a:hover,.share button:hover{background:#f4f9f6;}
 .disc{font-size:13px;color:var(--muted);margin-top:40px;padding-top:20px;border-top:1px solid var(--line);}
-#comments{margin-top:48px;}
+#rv-comments{margin-top:48px;}
+#rv-like button{font-size:15px;font-weight:600;padding:10px 22px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--green);cursor:pointer;margin-bottom:8px;}
+#rv-like button[disabled]{opacity:.7;cursor:default;}
+.rvc-sub{font-size:15px;color:var(--muted);margin-bottom:16px;}
+#rvc-form{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+#rvc-form input,#rvc-form textarea{font-family:inherit;font-size:15px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;width:100%;}
+#rvc-form textarea{min-height:90px;resize:vertical;}
+#rvc-form button{align-self:flex-start;background:var(--ink);color:#fff;border:none;padding:11px 28px;border-radius:999px;font-weight:600;cursor:pointer;}
+.rvc-item{border-top:1px solid var(--line);padding:16px 0;}
+.rvc-head{font-size:14px;margin-bottom:4px;}.rvc-head span{color:var(--muted);}
+.rvc-body{font-size:15px;}
+.rvc-empty{color:var(--muted);font-size:15px;}
 </style>
 </head>
-<body>
+<body data-slug="sip-vs-lumpsum">
 <div class="wrap">
   <nav><a href="/">Real Value</a> › <a href="/blog.html">Blog</a> › SIP vs Lumpsum</nav>
 
@@ -107,12 +118,7 @@ ul,ol{margin:0 0 18px 22px;}li{margin-bottom:8px;}
     <button id="sh-cp">Copy link</button>
   </div>
 
-  <div id="comments">
-    <h2>Questions & Comments</h2>
-    <p style="font-size:15px;color:var(--muted);">Ask anything below — Bhrugu replies personally.</p>
-    <!-- Disqus: replace 'realvalueportfolio' with your Disqus shortname after signup -->
-    <div id="disqus_thread"></div>
-  </div>
+  <div id="rv-comments"></div>
 
   <div class="disc">Mutual fund investments are subject to market risks. Read all scheme related documents carefully. This article is educational and not personalised investment advice. Real Value Portfolio Management — AMFI Registered Mutual Fund Distributor, ARN 24454.</div>
 </div>
@@ -126,14 +132,7 @@ ul,ol{margin:0 0 18px 22px;}li{margin-bottom:8px;}
   document.getElementById('sh-li').href='https://www.linkedin.com/sharing/share-offsite/?url='+url;
   document.getElementById('sh-cp').onclick=function(){navigator.clipboard.writeText(location.href);this.textContent='Copied!';};
 })();
-// Disqus (comments + reactions/votes). Activate by creating a free Disqus site
-// and setting your shortname below, then uncomment.
-/*
-var disqus_config=function(){this.page.url=location.href;this.page.identifier='sip-vs-lumpsum';};
-(function(){var d=document,s=d.createElement('script');
-s.src='https://realvalueportfolio.disqus.com/embed.js';s.setAttribute('data-timestamp',+new Date());
-(d.head||d.body).appendChild(s);})();
-*/
 </script>
+<script src="comments.js"></script>
 </body>
 </html>
