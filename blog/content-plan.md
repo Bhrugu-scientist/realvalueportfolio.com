@@ -10,9 +10,9 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 
 ## 1. Basics & definitions (high-volume top-of-funnel) — 45
 - [x] CAGR vs XIRR — which shows your real return
-- [x] What is XIRR in mutual funds (and how to calculate it)
+- [ ] What is XIRR in mutual funds (and how to calculate it)
 - [x] What is CAGR and how is it calculated
-- [x] What is NAV in mutual funds — does a low NAV mean cheap?
+- [ ] What is NAV in mutual funds — does a low NAV mean cheap?
 - [x] What is expense ratio and how much is too much
 - [x] What is a SIP and how does it actually work
 - [x] What is a mutual fund — explained for a complete beginner
