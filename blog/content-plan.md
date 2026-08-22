@@ -10,16 +10,16 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 
 ## 1. Basics & definitions (high-volume top-of-funnel) — 45
 - [x] CAGR vs XIRR — which shows your real return
-- [ ] What is XIRR in mutual funds (and how to calculate it)
+- [x] What is XIRR in mutual funds (and how to calculate it)
 - [x] What is CAGR and how is it calculated
-- [ ] What is NAV in mutual funds — does a low NAV mean cheap?
+- [x] What is NAV in mutual funds — does a low NAV mean cheap?
 - [x] What is expense ratio and how much is too much
 - [x] What is a SIP and how does it actually work
 - [x] What is a mutual fund — explained for a complete beginner
-- [ ] What is an AMC (Asset Management Company)
-- [ ] What is AUM and does fund size matter
-- [ ] What is exit load and when do you pay it
-- [ ] What is a folio number
+- [x] What is an AMC (Asset Management Company)
+- [x] What is AUM and does fund size matter
+- [x] What is exit load and when do you pay it
+- [x] What is a folio number
 - [ ] What is direct vs regular mutual fund plan
 - [ ] What is a growth vs dividend (IDCW) option
 - [ ] What is an ELSS fund
