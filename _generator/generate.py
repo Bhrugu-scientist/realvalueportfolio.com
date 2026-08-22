@@ -239,11 +239,13 @@ sentence case), card_blurb (one-line teaser), html (the full article file)."""
 
 def generate(title):
     gold = strip_og_meta(GOLD.read_text(encoding="utf-8"))
-    msg = get_client().messages.parse(
+    # Raw json_schema → use messages.create + json.loads(content text). (parse()
+    # populates parsed_output only when given output_format=<type>, not a schema.)
+    msg = get_client().messages.create(
         model=MODEL,
         max_tokens=16000,
-        # Deterministic template-clone task: thinking on adaptive can consume the
-        # whole token budget before emitting the JSON. Disable it (Sonnet 5 allows).
+        # Deterministic template-clone task: adaptive thinking can burn the whole
+        # token budget before emitting the JSON. Disable it (Sonnet 5 allows).
         thinking={"type": "disabled"},
         system=SYSTEM,
         messages=[
@@ -257,12 +259,12 @@ def generate(title):
         ],
         output_config={"format": {"type": "json_schema", "schema": ARTICLE_SCHEMA}},
     )
-    art = msg.parsed_output
-    if not art:
+    text = next((b.text for b in msg.content if getattr(b, "type", None) == "text"), None)
+    if not text:
         raise RuntimeError(
-            f"no parsed output for: {title} (stop_reason={getattr(msg, 'stop_reason', '?')})"
+            f"no text output for: {title} (stop_reason={getattr(msg, 'stop_reason', '?')})"
         )
-    return art
+    return json.loads(text)
 
 
 def valid(html):
