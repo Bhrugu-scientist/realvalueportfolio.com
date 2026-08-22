@@ -28,11 +28,16 @@ jobs:
       - name: Install deps
         run: pip install -r _generator/requirements.txt
 
+      - name: Set up Chrome (renders the branded share cards)
+        id: setup-chrome
+        uses: browser-actions/setup-chrome@v1
+
       - name: Generate + wire articles
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           RVP_COUNT: "2"
           RVP_MODEL: "claude-sonnet-5"
+          CHROME_BIN: ${{ steps.setup-chrome.outputs.chrome-path }}
         run: python _generator/generate.py
 
       - name: Commit + push

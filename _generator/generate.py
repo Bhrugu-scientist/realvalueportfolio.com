@@ -9,13 +9,14 @@ into blog.html + sitemap.xml, and marks the plan. Publishes RVP_COUNT per run.
 Runs headless from GitHub Actions; commit + push is handled by the workflow.
 """
 import datetime
+import html as _html
 import json
 import os
 import re
+import shutil
+import subprocess
 import sys
 from pathlib import Path
-
-import anthropic
 
 ROOT = Path(__file__).resolve().parent.parent
 BLOG = ROOT / "blog"
@@ -28,7 +29,147 @@ MODEL = os.environ.get("RVP_MODEL", "claude-opus-5")
 COUNT = int(os.environ.get("RVP_COUNT", "2"))
 TODAY = datetime.date.today().isoformat()
 
-client = anthropic.Anthropic()  # reads ANTHROPIC_API_KEY from env
+_client = None
+
+
+def get_client():
+    """Lazy client so this module imports without an API key (backfill uses it)."""
+    global _client
+    if _client is None:
+        import anthropic
+        _client = anthropic.Anthropic()  # reads ANTHROPIC_API_KEY from env
+    return _client
+
+
+# ── Social share cards (og:image) ───────────────────────────────────────────
+# Every article gets a branded 1200x630 card with its own title baked in, so a
+# link pasted into WhatsApp / LinkedIn / X renders a proper preview instead of
+# bare text. Rendered with headless Chrome (set CHROME_BIN in CI).
+OG_DIR = BLOG / "og"
+
+OG_TEMPLATE = """<!doctype html><html lang="en"><head><meta charset="utf-8"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#0a0a0d}
+  .card{width:1200px;height:630px;background:#0a0a0d;color:#f4f1ea;position:relative;overflow:hidden;font-family:"Hanken Grotesk",sans-serif;padding:72px 76px;display:flex;flex-direction:column}
+  .dim{position:absolute;right:-160px;top:-160px;width:460px;height:460px;border-radius:50%;border:1px solid rgba(189,182,255,.16)}
+  .dim2{position:absolute;right:-60px;bottom:-220px;width:380px;height:380px;border-radius:50%;border:1px solid rgba(189,182,255,.10)}
+  .rule{position:absolute;left:0;top:0;width:8px;height:100%;background:#bdb6ff}
+  .top{display:flex;align-items:center;justify-content:space-between}
+  .brand{font-family:"Instrument Serif",serif;font-size:34px;letter-spacing:.5px}
+  .brand b{color:#bdb6ff;font-weight:400;font-style:italic}
+  .eyebrow{font-size:17px;letter-spacing:.28em;text-transform:uppercase;color:#bdb6ff;font-weight:600;text-align:right;max-width:520px}
+  .title{font-family:"Instrument Serif",serif;font-weight:400;font-size:{{SIZE}}px;line-height:1.05;letter-spacing:-.5px;margin-top:auto;max-width:1048px}
+  .title .a{color:#bdb6ff;font-style:italic}
+  .foot{margin-top:34px;padding-top:26px;border-top:1px solid rgba(244,241,234,.14);display:flex;align-items:center;justify-content:space-between}
+  .foot .site{color:#bdb6ff;font-size:24px;font-weight:600}
+  .foot .who{color:#8e8b99;font-size:20px;font-weight:400}
+</style></head>
+<body>
+  <div class="card">
+    <div class="rule"></div><div class="dim"></div><div class="dim2"></div>
+    <div class="top"><div class="brand">Real <b>Value</b></div><div class="eyebrow">{{CATEGORY}}</div></div>
+    <div class="title">{{TITLE}}</div>
+    <div class="foot"><div class="site">realvalueportfolio.com</div><div class="who">Bhrugu Thakkar · AMFI ARN 24454</div></div>
+  </div>
+</body></html>"""
+
+
+def _title_size(title):
+    """Deterministic font size (px) so 2-3 lines always fit the card nicely."""
+    n = len(title)
+    if n <= 40:
+        return 84
+    if n <= 58:
+        return 74
+    if n <= 78:
+        return 64
+    if n <= 104:
+        return 54
+    return 48
+
+
+def _accentize(title):
+    """Escape the title and tint numeric / ₹ / % tokens lilac for a little pop."""
+    parts = _html.escape(title).split(" ")
+    out = [f'<span class="a">{p}</span>' if re.search(r"[₹%]|\d", p) else p for p in parts]
+    return " ".join(out)
+
+
+def _find_chrome():
+    candidates = [
+        os.environ.get("CHROME_BIN"),
+        "google-chrome-stable", "google-chrome", "chromium", "chromium-browser",
+        "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    ]
+    for c in candidates:
+        if not c:
+            continue
+        if os.path.sep in c and os.path.exists(c):
+            return c
+        found = shutil.which(c)
+        if found:
+            return found
+    raise RuntimeError("no Chrome/Chromium binary found (set CHROME_BIN)")
+
+
+def render_og_card(slug, title, category):
+    """Render blog/og/<slug>.png. Returns the repo-relative path."""
+    OG_DIR.mkdir(parents=True, exist_ok=True)
+    eyebrow = (category or "Real Value").strip().upper()[:42]
+    doc = (OG_TEMPLATE
+           .replace("{{CATEGORY}}", _html.escape(eyebrow))
+           .replace("{{SIZE}}", str(_title_size(title)))
+           .replace("{{TITLE}}", _accentize(title)))
+    tmp = OG_DIR / f"_tmp_{slug}.html"
+    tmp.write_text(doc, encoding="utf-8")
+    out = OG_DIR / f"{slug}.png"
+    try:
+        subprocess.run(
+            [_find_chrome(), "--headless=new", "--no-sandbox", "--disable-gpu",
+             "--hide-scrollbars", "--force-device-scale-factor=2",
+             "--window-size=1200,630", "--virtual-time-budget=6000",
+             f"--screenshot={out}", tmp.as_uri()],
+            check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+        )
+    finally:
+        tmp.unlink(missing_ok=True)
+    if not out.exists():
+        raise RuntimeError(f"card render produced no file for {slug}")
+    return f"blog/og/{slug}.png"
+
+
+def extract_h1(html):
+    m = re.search(r"<h1[^>]*>(.*?)</h1>", html, re.S | re.I)
+    return re.sub(r"<[^>]+>", "", m.group(1)).strip() if m else None
+
+
+def strip_og_meta(html):
+    """Remove any share-card meta (so a copied template URL can't leak through)."""
+    html = re.sub(r'\s*<meta property="og:image(?::width|:height)?"[^>]*>', "", html)
+    html = re.sub(r'\s*<meta name="twitter:(?:card|image)"[^>]*>', "", html)
+    return html
+
+
+def inject_og_meta(html, slug):
+    """Set og:image + twitter card meta on an article <head> (authoritative)."""
+    html = strip_og_meta(html)
+    url = f"https://www.realvalueportfolio.com/blog/og/{slug}.png"
+    block = (
+        f'<meta property="og:image" content="{url}"/>\n'
+        f'<meta property="og:image:width" content="1200"/>\n'
+        f'<meta property="og:image:height" content="630"/>\n'
+        f'<meta name="twitter:card" content="summary_large_image"/>\n'
+        f'<meta name="twitter:image" content="{url}"/>\n'
+    )
+    m = re.search(r'<meta property="og:url"[^>]*>\s*', html)
+    if m:
+        return html[:m.end()] + block + html[m.end():]
+    return html.replace("</head>", block + "</head>", 1)
+
 
 ARTICLE_SCHEMA = {
     "type": "object",
@@ -95,8 +236,8 @@ sentence case), card_blurb (one-line teaser), html (the full article file)."""
 
 
 def generate(title):
-    gold = GOLD.read_text(encoding="utf-8")
-    msg = client.messages.parse(
+    gold = strip_og_meta(GOLD.read_text(encoding="utf-8"))
+    msg = get_client().messages.parse(
         model=MODEL,
         max_tokens=12000,
         system=SYSTEM,
@@ -124,7 +265,17 @@ def valid(html):
 
 def wire_in(art):
     slug = art["slug"].strip().strip("/").replace(".html", "")
-    (BLOG / f"{slug}.html").write_text(art["html"], encoding="utf-8")
+    html = art["html"]
+
+    # Branded share card + og:image meta (never block a publish if it fails).
+    display_title = extract_h1(html) or art.get("card_title") or slug
+    try:
+        render_og_card(slug, display_title, art.get("category", "Real Value"))
+        html = inject_og_meta(html, slug)
+    except Exception as e:  # noqa: BLE001
+        print(f"og card failed for {slug}: {e}", file=sys.stderr)
+
+    (BLOG / f"{slug}.html").write_text(html, encoding="utf-8")
 
     # Blog index card — prepend above the first category block (freshest on top)
     idx = BLOG_INDEX.read_text(encoding="utf-8")
