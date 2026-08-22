@@ -157,7 +157,9 @@ def strip_og_meta(html):
 def inject_og_meta(html, slug):
     """Set og:image + twitter card meta on an article <head> (authoritative)."""
     html = strip_og_meta(html)
-    url = f"https://www.realvalueportfolio.com/blog/og/{slug}.png"
+    # Apex host (no www): www 301-redirects, and scrapers (WhatsApp/FB) won't
+    # follow a redirect on og:image — must be a direct 200.
+    url = f"https://realvalueportfolio.com/blog/og/{slug}.png"
     block = (
         f'<meta property="og:image" content="{url}"/>\n'
         f'<meta property="og:image:width" content="1200"/>\n'
