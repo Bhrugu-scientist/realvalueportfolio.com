@@ -241,7 +241,10 @@ def generate(title):
     gold = strip_og_meta(GOLD.read_text(encoding="utf-8"))
     msg = get_client().messages.parse(
         model=MODEL,
-        max_tokens=12000,
+        max_tokens=16000,
+        # Deterministic template-clone task: thinking on adaptive can consume the
+        # whole token budget before emitting the JSON. Disable it (Sonnet 5 allows).
+        thinking={"type": "disabled"},
         system=SYSTEM,
         messages=[
             {
@@ -256,7 +259,9 @@ def generate(title):
     )
     art = msg.parsed_output
     if not art:
-        raise RuntimeError(f"no parsed output for: {title}")
+        raise RuntimeError(
+            f"no parsed output for: {title} (stop_reason={getattr(msg, 'stop_reason', '?')})"
+        )
     return art
 
 
