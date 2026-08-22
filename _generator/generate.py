@@ -173,6 +173,26 @@ def inject_og_meta(html, slug):
     return html.replace("</head>", block + "</head>", 1)
 
 
+# The exact AMFI market-risk disclaimer — compliance-mandatory on every article.
+DISC = (
+    '<div class="disc">Mutual fund investments are subject to market risks. '
+    "Read all scheme related documents carefully. Educational content, not "
+    "personalised advice. Real Value — AMFI Registered Mutual Fund Distributor, "
+    "ARN 24454.</div>"
+)
+
+
+def guarantee_disc(html):
+    """Ensure the disclaimer is present (the model drops it intermittently)."""
+    if 'class="disc"' in html:
+        return html
+    if '<script src="share.js"></script>' in html:
+        return html.replace(
+            '<script src="share.js"></script>', DISC + '\n<script src="share.js"></script>', 1
+        )
+    return html.replace("</body>", DISC + "\n</body>", 1)
+
+
 ARTICLE_SCHEMA = {
     "type": "object",
     "additionalProperties": False,
@@ -264,7 +284,9 @@ def generate(title):
         raise RuntimeError(
             f"no text output for: {title} (stop_reason={getattr(msg, 'stop_reason', '?')})"
         )
-    return json.loads(text)
+    art = json.loads(text)
+    art["html"] = guarantee_disc(art["html"])
+    return art
 
 
 def missing_tokens(html):
