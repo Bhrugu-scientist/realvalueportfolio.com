@@ -267,9 +267,9 @@ def generate(title):
     return json.loads(text)
 
 
-def valid(html):
+def missing_tokens(html):
     need = ['class="answer"', "FAQPage", "ARN 24454", "article.css", 'class="disc"']
-    return all(tok in html for tok in need)
+    return [t for t in need if t not in html]
 
 
 def wire_in(art):
@@ -323,8 +323,13 @@ def main():
         try:
             art = generate(title)
             slug = art["slug"].strip().strip("/").replace(".html", "")
-            if already_have(slug) or not valid(art["html"]):
-                print(f"skip (dup/invalid): {title}", file=sys.stderr)
+            if already_have(slug):
+                print(f"skip (dup): {title}", file=sys.stderr)
+                mark_published(title)
+                continue
+            miss = missing_tokens(art["html"])
+            if miss:
+                print(f"skip (invalid, missing {miss}): {title}", file=sys.stderr)
                 mark_published(title)  # don't retry a bad title forever
                 continue
             wire_in(art)
