@@ -32,7 +32,7 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           RVP_COUNT: "2"
-          RVP_MODEL: "claude-opus-5"
+          RVP_MODEL: "claude-sonnet-5"
         run: python _generator/generate.py
 
       - name: Commit + push
