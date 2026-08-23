@@ -20,8 +20,8 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] What is AUM and does fund size matter
 - [x] What is exit load and when do you pay it
 - [x] What is a folio number
-- [ ] What is direct vs regular mutual fund plan
-- [ ] What is a growth vs dividend (IDCW) option
+- [x] What is direct vs regular mutual fund plan
+- [x] What is a growth vs dividend (IDCW) option
 - [ ] What is an ELSS fund
 - [ ] What is a large-cap / mid-cap / small-cap fund
 - [ ] What is a flexi-cap fund
