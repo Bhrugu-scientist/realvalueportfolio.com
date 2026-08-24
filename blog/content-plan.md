@@ -22,10 +22,10 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] What is a folio number
 - [x] What is direct vs regular mutual fund plan
 - [x] What is a growth vs dividend (IDCW) option
-- [ ] What is an ELSS fund
-- [ ] What is a large-cap / mid-cap / small-cap fund
-- [ ] What is a flexi-cap fund
-- [ ] What is a hybrid / balanced advantage fund
+- [x] What is an ELSS fund
+- [x] What is a large-cap / mid-cap / small-cap fund
+- [x] What is a flexi-cap fund
+- [x] What is a hybrid / balanced advantage fund
 - [ ] What is a debt mutual fund
 - [ ] What is a liquid fund
 - [ ] What is an index fund
