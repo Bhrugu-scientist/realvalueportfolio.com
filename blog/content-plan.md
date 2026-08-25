@@ -26,8 +26,8 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] What is a large-cap / mid-cap / small-cap fund
 - [x] What is a flexi-cap fund
 - [x] What is a hybrid / balanced advantage fund
-- [ ] What is a debt mutual fund
-- [ ] What is a liquid fund
+- [x] What is a debt mutual fund
+- [x] What is a liquid fund
 - [ ] What is an index fund
 - [ ] What is an ETF and how is it different from an index fund
 - [ ] What is a fund of funds
