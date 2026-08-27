@@ -34,12 +34,12 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] What is standard deviation / beta / Sharpe ratio in a fund
 - [x] What is alpha in mutual funds
 - [x] What is rolling return and why it beats point-to-point
-- [ ] What is downside capture ratio
-- [ ] What is portfolio turnover ratio
-- [ ] What is a benchmark and why it matters
-- [ ] What is rupee cost averaging
-- [ ] What is compounding — the 8th wonder, in numbers
-- [ ] What is asset allocation
+- [x] What is downside capture ratio
+- [x] What is portfolio turnover ratio
+- [x] What is a benchmark and why it matters
+- [x] What is rupee cost averaging
+- [x] What is compounding — the 8th wonder, in numbers
+- [x] What is asset allocation
 - [ ] What is rebalancing and how often to do it
 - [ ] What is a lock-in period
 - [ ] What is KYC for mutual funds and how to complete it
