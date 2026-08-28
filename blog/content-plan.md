@@ -40,12 +40,12 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] What is rupee cost averaging
 - [x] What is compounding — the 8th wonder, in numbers
 - [x] What is asset allocation
-- [ ] What is rebalancing and how often to do it
-- [ ] What is a lock-in period
-- [ ] What is KYC for mutual funds and how to complete it
-- [ ] What is a consolidated account statement (CAS)
-- [ ] What is SWP (Systematic Withdrawal Plan)
-- [ ] What is STP (Systematic Transfer Plan)
+- [x] What is rebalancing and how often to do it
+- [x] What is a lock-in period
+- [x] What is KYC for mutual funds and how to complete it
+- [x] What is a consolidated account statement (CAS)
+- [x] What is SWP (Systematic Withdrawal Plan)
+- [x] What is STP (Systematic Transfer Plan)
 - [ ] What is a step-up / top-up SIP
 - [ ] What is a target-date / retirement fund
 - [ ] What is a sectoral / thematic fund
