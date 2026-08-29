@@ -46,9 +46,9 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] What is a consolidated account statement (CAS)
 - [x] What is SWP (Systematic Withdrawal Plan)
 - [x] What is STP (Systematic Transfer Plan)
-- [ ] What is a step-up / top-up SIP
-- [ ] What is a target-date / retirement fund
-- [ ] What is a sectoral / thematic fund
+- [x] What is a step-up / top-up SIP
+- [x] What is a target-date / retirement fund
+- [x] What is a sectoral / thematic fund
 - [ ] What is an international / US equity fund
 - [ ] What is a gold mutual fund / gold ETF
 - [ ] What is a multi-asset fund
