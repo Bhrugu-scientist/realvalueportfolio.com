@@ -49,17 +49,17 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] What is a step-up / top-up SIP
 - [x] What is a target-date / retirement fund
 - [x] What is a sectoral / thematic fund
-- [ ] What is an international / US equity fund
-- [ ] What is a gold mutual fund / gold ETF
-- [ ] What is a multi-asset fund
-- [ ] What is TER and how it silently eats returns
-- [ ] What is absolute return vs annualised return
+- [x] What is an international / US equity fund
+- [x] What is a gold mutual fund / gold ETF
+- [x] What is a multi-asset fund
+- [x] What is TER and how it silently eats returns
+- [x] What is absolute return vs annualised return
 
 ## 2. Comparisons (X vs Y — high intent) — 40
 - [x] FD vs mutual fund (existing)
 - [x] SIP vs lumpsum (existing)
 - [x] Index fund vs active fund (existing)
-- [ ] SIP vs FD — which builds more wealth
+- [x] SIP vs FD — which builds more wealth
 - [ ] Mutual fund vs stocks — which is better for you
 - [ ] Mutual fund vs PPF
 - [ ] Mutual fund vs NPS for retirement
