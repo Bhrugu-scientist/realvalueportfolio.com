@@ -60,8 +60,8 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] SIP vs lumpsum (existing)
 - [x] Index fund vs active fund (existing)
 - [x] SIP vs FD — which builds more wealth
-- [ ] Mutual fund vs stocks — which is better for you
-- [ ] Mutual fund vs PPF
+- [x] Mutual fund vs stocks — which is better for you
+- [x] Mutual fund vs PPF
 - [ ] Mutual fund vs NPS for retirement
 - [ ] ELSS vs PPF vs NPS for 80C
 - [ ] ELSS vs tax-saver FD
