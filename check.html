@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Free Portfolio Check · Real Value Portfolio Management</title>
 <meta name="description" content="Is your portfolio actually working? Check in 2 minutes — no signup required. Find hidden costs, fund overlap and get a free expert recommendation."/>
-<link rel="canonical" href="https://www.realvalueportfolio.com/check.html"/>
+<link rel="canonical" href="https://realvalueportfolio.com/check.html"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <!-- PostHog Analytics -->
@@ -315,7 +315,8 @@ footer{background:#0e0e0e;color:rgba(255,255,255,.3);padding:72px 6% 28px;}
     <p>Type the name of each mutual fund you hold. We'll check for overlap and costs.</p>
   </div>
   <div class="fund-search-wrap">
-    <input type="text" class="fund-search-input" id="fundSearchInput" placeholder="e.g. HDFC Top 100, SBI Bluechip..." autocomplete="off" oninput="onFundSearch(this.value)">
+    <label for="fundSearchInput" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">Search for a mutual fund you hold</label>
+    <input type="text" class="fund-search-input" id="fundSearchInput" aria-label="Search for a mutual fund you hold" placeholder="e.g. HDFC Top 100, SBI Bluechip..." autocomplete="off" oninput="onFundSearch(this.value)">
     <div class="fund-dropdown" id="fundDropdown"></div>
   </div>
   <div class="selected-funds" id="selectedFunds"></div>
@@ -340,12 +341,12 @@ footer{background:#0e0e0e;color:rgba(255,255,255,.3);padding:72px 6% 28px;}
     </div>
   </div>
   <div class="upload-zone" id="uploadZone" onclick="document.getElementById('casFile').click()" ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event)">
-    <span class="upload-icon">📄</span>
+    <span class="upload-icon" aria-hidden="true">📄</span>
     <h3>Drop your CAS PDF here</h3>
     <p>or click to browse from your device</p>
     <span class="upload-btn-label">Choose PDF</span>
     <p class="upload-note">🔒 Processed entirely in your browser. We never see your data.</p>
-    <input type="file" id="casFile" accept=".pdf" style="display:none" onchange="handleCASFile(this.files[0])">
+    <input type="file" id="casFile" accept=".pdf" aria-label="Upload your CAS PDF statement" style="display:none" onchange="handleCASFile(this.files[0])">
   </div>
   <div class="parsing-state" id="parsingState">
     <div class="parsing-spinner"></div>
