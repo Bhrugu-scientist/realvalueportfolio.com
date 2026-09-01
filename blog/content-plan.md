@@ -62,12 +62,12 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] SIP vs FD — which builds more wealth
 - [x] Mutual fund vs stocks — which is better for you
 - [x] Mutual fund vs PPF
-- [ ] Mutual fund vs NPS for retirement
-- [ ] ELSS vs PPF vs NPS for 80C
-- [ ] ELSS vs tax-saver FD
-- [ ] Direct vs regular plan — the real cost difference
-- [ ] Growth vs IDCW (dividend) option
-- [ ] Index fund vs ETF
+- [x] Mutual fund vs NPS for retirement
+- [x] ELSS vs PPF vs NPS for 80C
+- [x] ELSS vs tax-saver FD
+- [x] Direct vs regular plan — the real cost difference
+- [x] Growth vs IDCW (dividend) option
+- [x] Index fund vs ETF
 - [ ] Large-cap vs flexi-cap
 - [ ] Mid-cap vs small-cap — risk vs reward
 - [ ] Active vs passive investing in India
