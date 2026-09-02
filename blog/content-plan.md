@@ -68,8 +68,8 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] Direct vs regular plan — the real cost difference
 - [x] Growth vs IDCW (dividend) option
 - [x] Index fund vs ETF
-- [ ] Large-cap vs flexi-cap
-- [ ] Mid-cap vs small-cap — risk vs reward
+- [x] Large-cap vs flexi-cap
+- [x] Mid-cap vs small-cap — risk vs reward
 - [ ] Active vs passive investing in India
 - [ ] Mutual fund vs real estate for ₹50 lakh
 - [ ] Mutual fund vs gold
