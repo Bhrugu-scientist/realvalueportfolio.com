@@ -70,10 +70,10 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] Index fund vs ETF
 - [x] Large-cap vs flexi-cap
 - [x] Mid-cap vs small-cap — risk vs reward
-- [ ] Active vs passive investing in India
-- [ ] Mutual fund vs real estate for ₹50 lakh
-- [ ] Mutual fund vs gold
-- [ ] Debt fund vs FD
+- [x] Active vs passive investing in India
+- [x] Mutual fund vs real estate for ₹50 lakh
+- [x] Mutual fund vs gold
+- [x] Debt fund vs FD
 - [ ] Liquid fund vs savings account
 - [ ] SIP vs RD (recurring deposit)
 - [ ] Regular SIP vs step-up SIP
