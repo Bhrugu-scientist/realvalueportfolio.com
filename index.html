@@ -59,6 +59,13 @@ body {
 ::-webkit-scrollbar { width:3px; }
 ::-webkit-scrollbar-thumb { background:var(--ink); }
 ::selection { background:var(--ink); color:#fff; }
+/* Keyboard focus — visible ring for a11y (mouse clicks unaffected) */
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible, input:focus-visible, [role="button"]:focus-visible {
+  outline:3px solid var(--blue); outline-offset:3px; border-radius:4px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+}
 
 /* ── SKIP ── */
 .skip { position:absolute;top:-100%;left:1rem;background:var(--ink);color:#fff;padding:8px 16px;border-radius:4px;font-size:.9rem;z-index:9999;text-decoration:none; }
@@ -212,7 +219,7 @@ body {
 .feat { display:flex;gap:16px;align-items:flex-start;padding:20px;border-radius:12px;border:1px solid transparent;transition:all .3s;cursor:default; }
 .feat:hover { background:var(--white);border-color:var(--bdr);box-shadow:0 4px 26px rgba(0,0,0,.07);transform:translateX(4px); }
 .fi { width:46px;height:46px;border-radius:10px;background:rgba(35,35,35,.07);display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0; }
-.feat h4 { font-size:1.02rem;font-weight:600;margin-bottom:6px; }
+.feat h3 { font-size:1.02rem;font-weight:600;margin-bottom:6px; }
 .feat p { font-size:.95rem;color:var(--muted);line-height:1.65; }
 .sgrid { display:grid;grid-template-columns:1fr 1fr;gap:14px; }
 .sc { background:var(--white);border:1px solid var(--bdr);border-radius:12px;padding:30px 24px;transition:all .3s;position:relative;overflow:hidden; }
@@ -253,7 +260,7 @@ body {
 .ps { text-align:center;padding:0 8px; }
 .psn { width:76px;height:76px;border-radius:50%;background:var(--off);border:1.5px solid var(--bdr);display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:700;color:var(--ink);margin:0 auto 24px;position:relative;z-index:1;transition:all .3s; }
 .ps:hover .psn { background:var(--ink);color:#fff;border-color:var(--ink); }
-.ps h4 { font-size:1rem;font-weight:600;margin-bottom:9px;letter-spacing:-.2px; }
+.ps h3 { font-size:1rem;font-weight:600;margin-bottom:9px;letter-spacing:-.2px; }
 .ps p { font-size:.92rem;color:var(--muted);line-height:1.65; }
 
 /* TESTIMONIALS */
@@ -303,7 +310,7 @@ footer { background:#0e0e0e;color:rgba(255,255,255,.3);padding:72px 6% 28px; }
 .fbn em { color:rgba(255,255,255,.32);font-style:normal;font-weight:400; }
 .fbrand p { font-size:.92rem;line-height:1.8;max-width:280px; }
 .famfi { font-size:.78rem;color:rgba(255,255,255,.18);margin-top:18px;line-height:1.65; }
-.fcol h5 { color:#fff;font-size:.74rem;text-transform:uppercase;letter-spacing:2.5px;margin-bottom:20px;font-weight:600; }
+.fcol h3 { color:#fff;font-size:.74rem;text-transform:uppercase;letter-spacing:2.5px;margin-bottom:20px;font-weight:600; }
 .fcol a { display:block;color:rgba(255,255,255,.3);text-decoration:none;font-size:.92rem;margin-bottom:11px;transition:color .2s; }
 .fcol a:hover { color:#fff; }
 .frow { display:flex;gap:10px;font-size:.9rem;margin-bottom:12px; }
@@ -621,10 +628,10 @@ footer { background:#0e0e0e;color:rgba(255,255,255,.3);padding:72px 6% 28px; }
       <h2 class="h2">Your Wealth Deserves<br><em>A Strategy That Wins.</em></h2>
       <p class="bt">30+ years of expertise combined with data science and AI — ensuring your money is in the right funds, at the right time, tuned to your exact life goals.</p>
       <div class="fl">
-        <div class="feat"><div class="fi" aria-hidden="true">🎯</div><div><h4>Goal-Based Portfolio Strategy</h4><p>Custom wealth roadmaps for home, retirement, education, or FIRE — built around your exact timeline and risk profile. Not generic. Yours.</p></div></div>
-        <div class="feat"><div class="fi" aria-hidden="true">🔥</div><div><h4>FIRE Strategy — Retire Earlier</h4><p>Financial Independence Retire Early — disciplined SIPs, compounding projections, and smart allocation. We've helped investors retire a decade ahead of schedule.</p></div></div>
-        <div class="feat"><div class="fi" aria-hidden="true">🔄</div><div><h4>Active Portfolio Monitoring</h4><p>Proactive rebalancing, fund replacement, and performance reviews — so you never sit in an underperforming fund while the market moves without you.</p></div></div>
-        <div class="feat"><div class="fi" aria-hidden="true">🤝</div><div><h4>Official NJ India Partner</h4><p>India's most trusted distribution platform. Best-in-class execution, transparency, and access to every top-rated mutual fund scheme in one place.</p></div></div>
+        <div class="feat"><div class="fi" aria-hidden="true">🎯</div><div><h3>Goal-Based Portfolio Strategy</h3><p>Custom wealth roadmaps for home, retirement, education, or FIRE — built around your exact timeline and risk profile. Not generic. Yours.</p></div></div>
+        <div class="feat"><div class="fi" aria-hidden="true">🔥</div><div><h3>FIRE Strategy — Retire Earlier</h3><p>Financial Independence Retire Early — disciplined SIPs, compounding projections, and smart allocation. We've helped investors retire a decade ahead of schedule.</p></div></div>
+        <div class="feat"><div class="fi" aria-hidden="true">🔄</div><div><h3>Active Portfolio Monitoring</h3><p>Proactive rebalancing, fund replacement, and performance reviews — so you never sit in an underperforming fund while the market moves without you.</p></div></div>
+        <div class="feat"><div class="fi" aria-hidden="true">🤝</div><div><h3>Official NJ India Partner</h3><p>India's most trusted distribution platform. Best-in-class execution, transparency, and access to every top-rated mutual fund scheme in one place.</p></div></div>
       </div>
     </div>
     <div class="sgrid rv">
@@ -672,12 +679,12 @@ footer { background:#0e0e0e;color:rgba(255,255,255,.3);padding:72px 6% 28px; }
     <p class="bt">A proven process guiding you from where you are to exactly where you want to be financially.</p>
   </div>
   <div class="pg">
-    <div class="ps rv"><div class="psn">1</div><h4>Understand Mutual Funds</h4><p>We educate you on fund types, categories, and which fits your risk profile and goals.</p></div>
-    <div class="ps rv d1"><div class="psn">2</div><h4>Select Best Funds</h4><p>We analyze fund managers, consistency, expense ratios, and long-term performance to shortlist the best.</p></div>
-    <div class="ps rv d2"><div class="psn">3</div><h4>Build Your Portfolio</h4><p>A diversified portfolio tailored to your age, goals, and investment horizon without any overlap.</p></div>
-    <div class="ps rv"><div class="psn">4</div><h4>Launch Your SIP</h4><p>We set SIP amounts and build a compounding strategy using rupee-cost averaging for optimal returns.</p></div>
-    <div class="ps rv d1"><div class="psn">5</div><h4>Review &amp; Rebalance</h4><p>Periodic reviews, rebalancing, and replacing underperforming funds — always keeping you on track.</p></div>
-    <div class="ps rv d2"><div class="psn">6</div><h4>Long-Term Strategy</h4><p>A sustained strategy that evolves with your life goals — from retirement to FIRE.</p></div>
+    <div class="ps rv"><div class="psn">1</div><h3>Understand Mutual Funds</h3><p>We educate you on fund types, categories, and which fits your risk profile and goals.</p></div>
+    <div class="ps rv d1"><div class="psn">2</div><h3>Select Best Funds</h3><p>We analyze fund managers, consistency, expense ratios, and long-term performance to shortlist the best.</p></div>
+    <div class="ps rv d2"><div class="psn">3</div><h3>Build Your Portfolio</h3><p>A diversified portfolio tailored to your age, goals, and investment horizon without any overlap.</p></div>
+    <div class="ps rv"><div class="psn">4</div><h3>Launch Your SIP</h3><p>We set SIP amounts and build a compounding strategy using rupee-cost averaging for optimal returns.</p></div>
+    <div class="ps rv d1"><div class="psn">5</div><h3>Review &amp; Rebalance</h3><p>Periodic reviews, rebalancing, and replacing underperforming funds — always keeping you on track.</p></div>
+    <div class="ps rv d2"><div class="psn">6</div><h3>Long-Term Strategy</h3><p>A sustained strategy that evolves with your life goals — from retirement to FIRE.</p></div>
   </div>
 </section>
 
@@ -876,11 +883,11 @@ footer { background:#0e0e0e;color:rgba(255,255,255,.3);padding:72px 6% 28px; }
       <p>A 30-year family mutual fund advisory practice in Bharuch, Gujarat — building disciplined, goal-based portfolios for 1,000+ investors, ₹100Cr+ under advisory, since 1994.</p>
       <div class="famfi">AMFI Registered Mutual Fund Distributor · ARN 24454<br>GSTN 24ABFPT8225J1ZD · NJ India Business Partner<br>Mutual fund investments are subject to market risks.</div>
     </div>
-    <nav class="fcol" aria-label="Services"><h5>Services</h5><a href="#services">Portfolio Management</a><a href="#services">Wealth Management</a><a href="#services">Retirement Planning</a><a href="calculator.html">SIP Calculator</a><a href="#services">FIRE Strategy</a><a href="#services">Free Review</a></nav>
-    <nav class="fcol" aria-label="Account"><h5>Account</h5><a href="https://www.njindiaonline.in/cdesk/login.fin" target="_blank" rel="noopener">NJ Client Desk</a><a href="https://ewa.njindiaonline.com/ewa/login" target="_blank" rel="noopener">E-Wealth Login</a><a href="http://p.njw.bz/04009" target="_blank" rel="noopener">Registration</a><a href="#faq">FAQ</a><a href="team.html">Our Team</a>
+    <nav class="fcol" aria-label="Services"><h3>Services</h3><a href="#services">Portfolio Management</a><a href="#services">Wealth Management</a><a href="#services">Retirement Planning</a><a href="calculator.html">SIP Calculator</a><a href="#services">FIRE Strategy</a><a href="#services">Free Review</a></nav>
+    <nav class="fcol" aria-label="Account"><h3>Account</h3><a href="https://www.njindiaonline.in/cdesk/login.fin" target="_blank" rel="noopener">NJ Client Desk</a><a href="https://ewa.njindiaonline.com/ewa/login" target="_blank" rel="noopener">E-Wealth Login</a><a href="http://p.njw.bz/04009" target="_blank" rel="noopener">Registration</a><a href="#faq">FAQ</a><a href="team.html">Our Team</a>
         <a href="markets.html">Market Watch</a>
         <a href="blog.html">Blogs</a><a href="mutual-fund-advisor-bharuch.html">Advisor in Bharuch</a></nav>
-    <div class="fcol"><h5>Contact</h5>
+    <div class="fcol"><h3>Contact</h3>
       <div class="frow"><span class="fic" aria-hidden="true">📍</span><span>702, 7X The Business Hub, College Road, Bharuch, Gujarat 392001</span></div>
       <div class="frow"><span class="fic" aria-hidden="true">📞</span><span>+91 96620 19850</span></div>
       <div class="frow"><span class="fic" aria-hidden="true">✉️</span><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1d74737b725d6f787c716b7c7168786d726f697b72717472337e7270">[email&#160;protected]</a></span></div>
@@ -1057,6 +1064,7 @@ footer { background:#0e0e0e;color:rgba(255,255,255,.3);padding:72px 6% 28px; }
   function easeInOut(t){ return t<0.5?2*t*t:-1+(4-2*t)*t; }
 
   function setSlide(n){
+    if(isNaN(n) || !slides[n] || !dots[n]) return;   // guard NaN / out-of-range
     if(n===curSlide) return;
     slides[curSlide].classList.remove('cur');
     dots[curSlide].classList.remove('on');
@@ -1078,7 +1086,7 @@ footer { background:#0e0e0e;color:rgba(255,255,255,.3);padding:72px 6% 28px; }
     // Progress 0→1 through the entire sticky section
     var scrolled = -rect.top; // how far we've scrolled into this section
     var total    = wH - vh;
-    var pct      = clamp(scrolled / total, 0, 1);
+    var pct      = total > 0 ? clamp(scrolled / total, 0, 1) : 0;
 
     // ─── BEAM HEIGHT: grows from 0 to MAX_BEAM as you scroll ───
     // Beam only active while section is sticky (pct 0→1)
