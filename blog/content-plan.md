@@ -74,12 +74,12 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] Mutual fund vs real estate for ₹50 lakh
 - [x] Mutual fund vs gold
 - [x] Debt fund vs FD
-- [ ] Liquid fund vs savings account
-- [ ] SIP vs RD (recurring deposit)
-- [ ] Regular SIP vs step-up SIP
-- [ ] Lumpsum vs STP for a big amount
-- [ ] SWP vs dividend for monthly income
-- [ ] SWP vs annuity for retirement income
+- [x] Liquid fund vs savings account
+- [x] SIP vs RD (recurring deposit)
+- [x] Regular SIP vs step-up SIP
+- [x] Lumpsum vs STP for a big amount
+- [x] SWP vs dividend for monthly income
+- [x] SWP vs annuity for retirement income
 - [ ] Term insurance + mutual fund vs ULIP
 - [ ] ULIP vs mutual fund — the honest breakdown
 - [ ] Endowment plan vs mutual fund
