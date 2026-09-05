@@ -80,8 +80,8 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] Lumpsum vs STP for a big amount
 - [x] SWP vs dividend for monthly income
 - [x] SWP vs annuity for retirement income
-- [ ] Term insurance + mutual fund vs ULIP
-- [ ] ULIP vs mutual fund — the honest breakdown
+- [x] Term insurance + mutual fund vs ULIP
+- [x] ULIP vs mutual fund — the honest breakdown
 - [ ] Endowment plan vs mutual fund
 - [ ] Sovereign gold bond vs gold mutual fund
 - [ ] NPS vs mutual fund for a 30-year-old
