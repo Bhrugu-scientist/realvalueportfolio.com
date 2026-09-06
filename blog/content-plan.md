@@ -82,12 +82,12 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] SWP vs annuity for retirement income
 - [x] Term insurance + mutual fund vs ULIP
 - [x] ULIP vs mutual fund — the honest breakdown
-- [ ] Endowment plan vs mutual fund
-- [ ] Sovereign gold bond vs gold mutual fund
-- [ ] NPS vs mutual fund for a 30-year-old
-- [ ] Bank RM advice vs fee-based advisor
-- [ ] Robo-advisor vs human advisor
-- [ ] App SIP vs advisor SIP — what you're really paying for
+- [x] Endowment plan vs mutual fund
+- [x] Sovereign gold bond vs gold mutual fund
+- [x] NPS vs mutual fund for a 30-year-old
+- [x] Bank RM advice vs fee-based advisor
+- [x] Robo-advisor vs human advisor
+- [x] App SIP vs advisor SIP — what you're really paying for
 - [ ] Nifty 50 index fund vs Nifty Next 50
 - [ ] Nifty 50 vs Sensex index fund
 - [ ] Value fund vs growth fund
