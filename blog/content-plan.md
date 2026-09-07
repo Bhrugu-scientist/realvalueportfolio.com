@@ -88,10 +88,10 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] Bank RM advice vs fee-based advisor
 - [x] Robo-advisor vs human advisor
 - [x] App SIP vs advisor SIP — what you're really paying for
-- [ ] Nifty 50 index fund vs Nifty Next 50
-- [ ] Nifty 50 vs Sensex index fund
-- [ ] Value fund vs growth fund
-- [ ] Dividend yield fund vs growth fund
+- [x] Nifty 50 index fund vs Nifty Next 50
+- [x] Nifty 50 vs Sensex index fund
+- [x] Value fund vs growth fund
+- [x] Dividend yield fund vs growth fund
 - [ ] Corporate bond fund vs gilt fund
 - [ ] Multi-cap vs flexi-cap
 - [ ] Aggressive hybrid vs balanced advantage
