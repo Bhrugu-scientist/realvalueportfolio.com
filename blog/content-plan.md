@@ -92,15 +92,15 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] Nifty 50 vs Sensex index fund
 - [x] Value fund vs growth fund
 - [x] Dividend yield fund vs growth fund
-- [ ] Corporate bond fund vs gilt fund
-- [ ] Multi-cap vs flexi-cap
-- [ ] Aggressive hybrid vs balanced advantage
-- [ ] Domestic equity vs international equity allocation
+- [x] Corporate bond fund vs gilt fund
+- [x] Multi-cap vs flexi-cap
+- [x] Aggressive hybrid vs balanced advantage
+- [x] Domestic equity vs international equity allocation
 
 ## 3. How much / how to (calculators & planning) — 35
 - [x] How much should I invest in mutual funds per month
-- [ ] How much to invest to get ₹1 crore
-- [ ] How much to invest to get ₹5 crore
+- [x] How much to invest to get ₹1 crore
+- [x] How much to invest to get ₹5 crore
 - [ ] How much monthly SIP for ₹10 crore in 20 years
 - [ ] How much SIP for a comfortable retirement
 - [ ] How much do I need to retire in India (the real number)
