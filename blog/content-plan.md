@@ -101,12 +101,12 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] How much should I invest in mutual funds per month
 - [x] How much to invest to get ₹1 crore
 - [x] How much to invest to get ₹5 crore
-- [ ] How much monthly SIP for ₹10 crore in 20 years
-- [ ] How much SIP for a comfortable retirement
-- [ ] How much do I need to retire in India (the real number)
-- [ ] How much to invest for my child's education
-- [ ] How much to save for a house down payment
-- [ ] How to start a SIP step by step
+- [x] How much monthly SIP for ₹10 crore in 20 years
+- [x] How much SIP for a comfortable retirement
+- [x] How much do I need to retire in India (the real number)
+- [x] How much to invest for my child's education
+- [x] How much to save for a house down payment
+- [x] How to start a SIP step by step
 - [ ] How to invest a lumpsum the right way
 - [ ] How to invest ₹1 lakh / ₹5 lakh / ₹10 lakh / ₹50 lakh / ₹1 crore
 - [ ] How to build a mutual fund portfolio from scratch
