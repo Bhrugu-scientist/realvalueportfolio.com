@@ -107,12 +107,12 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] How much to invest for my child's education
 - [x] How much to save for a house down payment
 - [x] How to start a SIP step by step
-- [ ] How to invest a lumpsum the right way
-- [ ] How to invest ₹1 lakh / ₹5 lakh / ₹10 lakh / ₹50 lakh / ₹1 crore
-- [ ] How to build a mutual fund portfolio from scratch
-- [ ] How to calculate SIP returns (with formula)
-- [ ] How to read a mutual fund factsheet
-- [ ] How to check if your mutual fund is good
+- [x] How to invest a lumpsum the right way
+- [x] How to invest ₹1 lakh / ₹5 lakh / ₹10 lakh / ₹50 lakh / ₹1 crore
+- [x] How to build a mutual fund portfolio from scratch
+- [x] How to calculate SIP returns (with formula)
+- [x] How to read a mutual fund factsheet
+- [x] How to check if your mutual fund is good
 - [ ] How to switch from a regular to a direct plan
 - [ ] How to redeem a mutual fund and when not to
 - [ ] How to set up a SWP for monthly income
