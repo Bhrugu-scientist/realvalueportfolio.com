@@ -113,10 +113,10 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] How to calculate SIP returns (with formula)
 - [x] How to read a mutual fund factsheet
 - [x] How to check if your mutual fund is good
-- [ ] How to switch from a regular to a direct plan
-- [ ] How to redeem a mutual fund and when not to
-- [ ] How to set up a SWP for monthly income
-- [ ] How to do a step-up SIP and why it matters
+- [x] How to switch from a regular to a direct plan
+- [x] How to redeem a mutual fund and when not to
+- [x] How to set up a SWP for monthly income
+- [x] How to do a step-up SIP and why it matters
 - [ ] How to invest a bonus / windfall
 - [ ] How to invest during a market crash
 - [ ] How to invest at an all-time high
