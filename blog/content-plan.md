@@ -117,9 +117,9 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] How to redeem a mutual fund and when not to
 - [x] How to set up a SWP for monthly income
 - [x] How to do a step-up SIP and why it matters
-- [ ] How to invest a bonus / windfall
-- [ ] How to invest during a market crash
-- [ ] How to invest at an all-time high
+- [x] How to invest a bonus / windfall
+- [x] How to invest during a market crash
+- [x] How to invest at an all-time high
 - [ ] How to diversify without over-diversifying
 - [ ] How to rebalance your portfolio once a year
 - [ ] How many mutual funds should you own
