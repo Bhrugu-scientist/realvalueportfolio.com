@@ -120,11 +120,11 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] How to invest a bonus / windfall
 - [x] How to invest during a market crash
 - [x] How to invest at an all-time high
-- [ ] How to diversify without over-diversifying
-- [ ] How to rebalance your portfolio once a year
-- [ ] How many mutual funds should you own
-- [ ] How to pick a SIP date
-- [ ] How to invest as a student / first job
+- [x] How to diversify without over-diversifying
+- [x] How to rebalance your portfolio once a year
+- [x] How many mutual funds should you own
+- [x] How to pick a SIP date
+- [x] How to invest as a student / first job
 - [ ] How to invest in your 20s / 30s / 40s / 50s
 - [ ] How to invest for a girl child (Sukanya vs MF)
 - [ ] How to plan a ₹2 crore corpus in 10 years
