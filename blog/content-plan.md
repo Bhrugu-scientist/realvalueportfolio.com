@@ -125,9 +125,9 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] How many mutual funds should you own
 - [x] How to pick a SIP date
 - [x] How to invest as a student / first job
-- [ ] How to invest in your 20s / 30s / 40s / 50s
-- [ ] How to invest for a girl child (Sukanya vs MF)
-- [ ] How to plan a ₹2 crore corpus in 10 years
+- [x] How to invest in your 20s / 30s / 40s / 50s
+- [x] How to invest for a girl child (Sukanya vs MF)
+- [x] How to plan a ₹2 crore corpus in 10 years
 - [ ] How to do goal-based investing
 - [ ] How to invest for short-term (1–3 years)
 - [ ] How to build an emergency fund

@@ -315,4 +315,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://www.realvalueportfolio.com/blog/sukanya-samriddhi-vs-mutual-fund-girl-child.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.realvalueportfolio.com/blog/plan-2-crore-corpus-in-10-years.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
