@@ -128,14 +128,14 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] How to invest in your 20s / 30s / 40s / 50s
 - [x] How to invest for a girl child (Sukanya vs MF)
 - [x] How to plan a ₹2 crore corpus in 10 years
-- [ ] How to do goal-based investing
-- [ ] How to invest for short-term (1–3 years)
-- [ ] How to build an emergency fund
-- [ ] How much emergency fund do you actually need
-- [ ] How to automate your entire investment
+- [x] How to do goal-based investing
+- [x] How to invest for short-term (1–3 years)
+- [x] How to build an emergency fund
+- [x] How much emergency fund do you actually need
+- [x] How to automate your entire investment
 
 ## 4. Choosing & evaluating funds — 25
-- [ ] How to choose a mutual fund — the 4 numbers that matter
+- [x] How to choose a mutual fund — the 4 numbers that matter
 - [ ] Best large-cap funds framework (how to shortlist, not a tip list)
 - [ ] Best flexi-cap funds — how to evaluate
 - [ ] Best index funds in India — what to actually check
