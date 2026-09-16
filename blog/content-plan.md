@@ -136,10 +136,10 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 
 ## 4. Choosing & evaluating funds — 25
 - [x] How to choose a mutual fund — the 4 numbers that matter
-- [ ] Best large-cap funds framework (how to shortlist, not a tip list)
-- [ ] Best flexi-cap funds — how to evaluate
-- [ ] Best index funds in India — what to actually check
-- [ ] Best ELSS funds — how to choose
+- [x] Best large-cap funds framework (how to shortlist, not a tip list)
+- [x] Best flexi-cap funds — how to evaluate
+- [x] Best index funds in India — what to actually check
+- [x] Best ELSS funds — how to choose
 - [ ] Best debt funds for conservative investors
 - [ ] Best hybrid funds for first-timers
 - [ ] Best SIP for ₹1,000 / ₹5,000 / ₹10,000 a month
