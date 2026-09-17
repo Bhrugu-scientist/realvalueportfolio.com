@@ -140,12 +140,12 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] Best flexi-cap funds — how to evaluate
 - [x] Best index funds in India — what to actually check
 - [x] Best ELSS funds — how to choose
-- [ ] Best debt funds for conservative investors
-- [ ] Best hybrid funds for first-timers
-- [ ] Best SIP for ₹1,000 / ₹5,000 / ₹10,000 a month
-- [ ] Best mutual funds for beginners in 2026
-- [ ] Best mutual funds for retirement
-- [ ] Best funds for a 5-year / 10-year / 20-year goal
+- [x] Best debt funds for conservative investors
+- [x] Best hybrid funds for first-timers
+- [x] Best SIP for ₹1,000 / ₹5,000 / ₹10,000 a month
+- [x] Best mutual funds for beginners in 2026
+- [x] Best mutual funds for retirement
+- [x] Best funds for a 5-year / 10-year / 20-year goal
 - [ ] Should you invest in NFOs (new fund offers)
 - [ ] Should you chase last year's top fund
 - [ ] What star ratings really tell you (and don't)
