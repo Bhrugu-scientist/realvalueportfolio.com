@@ -146,9 +146,9 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] Best mutual funds for beginners in 2026
 - [x] Best mutual funds for retirement
 - [x] Best funds for a 5-year / 10-year / 20-year goal
-- [ ] Should you invest in NFOs (new fund offers)
-- [ ] Should you chase last year's top fund
-- [ ] What star ratings really tell you (and don't)
+- [x] Should you invest in NFOs (new fund offers)
+- [x] Should you chase last year's top fund
+- [x] What star ratings really tell you (and don't)
 - [ ] When to exit a mutual fund
 - [ ] When a fund's underperformance is a real red flag
 - [ ] Does fund manager change matter
