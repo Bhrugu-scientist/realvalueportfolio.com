@@ -149,12 +149,12 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] Should you invest in NFOs (new fund offers)
 - [x] Should you chase last year's top fund
 - [x] What star ratings really tell you (and don't)
-- [ ] When to exit a mutual fund
-- [ ] When a fund's underperformance is a real red flag
-- [ ] Does fund manager change matter
-- [ ] Does AUM size hurt small-cap funds
-- [ ] Should you invest in thematic / sectoral funds
-- [ ] Should you add international funds to your portfolio
+- [x] When to exit a mutual fund
+- [x] When a fund's underperformance is a real red flag
+- [x] Does fund manager change matter
+- [x] Does AUM size hurt small-cap funds
+- [x] Should you invest in thematic / sectoral funds
+- [x] Should you add international funds to your portfolio
 - [ ] Should you invest in gold right now
 - [ ] Large and mid cap fund — who it's for
 - [ ] Is a smallcap SIP worth the volatility
