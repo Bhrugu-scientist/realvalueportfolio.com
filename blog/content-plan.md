@@ -155,10 +155,10 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] Does AUM size hurt small-cap funds
 - [x] Should you invest in thematic / sectoral funds
 - [x] Should you add international funds to your portfolio
-- [ ] Should you invest in gold right now
-- [ ] Large and mid cap fund — who it's for
-- [ ] Is a smallcap SIP worth the volatility
-- [ ] How to build a 3-fund portfolio
+- [x] Should you invest in gold right now
+- [x] Large and mid cap fund — who it's for
+- [x] Is a smallcap SIP worth the volatility
+- [x] How to build a 3-fund portfolio
 - [ ] Core and satellite portfolio explained
 
 ## 5. Tax — 20
