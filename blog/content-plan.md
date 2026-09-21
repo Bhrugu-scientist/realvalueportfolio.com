@@ -159,12 +159,12 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] Large and mid cap fund — who it's for
 - [x] Is a smallcap SIP worth the volatility
 - [x] How to build a 3-fund portfolio
-- [ ] Core and satellite portfolio explained
+- [x] Core and satellite portfolio explained
 
 ## 5. Tax — 20
 - [x] Mutual fund taxation 2026 (existing)
-- [ ] LTCG vs STCG on mutual funds — 2026 rules
-- [ ] How equity vs debt funds are taxed
+- [x] LTCG vs STCG on mutual funds — 2026 rules
+- [x] How equity vs debt funds are taxed
 - [ ] Tax on SIP redemptions (FIFO explained)
 - [ ] How to save tax with ELSS (80C)
 - [ ] Tax harvesting — booking ₹1.25 lakh LTCG tax-free
