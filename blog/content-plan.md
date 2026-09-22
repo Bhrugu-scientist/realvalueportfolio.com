@@ -165,9 +165,9 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] Mutual fund taxation 2026 (existing)
 - [x] LTCG vs STCG on mutual funds — 2026 rules
 - [x] How equity vs debt funds are taxed
-- [ ] Tax on SIP redemptions (FIFO explained)
-- [ ] How to save tax with ELSS (80C)
-- [ ] Tax harvesting — booking ₹1.25 lakh LTCG tax-free
+- [x] Tax on SIP redemptions (FIFO explained)
+- [x] How to save tax with ELSS (80C)
+- [x] Tax harvesting — booking ₹1.25 lakh LTCG tax-free
 - [ ] Tax on SWP withdrawals
 - [ ] Tax on dividend / IDCW option
 - [ ] Tax on international / US funds
