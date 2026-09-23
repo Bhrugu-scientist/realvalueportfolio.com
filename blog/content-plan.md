@@ -168,8 +168,8 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] Tax on SIP redemptions (FIFO explained)
 - [x] How to save tax with ELSS (80C)
 - [x] Tax harvesting — booking ₹1.25 lakh LTCG tax-free
-- [ ] Tax on SWP withdrawals
-- [ ] Tax on dividend / IDCW option
+- [x] Tax on SWP withdrawals
+- [x] Tax on dividend / IDCW option
 - [ ] Tax on international / US funds
 - [ ] Tax on gold funds and gold ETFs
 - [ ] Tax on hybrid funds (equity vs debt taxation)
