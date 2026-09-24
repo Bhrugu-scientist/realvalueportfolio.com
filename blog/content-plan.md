@@ -170,10 +170,10 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] Tax harvesting — booking ₹1.25 lakh LTCG tax-free
 - [x] Tax on SWP withdrawals
 - [x] Tax on dividend / IDCW option
-- [ ] Tax on international / US funds
-- [ ] Tax on gold funds and gold ETFs
-- [ ] Tax on hybrid funds (equity vs debt taxation)
-- [ ] Indexation on debt funds — what changed
+- [x] Tax on international / US funds
+- [x] Tax on gold funds and gold ETFs
+- [x] Tax on hybrid funds (equity vs debt taxation)
+- [x] Indexation on debt funds — what changed
 - [ ] Do you pay tax when you switch funds
 - [ ] TDS on mutual funds for NRIs
 - [ ] Mutual funds and Section 80C — full list
