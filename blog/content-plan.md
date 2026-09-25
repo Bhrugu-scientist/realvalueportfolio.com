@@ -174,10 +174,10 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] Tax on gold funds and gold ETFs
 - [x] Tax on hybrid funds (equity vs debt taxation)
 - [x] Indexation on debt funds — what changed
-- [ ] Do you pay tax when you switch funds
-- [ ] TDS on mutual funds for NRIs
-- [ ] Mutual funds and Section 80C — full list
-- [ ] Capital gains statement — how to get it for ITR
+- [x] Do you pay tax when you switch funds
+- [x] TDS on mutual funds for NRIs
+- [x] Mutual funds and Section 80C — full list
+- [x] Capital gains statement — how to get it for ITR
 - [ ] How to report mutual funds in your ITR
 - [ ] Set-off and carry-forward of capital losses
 - [ ] Tax-efficient withdrawal strategy in retirement
