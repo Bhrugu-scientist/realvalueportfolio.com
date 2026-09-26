@@ -178,15 +178,15 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] TDS on mutual funds for NRIs
 - [x] Mutual funds and Section 80C — full list
 - [x] Capital gains statement — how to get it for ITR
-- [ ] How to report mutual funds in your ITR
-- [ ] Set-off and carry-forward of capital losses
-- [ ] Tax-efficient withdrawal strategy in retirement
-- [ ] STT on mutual funds explained
+- [x] How to report mutual funds in your ITR
+- [x] Set-off and carry-forward of capital losses
+- [x] Tax-efficient withdrawal strategy in retirement
+- [x] STT on mutual funds explained
 
 ## 6. Goal-based & FIRE — 25
 - [x] FIRE planning India (existing)
-- [ ] The 4% rule — does it work in India
-- [ ] How big should your FIRE corpus be
+- [x] The 4% rule — does it work in India
+- [x] How big should your FIRE corpus be
 - [ ] Coast FIRE / Barista FIRE for Indians
 - [ ] Retirement planning in your 30s
 - [ ] Retirement corpus calculator — the honest number
