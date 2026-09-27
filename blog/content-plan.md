@@ -187,9 +187,9 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] FIRE planning India (existing)
 - [x] The 4% rule — does it work in India
 - [x] How big should your FIRE corpus be
-- [ ] Coast FIRE / Barista FIRE for Indians
-- [ ] Retirement planning in your 30s
-- [ ] Retirement corpus calculator — the honest number
+- [x] Coast FIRE / Barista FIRE for Indians
+- [x] Retirement planning in your 30s
+- [x] Retirement corpus calculator — the honest number
 - [ ] Child education planning with mutual funds
 - [ ] Planning for a child's marriage
 - [ ] Down payment in 5 years — where to park it
