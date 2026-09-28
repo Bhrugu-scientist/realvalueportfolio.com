@@ -190,11 +190,11 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] Coast FIRE / Barista FIRE for Indians
 - [x] Retirement planning in your 30s
 - [x] Retirement corpus calculator — the honest number
-- [ ] Child education planning with mutual funds
-- [ ] Planning for a child's marriage
-- [ ] Down payment in 5 years — where to park it
-- [ ] Building a car fund without an EMI
-- [ ] Planning a sabbatical / career break
+- [x] Child education planning with mutual funds
+- [x] Planning for a child's marriage
+- [x] Down payment in 5 years — where to park it
+- [x] Building a car fund without an EMI
+- [x] Planning a sabbatical / career break
 - [ ] Dream vacation fund with a mini-SIP
 - [ ] Wealth plan for a single income family
 - [ ] Financial plan for a newly married couple
