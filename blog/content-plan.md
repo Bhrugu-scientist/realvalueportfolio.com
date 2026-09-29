@@ -195,12 +195,12 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] Down payment in 5 years — where to park it
 - [x] Building a car fund without an EMI
 - [x] Planning a sabbatical / career break
-- [ ] Dream vacation fund with a mini-SIP
-- [ ] Wealth plan for a single income family
-- [ ] Financial plan for a newly married couple
-- [ ] Financial plan for a new parent
-- [ ] Financial independence timeline calculator
-- [ ] Bucket strategy for retirement income
+- [x] Dream vacation fund with a mini-SIP
+- [x] Wealth plan for a single income family
+- [x] Financial plan for a newly married couple
+- [x] Financial plan for a new parent
+- [x] Financial independence timeline calculator
+- [x] Bucket strategy for retirement income
 - [ ] How to never run out of money in retirement
 - [ ] Inflation and why your retirement number is bigger than you think
 - [ ] Passive income from mutual funds (SWP math)
