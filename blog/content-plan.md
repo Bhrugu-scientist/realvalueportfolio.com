@@ -201,10 +201,10 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] Financial plan for a new parent
 - [x] Financial independence timeline calculator
 - [x] Bucket strategy for retirement income
-- [ ] How to never run out of money in retirement
-- [ ] Inflation and why your retirement number is bigger than you think
-- [ ] Passive income from mutual funds (SWP math)
-- [ ] ₹50,000 monthly income from a corpus — how much you need
+- [x] How to never run out of money in retirement
+- [x] Inflation and why your retirement number is bigger than you think
+- [x] Passive income from mutual funds (SWP math)
+- [x] ₹50,000 monthly income from a corpus — how much you need
 - [ ] ₹1 lakh monthly income in retirement — the corpus
 - [ ] Legacy / estate planning basics for investors
 - [ ] Nomination vs will for mutual funds
