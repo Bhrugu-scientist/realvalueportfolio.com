@@ -205,9 +205,9 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] Inflation and why your retirement number is bigger than you think
 - [x] Passive income from mutual funds (SWP math)
 - [x] ₹50,000 monthly income from a corpus — how much you need
-- [ ] ₹1 lakh monthly income in retirement — the corpus
-- [ ] Legacy / estate planning basics for investors
-- [ ] Nomination vs will for mutual funds
+- [x] ₹1 lakh monthly income in retirement — the corpus
+- [x] Legacy / estate planning basics for investors
+- [x] Nomination vs will for mutual funds
 - [ ] Emergency + goals + wealth: the 3-layer plan
 
 ## 7. HNI / UHNI (GEO, high-ticket — priority for ₹100cr) — 20
