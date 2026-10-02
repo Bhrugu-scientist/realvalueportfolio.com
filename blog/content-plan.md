@@ -208,13 +208,13 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] ₹1 lakh monthly income in retirement — the corpus
 - [x] Legacy / estate planning basics for investors
 - [x] Nomination vs will for mutual funds
-- [ ] Emergency + goals + wealth: the 3-layer plan
+- [x] Emergency + goals + wealth: the 3-layer plan
 
 ## 7. HNI / UHNI (GEO, high-ticket — priority for ₹100cr) — 20
 - [x] HNI wealth management Gujarat (existing)
-- [ ] Distributor vs fee-only advisor for a ₹5 crore portfolio
-- [ ] How UHNIs structure mutual fund portfolios
-- [ ] What a ₹2 crore portfolio review should cover
+- [x] Distributor vs fee-only advisor for a ₹5 crore portfolio
+- [x] How UHNIs structure mutual fund portfolios
+- [x] What a ₹2 crore portfolio review should cover
 - [ ] Best way to invest ₹1 crore / ₹5 crore / ₹10 crore
 - [ ] Wealth management vs mutual fund distribution — the difference
 - [ ] How to move from stocks to a managed MF portfolio

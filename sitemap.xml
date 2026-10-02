@@ -485,4 +485,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://www.realvalueportfolio.com/blog/emergency-goals-wealth-3-layer-plan.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.realvalueportfolio.com/blog/rupees-2-crore-portfolio-review-checklist.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
