@@ -215,12 +215,12 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] Distributor vs fee-only advisor for a ₹5 crore portfolio
 - [x] How UHNIs structure mutual fund portfolios
 - [x] What a ₹2 crore portfolio review should cover
-- [ ] Best way to invest ₹1 crore / ₹5 crore / ₹10 crore
-- [ ] Wealth management vs mutual fund distribution — the difference
-- [ ] How to move from stocks to a managed MF portfolio
-- [ ] Tax-efficient investing for HNIs
-- [ ] PMS vs mutual funds for ₹1 crore+
-- [ ] AIF vs mutual funds — do you need one
+- [x] Best way to invest ₹1 crore / ₹5 crore / ₹10 crore
+- [x] Wealth management vs mutual fund distribution — the difference
+- [x] How to move from stocks to a managed MF portfolio
+- [x] Tax-efficient investing for HNIs
+- [x] PMS vs mutual funds for ₹1 crore+
+- [x] AIF vs mutual funds — do you need one
 - [ ] Family office basics for first-gen wealth
 - [ ] How much wealth needs a dedicated advisor
 - [ ] Concentration risk — when one stock is too much of your net worth
