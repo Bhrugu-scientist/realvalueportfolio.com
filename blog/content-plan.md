@@ -221,11 +221,11 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] Tax-efficient investing for HNIs
 - [x] PMS vs mutual funds for ₹1 crore+
 - [x] AIF vs mutual funds — do you need one
-- [ ] Family office basics for first-gen wealth
-- [ ] How much wealth needs a dedicated advisor
-- [ ] Concentration risk — when one stock is too much of your net worth
-- [ ] Diversifying a business owner's wealth
-- [ ] Managing a sudden liquidity event (business sale, ESOP)
+- [x] Family office basics for first-gen wealth
+- [x] How much wealth needs a dedicated advisor
+- [x] Concentration risk — when one stock is too much of your net worth
+- [x] Diversifying a business owner's wealth
+- [x] Managing a sudden liquidity event (business sale, ESOP)
 - [ ] Wealth management for doctors / lawyers / founders
 - [ ] Portfolio review checklist for a ₹5 crore corpus
 - [ ] How to vet a wealth advisor (questions to ask)
