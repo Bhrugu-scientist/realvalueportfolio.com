@@ -226,14 +226,14 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] Concentration risk — when one stock is too much of your net worth
 - [x] Diversifying a business owner's wealth
 - [x] Managing a sudden liquidity event (business sale, ESOP)
-- [ ] Wealth management for doctors / lawyers / founders
-- [ ] Portfolio review checklist for a ₹5 crore corpus
-- [ ] How to vet a wealth advisor (questions to ask)
-- [ ] Succession planning for family wealth
-- [ ] Multi-generational wealth with mutual funds
+- [x] Wealth management for doctors / lawyers / founders
+- [x] Portfolio review checklist for a ₹5 crore corpus
+- [x] How to vet a wealth advisor (questions to ask)
+- [x] Succession planning for family wealth
+- [x] Multi-generational wealth with mutual funds
 
 ## 8. NRI — 15
-- [ ] Can NRIs invest in Indian mutual funds
+- [x] Can NRIs invest in Indian mutual funds
 - [ ] NRI mutual fund investment — full guide
 - [ ] NRE vs NRO account for mutual fund investing
 - [ ] NRI mutual fund taxation and TDS
