@@ -234,9 +234,9 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 
 ## 8. NRI — 15
 - [x] Can NRIs invest in Indian mutual funds
-- [ ] NRI mutual fund investment — full guide
-- [ ] NRE vs NRO account for mutual fund investing
-- [ ] NRI mutual fund taxation and TDS
+- [x] NRI mutual fund investment — full guide
+- [x] NRE vs NRO account for mutual fund investing
+- [x] NRI mutual fund taxation and TDS
 - [ ] Best mutual funds for NRIs
 - [ ] US / Canada NRI mutual fund rules (the FATCA problem)
 - [ ] NRI repatriation of mutual fund proceeds
