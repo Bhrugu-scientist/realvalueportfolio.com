@@ -237,9 +237,9 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] NRI mutual fund investment — full guide
 - [x] NRE vs NRO account for mutual fund investing
 - [x] NRI mutual fund taxation and TDS
-- [ ] Best mutual funds for NRIs
-- [ ] US / Canada NRI mutual fund rules (the FATCA problem)
-- [ ] NRI repatriation of mutual fund proceeds
+- [x] Best mutual funds for NRIs
+- [x] US / Canada NRI mutual fund rules (the FATCA problem)
+- [x] NRI repatriation of mutual fund proceeds
 - [ ] SIP from abroad — how it works
 - [ ] NRI to resident — what happens to your funds
 - [ ] DTAA and mutual fund taxation for NRIs
