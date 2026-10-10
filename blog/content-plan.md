@@ -240,8 +240,8 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] Best mutual funds for NRIs
 - [x] US / Canada NRI mutual fund rules (the FATCA problem)
 - [x] NRI repatriation of mutual fund proceeds
-- [ ] SIP from abroad — how it works
-- [ ] NRI to resident — what happens to your funds
+- [x] SIP from abroad — how it works
+- [x] NRI to resident — what happens to your funds
 - [ ] DTAA and mutual fund taxation for NRIs
 - [ ] KYC for NRI investors
 - [ ] Gulf / UAE NRI investing in India
