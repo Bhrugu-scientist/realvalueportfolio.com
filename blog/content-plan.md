@@ -242,12 +242,12 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] NRI repatriation of mutual fund proceeds
 - [x] SIP from abroad — how it works
 - [x] NRI to resident — what happens to your funds
-- [ ] DTAA and mutual fund taxation for NRIs
-- [ ] KYC for NRI investors
-- [ ] Gulf / UAE NRI investing in India
-- [ ] Currency risk for NRI investors
-- [ ] Retiring in India as an NRI — the plan
-- [ ] Sending money home vs investing it — for NRIs
+- [x] DTAA and mutual fund taxation for NRIs
+- [x] KYC for NRI investors
+- [x] Gulf / UAE NRI investing in India
+- [x] Currency risk for NRI investors
+- [x] Retiring in India as an NRI — the plan
+- [x] Sending money home vs investing it — for NRIs
 
 ## 9. Behaviour & mistakes (shareable) — 15
 - [ ] The biggest mutual fund mistakes beginners make
