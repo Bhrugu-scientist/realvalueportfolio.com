@@ -250,9 +250,9 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] Sending money home vs investing it — for NRIs
 
 ## 9. Behaviour & mistakes (shareable) — 15
-- [ ] The biggest mutual fund mistakes beginners make
-- [ ] Why most investors underperform their own funds
-- [ ] Why you should never stop a SIP in a crash (existing angle, expand)
+- [x] The biggest mutual fund mistakes beginners make
+- [x] Why most investors underperform their own funds
+- [x] Why you should never stop a SIP in a crash (existing angle, expand)
 - [ ] Timing the market vs time in the market
 - [ ] The cost of skipping one year of investing
 - [ ] Why chasing returns loses money
