@@ -253,12 +253,12 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] The biggest mutual fund mistakes beginners make
 - [x] Why most investors underperform their own funds
 - [x] Why you should never stop a SIP in a crash (existing angle, expand)
-- [ ] Timing the market vs time in the market
-- [ ] The cost of skipping one year of investing
-- [ ] Why chasing returns loses money
-- [ ] Recency bias and your portfolio
-- [ ] Why more funds ≠ more diversification
-- [ ] The danger of stopping SIP at the top
+- [x] Timing the market vs time in the market
+- [x] The cost of skipping one year of investing
+- [x] Why chasing returns loses money
+- [x] Recency bias and your portfolio
+- [x] Why more funds ≠ more diversification
+- [x] The danger of stopping SIP at the top
 - [ ] Panic selling — what it really costs
 - [ ] Why boring portfolios win
 - [ ] Lifestyle inflation vs your SIP
