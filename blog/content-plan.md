@@ -259,8 +259,8 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] Recency bias and your portfolio
 - [x] Why more funds ≠ more diversification
 - [x] The danger of stopping SIP at the top
-- [ ] Panic selling — what it really costs
-- [ ] Why boring portfolios win
+- [x] Panic selling — what it really costs
+- [x] Why boring portfolios win
 - [ ] Lifestyle inflation vs your SIP
 - [ ] The 1% fee that costs you a third of your corpus
 - [ ] Why your neighbour's tip is not a strategy
