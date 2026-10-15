@@ -261,14 +261,14 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] The danger of stopping SIP at the top
 - [x] Panic selling — what it really costs
 - [x] Why boring portfolios win
-- [ ] Lifestyle inflation vs your SIP
-- [ ] The 1% fee that costs you a third of your corpus
-- [ ] Why your neighbour's tip is not a strategy
-- [ ] Patience as the last real edge
+- [x] Lifestyle inflation vs your SIP
+- [x] The 1% fee that costs you a third of your corpus
+- [x] Why your neighbour's tip is not a strategy
+- [x] Patience as the last real edge
 
 ## 10. Local & trust (Bharuch/Gujarat local SEO) — 10
-- [ ] Mutual fund advisor in Bharuch — how to choose
-- [ ] Best SIP plans for Gujarat investors
+- [x] Mutual fund advisor in Bharuch — how to choose
+- [x] Best SIP plans for Gujarat investors
 - [ ] Wealth management in Surat / Vadodara / Ahmedabad
 - [ ] Financial advisor near me — what to look for
 - [ ] Why work with an AMFI-registered distributor (ARN explained)
