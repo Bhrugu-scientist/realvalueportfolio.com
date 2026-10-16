@@ -269,12 +269,12 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 ## 10. Local & trust (Bharuch/Gujarat local SEO) — 10
 - [x] Mutual fund advisor in Bharuch — how to choose
 - [x] Best SIP plans for Gujarat investors
-- [ ] Wealth management in Surat / Vadodara / Ahmedabad
-- [ ] Financial advisor near me — what to look for
-- [ ] Why work with an AMFI-registered distributor (ARN explained)
-- [ ] Is your mutual fund advisor a distributor or an RIA
-- [ ] How Real Value builds a goal-based portfolio
-- [ ] What to bring to your first portfolio review
+- [x] Wealth management in Surat / Vadodara / Ahmedabad
+- [x] Financial advisor near me — what to look for
+- [x] Why work with an AMFI-registered distributor (ARN explained)
+- [x] Is your mutual fund advisor a distributor or an RIA
+- [x] How Real Value builds a goal-based portfolio
+- [x] What to bring to your first portfolio review
 - [ ] Questions to ask before you hand over your money
 - [ ] The Real Value philosophy — invest like a business owner
 
