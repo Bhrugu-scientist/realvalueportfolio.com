@@ -275,8 +275,8 @@ Status: `[x]` published · `[ ]` queued. Mark as they ship.
 - [x] Is your mutual fund advisor a distributor or an RIA
 - [x] How Real Value builds a goal-based portfolio
 - [x] What to bring to your first portfolio review
-- [ ] Questions to ask before you hand over your money
-- [ ] The Real Value philosophy — invest like a business owner
+- [x] Questions to ask before you hand over your money
+- [x] The Real Value philosophy — invest like a business owner
 
 ---
 
